@@ -16,13 +16,13 @@ def reformat_json_string(output: str) -> str:
     output = output.strip()
 
     # Gemini-like OpenAI-compatible endpoints often wrap JSON in Markdown fences.
-    pattern = r"```(?:json|JSON)?\s*(.*?)```"
-    match = re.search(pattern, output, re.DOTALL)
+    pattern = r"^```(?:json|JSON)?\s*(.*?)```\s*$"
+    match = re.match(pattern, output, re.DOTALL)
     if match:
         return match.group(1).strip()
 
-    pattern = r"```xml(.*?)```"
-    match = re.search(pattern, output, re.DOTALL)
+    pattern = r"^```xml(.*?)```\s*$"
+    match = re.match(pattern, output, re.DOTALL)
     if match:
         return match.group(1).strip()
 
