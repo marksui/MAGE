@@ -7,10 +7,12 @@ from typing import Any, Dict, List, Literal, Tuple, cast
 from llama_index.core.base.llms.types import ChatMessage, ChatResponse, MessageRole
 from pydantic import BaseModel
 
+from .debug_memory import DebugMemory
 from .log_utils import get_logger
 from .prompts import ORDER_PROMPT
 from .sim_reviewer import SimReviewer, check_syntax
 from .token_counter import TokenCounter, TokenCounterCached
+from .utils import reformat_json_string
 
 logger = get_logger(__name__)
 
@@ -50,6 +52,7 @@ The information below is give to help your work:
 <sim_failed_log>
 {sim_failed_log}
 </sim_failed_log>
+{memory_context}
 """
 
 EXTRA_ORDER_PROMPT = r"""
@@ -122,6 +125,12 @@ ROUTE_ALIASES = {
     "logic_repair": "logic",
     "logic_waveform": "logic",
 }
+
+MEMORY_PROMPT = r"""
+<state_checkpoint_memory>
+{memory_summary}
+</state_checkpoint_memory>
+"""
 
 RepairRoute = Literal[
     "generic",
@@ -280,6 +289,7 @@ class RTLEditor:
         self.last_error_signature: str = ""
         self.sim_reviewer = sim_reviewer
         self.repair_route: RepairRoute = "generic"
+        self.debug_memory: DebugMemory | None = None
 
     def reset(self):
         self.is_done = False
@@ -288,6 +298,7 @@ class RTLEditor:
         self.last_failure_class = None
         self.last_error_signature = ""
         self.repair_route = "generic"
+        self.debug_memory = None
 
     def write_rtl(self, content: str) -> None:
         with open(self.rtl_path, "w") as f:
@@ -627,12 +638,23 @@ class RTLEditor:
                 generated_interface = f.read()
         except FileNotFoundError:
             generated_interface = "No generated interface file found."
+        memory_summary = (
+            self.debug_memory.format_for_prompt()
+            if self.debug_memory is not None
+            else None
+        )
+        memory_context = (
+            MEMORY_PROMPT.format(memory_summary=memory_summary)
+            if memory_summary
+            else ""
+        )
         edit_init_prompt = ChatMessage(
             content=INIT_EDITION_PROMPT.format(
                 input_spec=self.spec,
                 generated_tb=generated_tb,
                 generated_interface=generated_interface,
                 sim_failed_log=self.sim_failed_log,
+                memory_context=memory_context,
             ),
             role=MessageRole.USER,
         )
@@ -650,6 +672,14 @@ class RTLEditor:
 
         logger.info(f"----------> RTLEDITOR RECEIVED ROUTE: {self.repair_route}")
         route_prompt = ROUTE_REPAIR_PROMPTS[self.repair_route]
+        memory_context = (
+            "\n"
+            + MEMORY_PROMPT.format(
+                memory_summary=self.debug_memory.format_for_prompt()
+            )
+            if self.debug_memory is not None
+            else ""
+        )
         return [
             ChatMessage(
                 content=ORDER_PROMPT.format(
@@ -657,13 +687,15 @@ class RTLEditor:
                 )
                 + EXTRA_ORDER_PROMPT.format(rtl_code=rtl_code)
                 + f"\nCurrent repair_route: {self.repair_route}\n"
-                + route_prompt,
+                + route_prompt
+                + memory_context,
                 role=MessageRole.USER,
             ),
         ]
 
     def parse_output(self, response: ChatResponse) -> RTLEditorStepOutput:
-        output_json_obj: Dict = json.loads(response.message.content, strict=False)
+        content = reformat_json_string(response.message.content)
+        output_json_obj: Dict = json.loads(content, strict=False)
         action_input = output_json_obj["action_input"]
         command = action_input["command"]
 
@@ -679,6 +711,40 @@ class RTLEditor:
         action_output = action(**action_input.args)
         logger.info(f"Action output: {action_output}")
         return action_output
+
+    def record_action_checkpoint(
+        self,
+        round_index: int,
+        action_input: ActionInput,
+        action_output: Dict[str, Any],
+    ) -> None:
+        if self.debug_memory is None:
+            return
+        try:
+            rtl_code = self.read_rtl()
+        except FileNotFoundError:
+            rtl_code = ""
+        action_summary = json.dumps(action_input.model_dump(), indent=2)
+        notes = json.dumps(
+            {
+                "is_action_executed": action_output.get("is_action_executed"),
+                "acceptance_reason": action_output.get("acceptance_reason", ""),
+                "repair_route_before": action_output.get("repair_route_before"),
+                "repair_route_after": action_output.get("repair_route_after"),
+                "failure_class": action_output.get("failure_class"),
+            },
+            indent=2,
+        )
+        self.debug_memory.add_checkpoint(
+            stage=f"rtl_editor_action_{round_index}",
+            rtl_code=rtl_code,
+            sim_log=str(action_output.get("error_msg", "")),
+            is_syntax_pass=action_output.get("is_syntax_pass"),
+            is_sim_pass=action_output.get("is_sim_pass"),
+            mismatch_count=action_output.get("sim_mismatch_cnt"),
+            action=action_summary,
+            notes=notes,
+        )
 
     def get_action_output_message(self, output: Dict[str, Any]) -> List[ChatMessage]:
         return [
@@ -697,6 +763,7 @@ class RTLEditor:
         sim_failed_log: str,
         sim_mismatch_cnt: int,
         repair_route: str = "generic",
+        debug_memory: DebugMemory | None = None,
     ) -> Tuple[bool, str]:
         # 1. Initialize the history
         # 2. Generate the initial prompt messages (with functool information)
@@ -717,6 +784,7 @@ class RTLEditor:
         self.sim_failed_log = sim_failed_log
         self.last_mismatch_cnt = sim_mismatch_cnt
         self.repair_route = normalize_repair_route(repair_route)
+        self.debug_memory = debug_memory
         self.last_failure_class = (
             self.repair_route
             if self.repair_route
@@ -740,6 +808,7 @@ class RTLEditor:
             new_contents = [response.message]
             action_input = self.parse_output(response).action_input
             action_output = self.run_action(action_input)
+            self.record_action_checkpoint(i + 1, action_input, action_output)
             if self.is_done:
                 is_pass = True
                 break

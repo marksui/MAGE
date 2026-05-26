@@ -6,6 +6,7 @@ from typing import List, Tuple
 
 from llama_index.core.llms import LLM
 
+from .debug_memory import DebugMemory
 from .gen_config import get_llm
 from .log_utils import get_logger, set_log_dir, switch_log_to_file, switch_log_to_stdout
 from .rtl_editor import RTLEditor
@@ -42,6 +43,7 @@ class TopAgent:
         self.sim_reviewer: SimReviewer | None = None
         self.sim_judge: SimJudge | None = None
         self.rtl_edit: RTLEditor | None = None
+        self.debug_memory: DebugMemory | None = None
 
     @staticmethod
     def _create_token_counter(llm: LLM) -> TokenCounter:
@@ -108,6 +110,38 @@ class TopAgent:
         with open(f"{self.output_dir_per_run}/{file_name}", "w") as f:
             f.write(content)
 
+    def record_debug_checkpoint(
+        self,
+        stage: str,
+        rtl_code: str,
+        testbench: str | None = None,
+        sim_log: str = "",
+        is_syntax_pass: bool | None = None,
+        is_sim_pass: bool | None = None,
+        mismatch_count: int | None = None,
+        action: str | None = None,
+        notes: str = "",
+    ) -> None:
+        if self.debug_memory is None:
+            return
+        checkpoint = self.debug_memory.add_checkpoint(
+            stage=stage,
+            rtl_code=rtl_code,
+            testbench=testbench,
+            sim_log=sim_log,
+            is_syntax_pass=is_syntax_pass,
+            is_sim_pass=is_sim_pass,
+            mismatch_count=mismatch_count,
+            action=action,
+            notes=notes,
+        )
+        logger.info(
+            "Debug memory checkpoint "
+            f"#{checkpoint.iteration} stage={checkpoint.stage}, "
+            f"cost={checkpoint.cost}, mismatches={checkpoint.mismatch_count}, "
+            f"first_t={checkpoint.first_mismatch_time}, rtl={checkpoint.rtl_digest}"
+        )
+
     def run_instance(self, spec: str) -> Tuple[bool, str]:
         """
         Run a single instance of the benchmark
@@ -142,6 +176,14 @@ class TopAgent:
             rtl_path=os.path.join(self.output_dir_per_run, "rtl.sv"),
         )
         if not is_syntax_pass:
+            self.record_debug_checkpoint(
+                stage="initial_rtl_syntax_failure",
+                rtl_code=rtl_code,
+                testbench=testbench,
+                is_syntax_pass=False,
+                is_sim_pass=False,
+                notes="Initial generated RTL failed syntax check.",
+            )
             return False, rtl_code
 
         self.write_output(rtl_code, "rtl.sv")
@@ -161,6 +203,16 @@ class TopAgent:
         for i in range(self.sim_max_retry):
             # run simulation judge, overwrite is_sim_pass
             is_sim_pass, sim_mismatch_cnt, sim_log = self.sim_reviewer.review()
+            self.record_debug_checkpoint(
+                stage=f"tb_or_rtl_debug_round_{i + 1}",
+                rtl_code=rtl_code,
+                testbench=testbench,
+                sim_log=sim_log,
+                is_syntax_pass=True,
+                is_sim_pass=is_sim_pass,
+                mismatch_count=sim_mismatch_cnt,
+                notes="Simulation review before existing routing decision.",
+            )
             if is_sim_pass:
                 tb_need_fix = False
                 rtl_need_fix = False
@@ -172,6 +224,11 @@ class TopAgent:
                 rtl_code,
                 testbench,
                 allow_tb_fix=allow_tb_fix,
+                memory_summary=(
+                    self.debug_memory.format_for_prompt()
+                    if self.debug_memory is not None
+                    else None
+                ),
             )
             logger.info(f"DEBUG ERROR ROUTE: {error_route}")
             if tb_need_fix:
@@ -227,6 +284,16 @@ class TopAgent:
                 is_sim_pass_candidate, sim_mismatch_cnt_candidate, sim_log_candidate = (
                     self.sim_reviewer.review()
                 )
+                self.record_debug_checkpoint(
+                    stage=f"rtl_candidate_{i + 1}",
+                    rtl_code=rtl_code_candidate,
+                    testbench=testbench,
+                    sim_log=sim_log_candidate,
+                    is_syntax_pass=True,
+                    is_sim_pass=is_sim_pass_candidate,
+                    mismatch_count=sim_mismatch_cnt_candidate,
+                    notes="Candidate RTL generated after existing routing chose RTL debug.",
+                )
                 if is_sim_pass_candidate:
                     rtl_code = rtl_code_candidate
                     sim_mismatch_cnt = sim_mismatch_cnt_candidate
@@ -261,7 +328,8 @@ class TopAgent:
                     output_dir_per_run=self.output_dir_per_run,
                     sim_failed_log=sim_log,
                     sim_mismatch_cnt=sim_mismatch_cnt,
-                    repair_route=error_route
+                    repair_route=error_route,
+                    debug_memory=self.debug_memory,
                 )
                 if is_sim_pass:
                     rtl_need_fix = False
@@ -295,6 +363,7 @@ class TopAgent:
             if os.path.exists(f"{self.output_dir_per_run}/properly_finished.tag"):
                 os.remove(f"{self.output_dir_per_run}/properly_finished.tag")
             self.token_counter.reset()
+            self.debug_memory = DebugMemory()
             sim_judge_token_counter = (
                 self._get_sim_judge_token_counter() if not self.is_ablation else None
             )

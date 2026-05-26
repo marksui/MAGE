@@ -22,9 +22,9 @@ logger = get_logger(__name__)
 
 args_dict = {
     "provider": "openai",
-    "model": "gpt-5-mini",
+    "model": "[L]gemini-3-pro-preview",
     "sim_judge_provider": "openai",
-    "sim_judge_model": "gpt-5.4-mini",
+    "sim_judge_model": "[L]gemini-3-pro-preview",
     # "provider": "vertexanthropic",
     # "model": "claude-3-7-sonnet@20250219",
     # "model": "gemini-2.0-flash-001",
@@ -36,7 +36,7 @@ args_dict = {
     # "filter_instance": "^(.*)$",
     "type_benchmark": "verilog_eval_v2",
     "path_benchmark": "./verilog-eval",
-    "run_identifier": "gpt5_mini_local_test",
+    "run_identifier": "lemon_gemini3_pro_local_test",
     "n": 1,
     "temperature": 1.0,
     "top_p": 1.0,

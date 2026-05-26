@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from .log_utils import get_logger
 from .prompts import ORDER_PROMPT
 from .token_counter import TokenCounter, TokenCounterCached
-from .utils import add_lineno
+from .utils import add_lineno, reformat_json_string
 
 logger = get_logger(__name__)
 
@@ -37,6 +37,7 @@ Try to understand the requirements above and give reasoning steps in natural lan
 <failed_sim_log>
 {failed_sim_log}
 </failed_sim_log>
+{memory_context}
 <failed_rtl>
 {failed_rtl}
 </failed_rtl>
@@ -80,6 +81,12 @@ Do not ask to modify the testbench or RefModule. Classify the RTL failure route 
 
 VALID_ERROR_ROUTES = {"syntax", "interface", "logic"}
 
+MEMORY_PROMPT = r"""
+<state_checkpoint_memory>
+{memory_summary}
+</state_checkpoint_memory>
+"""
+
 
 class SimJudge:
     def __init__(
@@ -106,14 +113,21 @@ class SimJudge:
         failed_rtl: str,
         failed_testbench: str,
         allow_tb_fix: bool,
+        memory_summary: str | None = None,
     ) -> List[ChatMessage]:
         tb_fix_policy = "" if allow_tb_fix else TB_FIX_FORBIDDEN_POLICY_PROMPT
+        memory_context = (
+            MEMORY_PROMPT.format(memory_summary=memory_summary)
+            if memory_summary
+            else ""
+        )
         ret = [
             ChatMessage(content=SYSTEM_PROMPT, role=MessageRole.SYSTEM),
             ChatMessage(
                 content=GENERATION_PROMPT.format(
                     input_spec=input_spec,
                     failed_sim_log=failed_sim_log,
+                    memory_context=memory_context,
                     failed_rtl=add_lineno(failed_rtl),
                     failed_testbench=add_lineno(failed_testbench),
                     tb_fix_policy=tb_fix_policy,
@@ -140,7 +154,8 @@ class SimJudge:
         ]
 
     def parse_output(self, response: ChatResponse) -> TBOutputFormat:
-        output_json_obj: Dict = json.loads(response.message.content, strict=False)
+        content = reformat_json_string(response.message.content)
+        output_json_obj: Dict = json.loads(content, strict=False)
         return TBOutputFormat(
             reasoning=output_json_obj["reasoning"],
             tb_needs_fix=output_json_obj["tb_needs_fix"],
@@ -154,6 +169,7 @@ class SimJudge:
         failed_rtl: str,
         failed_testbench: str,
         allow_tb_fix: bool = True,
+        memory_summary: str | None = None,
     ) -> tuple[bool, str]:
         if isinstance(self.token_counter, TokenCounterCached):
             self.token_counter.set_enable_cache(False)
@@ -166,6 +182,7 @@ class SimJudge:
                 failed_rtl,
                 failed_testbench,
                 allow_tb_fix,
+                memory_summary,
             )
         )
         self.history.extend(self.get_order_prompt_messages(allow_tb_fix))
