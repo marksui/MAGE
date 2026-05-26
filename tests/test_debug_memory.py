@@ -1,6 +1,7 @@
 import json
 
 from mage.debug_memory import DebugMemory
+from mage.utils import reformat_json_string
 
 
 def main():
@@ -31,6 +32,18 @@ def main():
     prompt_text = memory.format_for_prompt()
     assert "rtl_candidate_1" in prompt_text
     assert "Best checkpoint so far" in prompt_text
+
+    fenced_json = """```json
+{"reasoning": "ok", "module": "module top; assign y = a ? b : c; endmodule"}
+```"""
+    assert reformat_json_string(fenced_json).startswith('{"reasoning"')
+
+    prefixed_json = (
+        "Here is the answer:\n"
+        '{"reasoning": "ok", "module": "module top; endmodule"}\n'
+        "Done."
+    )
+    assert reformat_json_string(prefixed_json).endswith('endmodule"}')
 
 
 if __name__ == "__main__":

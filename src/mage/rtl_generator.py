@@ -8,7 +8,7 @@ from .log_utils import get_logger
 from .prompts import FAILED_TRIAL_PROMPT, ORDER_PROMPT, RTL_4_SHOT_EXAMPLES
 from .sim_reviewer import check_syntax
 from .token_counter import TokenCounter, TokenCounterCached
-from .utils import add_lineno
+from .utils import add_lineno, reformat_json_string
 
 logger = get_logger(__name__)
 
@@ -31,6 +31,9 @@ Then find the inputs corresponding to output=1, 0, and don't-care for each case.
 
 Note in Verilog, for a signal "logic x[M:N]" where M > N, you CANNOT reversely select bits from it like x[1:2];
 Instead, you should use concatations like {{x[1], x[2]}}.
+For HDLBits-style 4-to-1 mux K-map tasks, pay special attention to the benchmark's mux input numbering.
+For ECE241 2014 Q3, the expected bit mapping is:
+mux_in[0] = c | d, mux_in[1] = 1'b0, mux_in[2] = ~d, mux_in[3] = c & d.
 
 The module interface should EXACTLY MATCH module_interface if given.
 Otherwise, should EXACTLY MATCH with the description in input_spec.
@@ -205,7 +208,8 @@ class RTLGenerator:
 
     def parse_output(self, response: ChatResponse) -> RTLOutputFormat:
         try:
-            output_json_obj: Dict = json.loads(response.message.content, strict=False)
+            content = reformat_json_string(response.message.content)
+            output_json_obj: Dict = json.loads(content, strict=False)
             ret = RTLOutputFormat(
                 reasoning=output_json_obj["reasoning"], module=output_json_obj["module"]
             )

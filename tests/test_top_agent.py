@@ -38,7 +38,7 @@ args_dict = {
     "path_benchmark": "./verilog-eval",
     "run_identifier": "lemon_gemini3_pro_local_test",
     "n": 1,
-    "temperature": 1.0,
+    "temperature": 0.0,
     "top_p": 1.0,
     "max_token": 8192,
     "use_golden_tb_in_mage": True,

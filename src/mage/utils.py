@@ -13,11 +13,10 @@ def add_lineno(file_content: str) -> str:
 
 
 def reformat_json_string(output: str) -> str:
-    # in gemini, the output has markdown surrounding the json string
-    # like ```json ... ```
-    # we need to remove the markdown
-    # remove by using regex between ```json and ```
-    pattern = r"```json(.*?)```"
+    output = output.strip()
+
+    # Gemini-like OpenAI-compatible endpoints often wrap JSON in Markdown fences.
+    pattern = r"```(?:json|JSON)?\s*(.*?)```"
     match = re.search(pattern, output, re.DOTALL)
     if match:
         return match.group(1).strip()
@@ -27,7 +26,34 @@ def reformat_json_string(output: str) -> str:
     if match:
         return match.group(1).strip()
 
-    return output.strip()
+    start = output.find("{")
+    if start == -1:
+        return output
+
+    depth = 0
+    in_string = False
+    escape = False
+    for index in range(start, len(output)):
+        char = output[index]
+        if escape:
+            escape = False
+            continue
+        if char == "\\":
+            escape = True
+            continue
+        if char == '"':
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return output[start : index + 1].strip()
+
+    return output
 
 
 class VertexAnthropicWithCredentials(Anthropic):

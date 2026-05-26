@@ -1,4 +1,5 @@
 import json
+import os
 from subprocess import PIPE, Popen, TimeoutExpired
 from typing import Tuple
 
@@ -16,7 +17,22 @@ class CommandResult(BaseModel):
 
 def run_bash_command(cmd: str, timeout: float | None = None) -> Tuple[bool, str]:
     logger.info(f"Running command: {cmd}")
-    process = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE, text=True)
+    if os.name == "nt":
+        process = Popen(
+            [
+                "powershell.exe",
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-Command",
+                cmd,
+            ],
+            stdout=PIPE,
+            stderr=PIPE,
+            text=True,
+        )
+    else:
+        process = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE, text=True)
     try:
         stdout, stderr = process.communicate(
             timeout=timeout

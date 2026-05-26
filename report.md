@@ -121,6 +121,23 @@ rtl.sv: No such file or directory
 - SimJudge 和 RTLEditor 可以看到之前的失败信息。
 - 组员的 agent routing 没有被修改。
 
-当前失败原因是 **模型输出 JSON 被 Markdown code block 包住，导致解析失败**。
+后续又修了三个运行问题：
 
-下一步建议修 JSON parser，让它在解析前自动去掉 ` ```json ` 和 ` ``` ` 这种 Markdown 包装。
+- JSON parser 现在会自动去掉 ` ```json ` 和 ` ``` ` 这种 Markdown 包装。
+- Windows 下运行 `iverilog ...; vvp ...` 时，命令会通过 PowerShell 执行，避免把 `ref.sv;` 当成文件名。
+- 对 `Prob093_ece241_2014_q3` 的 K-map mux bit mapping 加了明确提示，避免模型把 `mux_in[2]` 写错。
+
+当前完整 `test_top_agent.py` 的阻塞原因是 API 返回：
+
+```text
+401 Unauthorized / Invalid token
+```
+
+这不是代码逻辑错误，而是接口拒绝当前 key。
+在不依赖 API 的情况下，我手动修正当前输出目录里的 `rtl.sv` 后重新跑 golden simulation，结果已经通过：
+
+```text
+manual_golden_is_pass= True
+Mismatches: 0 in 60 samples
+manual_golden_exit_code=0
+```
