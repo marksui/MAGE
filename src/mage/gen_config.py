@@ -66,12 +66,21 @@ def get_llm(**kwargs) -> LLM:
         try:
             api_base = cfg["OPENAI_API_BASE_URL"].strip() or None
             openai_cls = OpenAICompatible if api_base else OpenAI
-            llm: LLM = openai_cls(
-                model=kwargs["model"],
-                api_key=cfg["OPENAI_API_KEY"],
-                api_base=api_base,
-                max_tokens=kwargs["max_token"],
-            )
+            llm_kwargs = {
+                "model": kwargs["model"],
+                "api_key": cfg["OPENAI_API_KEY"],
+                "api_base": api_base,
+                "max_tokens": kwargs["max_token"],
+            }
+            if api_base and "generativelanguage.googleapis.com" in api_base:
+                llm_kwargs["additional_kwargs"] = {
+                    "response_format": {"type": "json_object"}
+                }
+                if kwargs["model"].startswith("gemini-2.5"):
+                    llm_kwargs["reasoning_effort"] = "none"
+                else:
+                    llm_kwargs["reasoning_effort"] = "low"
+            llm: LLM = openai_cls(**llm_kwargs)
 
         except Exception as e:
             raise Exception(f"gen_config: Failed to get {provider} LLM") from e
@@ -122,7 +131,7 @@ def get_llm(**kwargs) -> LLM:
         raise ValueError(f"gen_config: Invalid provider: {provider}")
 
     try:
-        _ = llm.complete("Say 'Hi'")
+        _ = llm.complete('Return a JSON object with the message "Hi".')
     except Exception as e:
         raise Exception(
             f"gen_config: Failed to complete LLM chat for {provider}"

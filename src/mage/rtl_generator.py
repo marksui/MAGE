@@ -213,7 +213,7 @@ class RTLGenerator:
             ret = RTLOutputFormat(
                 reasoning=output_json_obj["reasoning"], module=output_json_obj["module"]
             )
-        except json.decoder.JSONDecodeError as e:
+        except (json.decoder.JSONDecodeError, KeyError, TypeError) as e:
             ret = RTLOutputFormat(reasoning=f"Json Decode Error: {str(e)}", module="")
         return ret
 
@@ -232,12 +232,28 @@ class RTLGenerator:
         self.generated_tb = testbench
         self.generated_if = interface
         self.history.extend(self.get_init_prompt_messages(input_spec))
+        syntax_correct = False
+        rtl_code = ""
         for _ in range(self.max_trials):
             response = self.generate(self.history + self.get_order_prompt_messages())
             resp_obj = self.parse_output(response)
             if resp_obj.reasoning.startswith("Json Decode Error"):
                 logger.info(
                     f"RTL generation Error: {resp_obj.reasoning}, drop this response"
+                )
+                self.history.extend(
+                    [
+                        response.message,
+                        ChatMessage(
+                            role=MessageRole.USER,
+                            content=(
+                                f"{resp_obj.reasoning}. Return a valid JSON object "
+                                'with both required string keys: "reasoning" and '
+                                '"module". The "module" value must contain the '
+                                "complete SystemVerilog module."
+                            ),
+                        ),
+                    ]
                 )
                 continue
             rtl_code = resp_obj.module

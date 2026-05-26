@@ -22,9 +22,9 @@ logger = get_logger(__name__)
 
 args_dict = {
     "provider": "openai",
-    "model": "[L]gemini-3-pro-preview",
+    "model": "gemini-2.5-flash",
     "sim_judge_provider": "openai",
-    "sim_judge_model": "[L]gemini-3-pro-preview",
+    "sim_judge_model": "gemini-2.5-flash",
     # "provider": "vertexanthropic",
     # "model": "claude-3-7-sonnet@20250219",
     # "model": "gemini-2.0-flash-001",
