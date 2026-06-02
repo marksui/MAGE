@@ -1,4 +1,6 @@
 import json
+import tempfile
+from pathlib import Path
 
 from mage.debug_memory import DebugMemory
 from mage.utils import reformat_json_string
@@ -32,6 +34,14 @@ def main():
     prompt_text = memory.format_for_prompt()
     assert "rtl_candidate_1" in prompt_text
     assert "Best checkpoint so far" in prompt_text
+    memory_dict = memory.to_dict()
+    assert memory_dict["checkpoint_count"] == 1
+    assert memory_dict["best_checkpoint"]["mismatch_count"] == 3
+    with tempfile.TemporaryDirectory() as tmpdir:
+        memory_path = Path(tmpdir) / "debug_memory.json"
+        memory.write_json(str(memory_path))
+        exported = json.loads(memory_path.read_text(encoding="utf-8"))
+        assert exported["checkpoints"][0]["stage"] == "rtl_candidate_1"
 
     fenced_json = """```json
 {"reasoning": "ok", "module": "module top; assign y = a ? b : c; endmodule"}

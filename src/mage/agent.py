@@ -24,7 +24,7 @@ class TopAgent:
         self.llm = llm
         self.token_counter = self._create_token_counter(llm)
         self.sim_judge_provider = "openai"
-        self.sim_judge_model = "gpt-5.4-mini"
+        self.sim_judge_model = "gpt-5.4-nano"
         self.sim_judge_key_cfg_path = "./key.cfg"
         self.sim_judge_max_token = 8192
         self.sim_judge_llm: LLM | None = None
@@ -44,6 +44,7 @@ class TopAgent:
         self.sim_judge: SimJudge | None = None
         self.rtl_edit: RTLEditor | None = None
         self.debug_memory: DebugMemory | None = None
+        self.enable_debug_memory = True
 
     @staticmethod
     def _create_token_counter(llm: LLM) -> TokenCounter:
@@ -56,7 +57,7 @@ class TopAgent:
     def set_sim_judge_llm_config(
         self,
         provider: str = "openai",
-        model: str = "gpt-5.4-mini",
+        model: str = "gpt-5.4-nano",
         key_cfg_path: str = "./key.cfg",
         max_token: int = 8192,
     ) -> None:
@@ -97,6 +98,9 @@ class TopAgent:
 
     def set_ablation(self, is_ablation: bool) -> None:
         self.is_ablation = is_ablation
+
+    def set_enable_debug_memory(self, enable_debug_memory: bool) -> None:
+        self.enable_debug_memory = enable_debug_memory
 
     def set_redirect_log(self, new_value: bool) -> None:
         self.redirect_log = new_value
@@ -251,9 +255,12 @@ class TopAgent:
         candidates_info: List[Tuple[str, int, str]] = []
         if rtl_need_fix:
             # Candidates Generation
-            assert (
-                sim_mismatch_cnt > 0
-            ), f"rtl_need_fix should be True only when sim_mismatch_cnt > 0. sim_log: {sim_log}"
+            if sim_mismatch_cnt <= 0:
+                logger.warning(
+                    "RTL debug was requested with zero parsed mismatches. "
+                    "Continuing because compile/runtime failures can have no "
+                    f"mismatch count. sim_log: {sim_log}"
+                )
             self.rtl_gen.reset()
             candidates = [
                 self.rtl_gen.chat(
@@ -312,7 +319,9 @@ class TopAgent:
                 candidates_info_unique_sign.add(candidate[1])
                 candidates_info_unique.append(candidate)
 
-        if rtl_need_fix:
+        if rtl_need_fix and not candidates_info_unique:
+            logger.warning("No valid RTL candidates were available for editor repair.")
+        elif rtl_need_fix:
             # Editor iteration
             for i in range(self.rtl_selected_candidates):
                 logger.info(
@@ -363,7 +372,7 @@ class TopAgent:
             if os.path.exists(f"{self.output_dir_per_run}/properly_finished.tag"):
                 os.remove(f"{self.output_dir_per_run}/properly_finished.tag")
             self.token_counter.reset()
-            self.debug_memory = DebugMemory()
+            self.debug_memory = DebugMemory() if self.enable_debug_memory else None
             sim_judge_token_counter = (
                 self._get_sim_judge_token_counter() if not self.is_ablation else None
             )
@@ -398,6 +407,14 @@ class TopAgent:
             exc_info = sys.exc_info()
             traceback.print_exception(*exc_info)
             ret = False, f"Exception: {exc_info[1]}"
+        finally:
+            if self.debug_memory is not None:
+                try:
+                    self.debug_memory.write_json(
+                        f"{self.output_dir_per_run}/debug_memory.json"
+                    )
+                except Exception:
+                    logger.warning("Failed to write debug_memory.json", exc_info=True)
         return ret
 
     def run(

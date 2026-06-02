@@ -65,7 +65,11 @@ def get_llm(**kwargs) -> LLM:
     elif kwargs["provider"] == "openai":
         try:
             api_base = cfg["OPENAI_API_BASE_URL"].strip() or None
-            openai_cls = OpenAICompatible if api_base else OpenAI
+            openai_cls = (
+                OpenAICompatible
+                if api_base or kwargs["model"].startswith("gpt-5.4")
+                else OpenAI
+            )
             llm_kwargs = {
                 "model": kwargs["model"],
                 "api_key": cfg["OPENAI_API_KEY"],

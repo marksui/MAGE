@@ -2,6 +2,7 @@ import hashlib
 import json
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
 
@@ -170,6 +171,51 @@ class DebugMemory:
         if not self.checkpoints:
             return None
         return min(self.checkpoints, key=lambda checkpoint: checkpoint.cost)
+
+    @staticmethod
+    def _mismatch_to_dict(mismatch: OutputMismatch) -> dict[str, Any]:
+        return {
+            "output_name": mismatch.output_name,
+            "mismatch_count": mismatch.mismatch_count,
+            "first_mismatch_time": mismatch.first_mismatch_time,
+        }
+
+    def checkpoint_to_dict(self, checkpoint: StateCheckpoint) -> dict[str, Any]:
+        return {
+            "iteration": checkpoint.iteration,
+            "stage": checkpoint.stage,
+            "rtl_digest": checkpoint.rtl_digest,
+            "tb_digest": checkpoint.tb_digest,
+            "is_syntax_pass": checkpoint.is_syntax_pass,
+            "is_sim_pass": checkpoint.is_sim_pass,
+            "mismatch_count": checkpoint.mismatch_count,
+            "first_mismatch_time": checkpoint.first_mismatch_time,
+            "output_mismatches": [
+                self._mismatch_to_dict(item)
+                for item in checkpoint.output_mismatches
+            ],
+            "mismatch_lines": checkpoint.mismatch_lines,
+            "action": checkpoint.action,
+            "notes": checkpoint.notes,
+            "sim_log_excerpt": checkpoint.sim_log_excerpt,
+            "cost": checkpoint.cost,
+        }
+
+    def to_dict(self) -> dict[str, Any]:
+        best = self.best_checkpoint()
+        return {
+            "checkpoint_count": len(self.checkpoints),
+            "best_checkpoint": (
+                self.checkpoint_to_dict(best) if best is not None else None
+            ),
+            "checkpoints": [
+                self.checkpoint_to_dict(checkpoint)
+                for checkpoint in self.checkpoints
+            ],
+        }
+
+    def write_json(self, path: str) -> None:
+        Path(path).write_text(json.dumps(self.to_dict(), indent=2), encoding="utf-8")
 
     def format_for_prompt(self, max_entries: int = 6) -> str:
         if not self.checkpoints:

@@ -22,9 +22,9 @@ logger = get_logger(__name__)
 
 args_dict = {
     "provider": "openai",
-    "model": "gemini-2.5-flash",
+    "model": "gpt-5.4-nano",
     "sim_judge_provider": "openai",
-    "sim_judge_model": "gemini-2.5-flash",
+    "sim_judge_model": "gpt-5.4-nano",
     # "provider": "vertexanthropic",
     # "model": "claude-3-7-sonnet@20250219",
     # "model": "gemini-2.0-flash-001",
@@ -32,16 +32,18 @@ args_dict = {
     # "model": "gpt-4o-2024-08-06",
     # "filter_instance": "^(Prob070_ece241_2013_q2|Prob151_review2015_fsm)$",
     #"filter_instance": "^(Prob011_norgate)$",
-    "filter_instance": "^(Prob093_ece241_2014_q3)$",
-    # "filter_instance": "^(.*)$",
+    # "filter_instance": "^(Prob001_zero|Prob002_m2014_q4i|Prob003_step_one|Prob004_vector2|Prob005_notgate)$",
+    "filter_instance": "^(.*)$",
     "type_benchmark": "verilog_eval_v2",
     "path_benchmark": "./verilog-eval",
-    "run_identifier": "lemon_gemini3_pro_local_test",
+    "run_identifier": "gpt54_nano_memory_full156",
     "n": 1,
-    "temperature": 0.0,
-    "top_p": 1.0,
+    "temperature": 0.85,
+    "top_p": 0.95,
     "max_token": 8192,
+    "rtl_max_candidates": 5,
     "use_golden_tb_in_mage": True,
+    "enable_debug_memory": True,
     "key_cfg_path": "./key.cfg",
 }
 
@@ -78,6 +80,8 @@ def run_round(args: argparse.Namespace, llm: LLM):
     agent.set_output_path(f"./output_{args.run_identifier}")
     agent.set_log_path(f"./log_{args.run_identifier}")
     agent.set_redirect_log(False) # TODO: AMEND TO FALSE TO SUPRESS LOGS
+    agent.set_enable_debug_memory(args.enable_debug_memory)
+    agent.rtl_max_candidates = args.rtl_max_candidates
     # agent.set_ablation(True)
     record_file = f"./output_{args.run_identifier}/record.json"
     record_json: Dict[str, Dict[str, Any]] = {"record_per_run": {}, "total_record": {}}
