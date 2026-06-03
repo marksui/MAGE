@@ -2,6 +2,7 @@ import os
 
 import config
 from google.oauth2 import service_account
+from llama_index.core.base.llms.types import LLMMetadata
 from llama_index.core.llms.llm import LLM
 from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.openai import OpenAI
@@ -12,6 +13,17 @@ from .log_utils import get_logger
 from .utils import VertexAnthropicWithCredentials
 
 logger = get_logger(__name__)
+
+
+class OpenAICompatible(OpenAI):
+    @property
+    def metadata(self) -> LLMMetadata:
+        return LLMMetadata(
+            context_window=128000,
+            num_output=self.max_tokens or 4096,
+            is_chat_model=True,
+            model_name=self.model,
+        )
 
 
 class Config:
@@ -52,11 +64,19 @@ def get_llm(**kwargs) -> LLM:
             raise Exception(f"gen_config: Failed to get {provider} LLM") from e
     elif kwargs["provider"] == "openai":
         try:
-            llm: LLM = OpenAI(
-                model=kwargs["model"],
-                api_key=cfg["OPENAI_API_KEY"],
-                max_tokens=kwargs["max_token"],
+            api_base = cfg["OPENAI_API_BASE_URL"].strip() or None
+            openai_cls = (
+                OpenAICompatible
+                if api_base or kwargs["model"].startswith("gpt-5.4")
+                else OpenAI
             )
+            llm_kwargs = {
+                "model": kwargs["model"],
+                "api_key": cfg["OPENAI_API_KEY"],
+                "api_base": api_base,
+                "max_tokens": kwargs["max_token"],
+            }
+            llm: LLM = openai_cls(**llm_kwargs)
 
         except Exception as e:
             raise Exception(f"gen_config: Failed to get {provider} LLM") from e
@@ -107,7 +127,7 @@ def get_llm(**kwargs) -> LLM:
         raise ValueError(f"gen_config: Invalid provider: {provider}")
 
     try:
-        _ = llm.complete("Say 'Hi'")
+        _ = llm.complete('Return a JSON object with the message "Hi".')
     except Exception as e:
         raise Exception(
             f"gen_config: Failed to complete LLM chat for {provider}"

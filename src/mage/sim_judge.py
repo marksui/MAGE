@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from .log_utils import get_logger
 from .prompts import ORDER_PROMPT
 from .token_counter import TokenCounter, TokenCounterCached
-from .utils import add_lineno
+from .utils import add_lineno, reformat_json_string
 
 logger = get_logger(__name__)
 
@@ -29,6 +29,7 @@ Try to understand the requirements above and give reasoning steps in natural lan
 <failed_sim_log>
 {failed_sim_log}
 </failed_sim_log>
+{memory_context}
 <failed_rtl>
 {failed_rtl}
 </failed_rtl>
@@ -51,6 +52,13 @@ class TBOutputFormat(BaseModel):
 EXTRA_ORDER_PROMPT = r"""
 Especially, FORCE SET tb_needs_fix to True if failed_sim_log says there is ANY syntax error in testbench(tb.sv),
 Even if the syntax error looks not related to the failed test case or the testbench looks correct.
+"""
+
+
+MEMORY_PROMPT = r"""
+<state_checkpoint_memory>
+{memory_summary}
+</state_checkpoint_memory>
 """
 
 
@@ -78,13 +86,20 @@ class SimJudge:
         failed_sim_log: str,
         failed_rtl: str,
         failed_testbench: str,
+        memory_summary: str | None = None,
     ) -> List[ChatMessage]:
+        memory_context = (
+            MEMORY_PROMPT.format(memory_summary=memory_summary)
+            if memory_summary
+            else ""
+        )
         ret = [
             ChatMessage(content=SYSTEM_PROMPT, role=MessageRole.SYSTEM),
             ChatMessage(
                 content=GENERATION_PROMPT.format(
                     input_spec=input_spec,
                     failed_sim_log=failed_sim_log,
+                    memory_context=memory_context,
                     failed_rtl=add_lineno(failed_rtl),
                     failed_testbench=add_lineno(failed_testbench),
                 ),
@@ -105,7 +120,8 @@ class SimJudge:
         ]
 
     def parse_output(self, response: ChatResponse) -> TBOutputFormat:
-        output_json_obj: Dict = json.loads(response.message.content, strict=False)
+        content = reformat_json_string(response.message.content)
+        output_json_obj: Dict = json.loads(content, strict=False)
         return TBOutputFormat(
             reasoning=output_json_obj["reasoning"],
             tb_needs_fix=output_json_obj["tb_needs_fix"],
@@ -117,6 +133,7 @@ class SimJudge:
         failed_sim_log: str,
         failed_rtl: str,
         failed_testbench: str,
+        memory_summary: str | None = None,
     ) -> bool:
         if isinstance(self.token_counter, TokenCounterCached):
             self.token_counter.set_enable_cache(False)
@@ -124,7 +141,11 @@ class SimJudge:
         self.token_counter.set_cur_tag(self.__class__.__name__)
         self.history.extend(
             self.get_init_prompt_messages(
-                input_spec, failed_sim_log, failed_rtl, failed_testbench
+                input_spec,
+                failed_sim_log,
+                failed_rtl,
+                failed_testbench,
+                memory_summary,
             )
         )
         self.history.extend(self.get_order_prompt_messages())

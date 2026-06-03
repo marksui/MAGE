@@ -6,6 +6,7 @@ from typing import List, Tuple
 
 from llama_index.core.llms import LLM
 
+from .debug_memory import DebugMemory
 from .log_utils import get_logger, set_log_dir, switch_log_to_file, switch_log_to_stdout
 from .rtl_editor import RTLEditor
 from .rtl_generator import RTLGenerator
@@ -39,6 +40,8 @@ class TopAgent:
         self.sim_reviewer: SimReviewer | None = None
         self.sim_judge: SimJudge | None = None
         self.rtl_edit: RTLEditor | None = None
+        self.debug_memory: DebugMemory | None = None
+        self.enable_debug_memory = True
 
     def set_output_path(self, output_path: str) -> None:
         self.output_path = output_path
@@ -48,6 +51,9 @@ class TopAgent:
 
     def set_ablation(self, is_ablation: bool) -> None:
         self.is_ablation = is_ablation
+
+    def set_enable_debug_memory(self, enable_debug_memory: bool) -> None:
+        self.enable_debug_memory = enable_debug_memory
 
     def set_redirect_log(self, new_value: bool) -> None:
         self.redirect_log = new_value
@@ -60,6 +66,38 @@ class TopAgent:
         assert self.output_dir_per_run
         with open(f"{self.output_dir_per_run}/{file_name}", "w") as f:
             f.write(content)
+
+    def record_debug_checkpoint(
+        self,
+        stage: str,
+        rtl_code: str,
+        testbench: str | None = None,
+        sim_log: str = "",
+        is_syntax_pass: bool | None = None,
+        is_sim_pass: bool | None = None,
+        mismatch_count: int | None = None,
+        action: str | None = None,
+        notes: str = "",
+    ) -> None:
+        if self.debug_memory is None:
+            return
+        checkpoint = self.debug_memory.add_checkpoint(
+            stage=stage,
+            rtl_code=rtl_code,
+            testbench=testbench,
+            sim_log=sim_log,
+            is_syntax_pass=is_syntax_pass,
+            is_sim_pass=is_sim_pass,
+            mismatch_count=mismatch_count,
+            action=action,
+            notes=notes,
+        )
+        logger.info(
+            "Debug memory checkpoint "
+            f"#{checkpoint.iteration} stage={checkpoint.stage}, "
+            f"cost={checkpoint.cost}, mismatches={checkpoint.mismatch_count}, "
+            f"first_t={checkpoint.first_mismatch_time}, rtl={checkpoint.rtl_digest}"
+        )
 
     def run_instance(self, spec: str) -> Tuple[bool, str]:
         """
@@ -95,6 +133,14 @@ class TopAgent:
             rtl_path=os.path.join(self.output_dir_per_run, "rtl.sv"),
         )
         if not is_syntax_pass:
+            self.record_debug_checkpoint(
+                stage="initial_rtl_syntax_failure",
+                rtl_code=rtl_code,
+                testbench=testbench,
+                is_syntax_pass=False,
+                is_sim_pass=False,
+                notes="Initial generated RTL failed syntax check.",
+            )
             return False, rtl_code
         self.write_output(rtl_code, "rtl.sv")
         logger.info("Initial rtl:")
@@ -106,12 +152,32 @@ class TopAgent:
         for i in range(self.sim_max_retry):
             # run simulation judge, overwrite is_sim_pass
             is_sim_pass, sim_mismatch_cnt, sim_log = self.sim_reviewer.review()
+            self.record_debug_checkpoint(
+                stage=f"tb_or_rtl_debug_round_{i + 1}",
+                rtl_code=rtl_code,
+                testbench=testbench,
+                sim_log=sim_log,
+                is_syntax_pass=True,
+                is_sim_pass=is_sim_pass,
+                mismatch_count=sim_mismatch_cnt,
+                notes="Simulation review before testbench/RTL decision.",
+            )
             if is_sim_pass:
                 tb_need_fix = False
                 rtl_need_fix = False
                 break
             self.sim_judge.reset()
-            tb_need_fix = self.sim_judge.chat(spec, sim_log, rtl_code, testbench)
+            tb_need_fix = self.sim_judge.chat(
+                spec,
+                sim_log,
+                rtl_code,
+                testbench,
+                memory_summary=(
+                    self.debug_memory.format_for_prompt()
+                    if self.debug_memory is not None
+                    else None
+                ),
+            )
             if tb_need_fix:
                 self.tb_gen.reset()
                 if i == 0:
@@ -132,9 +198,12 @@ class TopAgent:
         candidates_info: List[Tuple[str, int, str]] = []
         if rtl_need_fix:
             # Candidates Generation
-            assert (
-                sim_mismatch_cnt > 0
-            ), f"rtl_need_fix should be True only when sim_mismatch_cnt > 0. sim_log: {sim_log}"
+            if sim_mismatch_cnt <= 0:
+                logger.warning(
+                    "RTL debug was requested with zero parsed mismatches. "
+                    "Continuing because compile/runtime failures can have no "
+                    f"mismatch count. sim_log: {sim_log}"
+                )
             self.rtl_gen.reset()
             candidates = [
                 self.rtl_gen.chat(
@@ -160,10 +229,28 @@ class TopAgent:
                 )
                 is_syntax_pass_candiate, rtl_code_candidate = candidates[i]
                 if not is_syntax_pass_candiate:
+                    self.record_debug_checkpoint(
+                        stage=f"rtl_candidate_{i + 1}_syntax_failure",
+                        rtl_code=rtl_code_candidate,
+                        testbench=testbench,
+                        is_syntax_pass=False,
+                        is_sim_pass=False,
+                        notes="Candidate RTL failed syntax check.",
+                    )
                     continue
                 self.write_output(rtl_code_candidate, "rtl.sv")
                 is_sim_pass_candidate, sim_mismatch_cnt_candidate, sim_log_candidate = (
                     self.sim_reviewer.review()
+                )
+                self.record_debug_checkpoint(
+                    stage=f"rtl_candidate_{i + 1}",
+                    rtl_code=rtl_code_candidate,
+                    testbench=testbench,
+                    sim_log=sim_log_candidate,
+                    is_syntax_pass=True,
+                    is_sim_pass=is_sim_pass_candidate,
+                    mismatch_count=sim_mismatch_cnt_candidate,
+                    notes="Candidate RTL generated for RTL debug.",
                 )
                 if is_sim_pass_candidate:
                     rtl_code = rtl_code_candidate
@@ -183,7 +270,9 @@ class TopAgent:
                 candidates_info_unique_sign.add(candidate[1])
                 candidates_info_unique.append(candidate)
 
-        if rtl_need_fix:
+        if rtl_need_fix and not candidates_info_unique:
+            logger.warning("No valid RTL candidates were available for editor repair.")
+        elif rtl_need_fix:
             # Editor iteration
             for i in range(self.rtl_selected_candidates):
                 logger.info(
@@ -199,6 +288,7 @@ class TopAgent:
                     output_dir_per_run=self.output_dir_per_run,
                     sim_failed_log=sim_log,
                     sim_mismatch_cnt=sim_mismatch_cnt,
+                    debug_memory=self.debug_memory,
                 )
                 if is_sim_pass:
                     rtl_need_fix = False
@@ -232,6 +322,7 @@ class TopAgent:
             if os.path.exists(f"{self.output_dir_per_run}/properly_finished.tag"):
                 os.remove(f"{self.output_dir_per_run}/properly_finished.tag")
             self.token_counter.reset()
+            self.debug_memory = DebugMemory() if self.enable_debug_memory else None
             self.sim_reviewer = SimReviewer(
                 self.output_dir_per_run,
                 self.golden_rtl_blackbox_path,
@@ -254,6 +345,14 @@ class TopAgent:
             exc_info = sys.exc_info()
             traceback.print_exception(*exc_info)
             ret = False, f"Exception: {exc_info[1]}"
+        finally:
+            if self.debug_memory is not None:
+                try:
+                    self.debug_memory.write_json(
+                        f"{self.output_dir_per_run}/debug_memory.json"
+                    )
+                except Exception:
+                    logger.warning("Failed to write debug_memory.json", exc_info=True)
         return ret
 
     def run(

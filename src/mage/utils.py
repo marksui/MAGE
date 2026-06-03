@@ -13,11 +13,9 @@ def add_lineno(file_content: str) -> str:
 
 
 def reformat_json_string(output: str) -> str:
-    # in gemini, the output has markdown surrounding the json string
-    # like ```json ... ```
-    # we need to remove the markdown
-    # remove by using regex between ```json and ```
-    pattern = r"```json(.*?)```"
+    output = output.strip()
+
+    pattern = r"```(?:json|JSON)?\s*(.*?)```"
     match = re.search(pattern, output, re.DOTALL)
     if match:
         return match.group(1).strip()
@@ -27,7 +25,12 @@ def reformat_json_string(output: str) -> str:
     if match:
         return match.group(1).strip()
 
-    return output.strip()
+    start = output.find("{")
+    end = output.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        return output[start : end + 1].strip()
+
+    return output
 
 
 class VertexAnthropicWithCredentials(Anthropic):

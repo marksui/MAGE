@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from .log_utils import get_logger
 from .prompts import FAILED_TRIAL_PROMPT, ORDER_PROMPT, TB_4_SHOT_EXAMPLES
 from .token_counter import TokenCounter, TokenCounterCached
-from .utils import add_lineno
+from .utils import add_lineno, reformat_json_string
 
 logger = get_logger(__name__)
 
@@ -279,7 +279,8 @@ class TBGenerator:
 
     def parse_output(self, response: ChatResponse) -> TBOutputFormat:
         try:
-            output_json_obj: Dict = json.loads(response.message.content, strict=False)
+            content = reformat_json_string(response.message.content)
+            output_json_obj: Dict = json.loads(content, strict=False)
             ret = TBOutputFormat(
                 reasoning=output_json_obj["reasoning"],
                 interface=output_json_obj["interface"],

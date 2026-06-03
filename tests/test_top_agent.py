@@ -21,23 +21,24 @@ logger = get_logger(__name__)
 
 
 args_dict = {
-    "provider": "vertexanthropic",
-    "model": "claude-3-7-sonnet@20250219",
+    "provider": "openai",
+    "model": "gpt-5.4-nano",
     # "model": "gemini-2.0-flash-001",
     # "model": "claude-3-7-sonnet-20250219",
     # "model": "gpt-4o-2024-08-06",
-    # "filter_instance": "^(Prob070_ece241_2013_q2|Prob151_review2015_fsm)$",
-    "filter_instance": "^(Prob011_norgate)$",
-    # "filter_instance": "^(.*)$",
+    # "filter_instance": "^(Prob001_zero|Prob002_m2014_q4i|Prob003_step_one|Prob004_vector2|Prob005_notgate)$",
+    "filter_instance": "^(.*)$",
     "type_benchmark": "verilog_eval_v2",
     "path_benchmark": "./verilog-eval",
-    "run_identifier": "your_run_identifier",
+    "run_identifier": "gpt54_nano_memory_only_full156",
     "n": 1,
     "temperature": 0.85,
     "top_p": 0.95,
     "max_token": 8192,
     "use_golden_tb_in_mage": True,
     "key_cfg_path": "./key.cfg",
+    "rtl_max_candidates": 5,
+    "enable_debug_memory": True,
 }
 
 
@@ -67,6 +68,8 @@ def run_round(args: argparse.Namespace, llm: LLM):
     agent.set_output_path(f"./output_{args.run_identifier}")
     agent.set_log_path(f"./log_{args.run_identifier}")
     agent.set_redirect_log(True)
+    agent.rtl_max_candidates = args.rtl_max_candidates
+    agent.set_enable_debug_memory(args.enable_debug_memory)
     # agent.set_ablation(True)
     record_file = f"./output_{args.run_identifier}/record.json"
     record_json: Dict[str, Dict[str, Any]] = {"record_per_run": {}, "total_record": {}}
@@ -76,6 +79,7 @@ def run_round(args: argparse.Namespace, llm: LLM):
     pass_cnt = 0
     token_sum = TokenCount(in_token_cnt=0, out_token_cnt=0)
     token_limit_cnt = 0
+    total_cost = 0.0
     for i, (task_id, spec) in enumerate(spec_dict.items()):
         start_time = time.monotonic()
         print(f"({i+1:03d}/{len(spec_dict):03d}) Current task: {task_id}")
@@ -110,6 +114,8 @@ def run_round(args: argparse.Namespace, llm: LLM):
                 + run_token_cnt.out_token_cnt
                 * agent.token_counter.token_cost.out_token_cost_per_token
             )
+        else:
+            run_cost = 0.0
         run_token_limit_cnt = agent.token_counter.get_total_token()
         print(f"Current problem token limit consumption: {run_token_limit_cnt}")
         token_limit_cnt += run_token_limit_cnt

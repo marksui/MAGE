@@ -5,10 +5,12 @@ from typing import Any, Dict, List, Tuple
 from llama_index.core.base.llms.types import ChatMessage, ChatResponse, MessageRole
 from pydantic import BaseModel
 
+from .debug_memory import DebugMemory
 from .log_utils import get_logger
 from .prompts import ORDER_PROMPT
 from .sim_reviewer import SimReviewer, check_syntax
 from .token_counter import TokenCounter, TokenCounterCached
+from .utils import reformat_json_string
 
 logger = get_logger(__name__)
 
@@ -44,6 +46,7 @@ The information below is give to help your work:
 <sim_failed_log>
 {sim_failed_log}
 </sim_failed_log>
+{memory_context}
 
 [Hints]:
 For implementing kmap (Karnaugh map), you need to think and solve mismatches step by step.
@@ -104,6 +107,13 @@ EXAMPLE_OUTPUT = {
 }
 
 
+MEMORY_PROMPT = r"""
+<state_checkpoint_memory>
+{memory_summary}
+</state_checkpoint_memory>
+"""
+
+
 class ActionInput(BaseModel):
     command: str
     args: Dict[str, Any]
@@ -128,11 +138,13 @@ class RTLEditor:
         self.is_done = False
         self.last_mismatch_cnt: int | None = None
         self.sim_reviewer = sim_reviewer
+        self.debug_memory: DebugMemory | None = None
 
     def reset(self):
         self.is_done = False
         self.history = []
         self.last_mismatch_cnt: int | None = None
+        self.debug_memory = None
 
     def write_rtl(self, content: str) -> None:
         with open(self.rtl_path, "w") as f:
@@ -314,11 +326,22 @@ class RTLEditor:
         system_prompt = ChatMessage(content=actions_prompt, role=MessageRole.SYSTEM)
         with open(self.tb_path, "r") as f:
             generated_tb = f.read()
+        memory_summary = (
+            self.debug_memory.format_for_prompt()
+            if self.debug_memory is not None
+            else None
+        )
+        memory_context = (
+            MEMORY_PROMPT.format(memory_summary=memory_summary)
+            if memory_summary
+            else ""
+        )
         edit_init_prompt = ChatMessage(
             content=INIT_EDITION_PROMPT.format(
                 input_spec=self.spec,
                 generated_tb=generated_tb,
                 sim_failed_log=self.sim_failed_log,
+                memory_context=memory_context,
             ),
             role=MessageRole.USER,
         )
@@ -333,18 +356,28 @@ class RTLEditor:
     def get_order_prompt_messages(self) -> List[ChatMessage]:
         with open(self.rtl_path, "r") as f:
             rtl_code = f.read()
+        memory_context = (
+            "\n"
+            + MEMORY_PROMPT.format(
+                memory_summary=self.debug_memory.format_for_prompt()
+            )
+            if self.debug_memory is not None
+            else ""
+        )
         return [
             ChatMessage(
                 content=ORDER_PROMPT.format(
                     output_format="".join(json.dumps(EXAMPLE_OUTPUT, indent=4))
                 )
-                + EXTRA_ORDER_PROMPT.format(rtl_code=rtl_code),
+                + EXTRA_ORDER_PROMPT.format(rtl_code=rtl_code)
+                + memory_context,
                 role=MessageRole.USER,
             ),
         ]
 
     def parse_output(self, response: ChatResponse) -> RTLEditorStepOutput:
-        output_json_obj: Dict = json.loads(response.message.content, strict=False)
+        content = reformat_json_string(response.message.content)
+        output_json_obj: Dict = json.loads(content, strict=False)
         action_input = output_json_obj["action_input"]
         command = action_input["command"]
 
@@ -360,6 +393,35 @@ class RTLEditor:
         action_output = action(**action_input.args)
         logger.info(f"Action output: {action_output}")
         return action_output
+
+    def record_action_checkpoint(
+        self,
+        round_index: int,
+        action_input: ActionInput,
+        action_output: Dict[str, Any],
+    ) -> None:
+        if self.debug_memory is None:
+            return
+        try:
+            rtl_code = self.read_rtl()
+        except FileNotFoundError:
+            rtl_code = ""
+        self.debug_memory.add_checkpoint(
+            stage=f"rtl_editor_action_{round_index}",
+            rtl_code=rtl_code,
+            sim_log=str(action_output.get("error_msg", "")),
+            is_syntax_pass=action_output.get("is_syntax_pass"),
+            is_sim_pass=action_output.get("is_sim_pass"),
+            mismatch_count=action_output.get("sim_mismatch_cnt"),
+            action=json.dumps(action_input.model_dump(), indent=2),
+            notes=json.dumps(
+                {
+                    "is_action_executed": action_output.get("is_action_executed"),
+                    "error_msg": str(action_output.get("error_msg", ""))[:500],
+                },
+                indent=2,
+            ),
+        )
 
     def get_action_output_message(self, output: Dict[str, Any]) -> List[ChatMessage]:
         return [
@@ -377,6 +439,7 @@ class RTLEditor:
         output_dir_per_run: str,
         sim_failed_log: str,
         sim_mismatch_cnt: int,
+        debug_memory: DebugMemory | None = None,
     ) -> Tuple[bool, str]:
         # 1. Initialize the history
         # 2. Generate the initial prompt messages (with functool information)
@@ -395,6 +458,7 @@ class RTLEditor:
         self.rtl_path = f"{output_dir_per_run}/rtl.sv"
         self.sim_failed_log = sim_failed_log
         self.last_mismatch_cnt = sim_mismatch_cnt
+        self.debug_memory = debug_memory
 
         self.history.extend(self.get_init_prompt_messages())
         is_pass = False
@@ -411,6 +475,7 @@ class RTLEditor:
             new_contents = [response.message]
             action_input = self.parse_output(response).action_input
             action_output = self.run_action(action_input)
+            self.record_action_checkpoint(i + 1, action_input, action_output)
             if self.is_done:
                 is_pass = True
                 break
