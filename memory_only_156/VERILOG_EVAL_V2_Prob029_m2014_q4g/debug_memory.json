@@ -1,0 +1,89 @@
+{
+  "checkpoint_count": 4,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "c8ba2dde8d64",
+    "tb_digest": "50f9ef798255",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:85: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:86: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:87: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:87: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:97: syntax error\nI give up.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "c8ba2dde8d64",
+      "tb_digest": "50f9ef798255",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:85: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:86: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:87: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:87: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:97: syntax error\nI give up.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "c8ba2dde8d64",
+      "tb_digest": "bca3809ec8d9",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:126: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:126: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 3,
+      "stage": "tb_or_rtl_debug_round_3",
+      "rtl_digest": "c8ba2dde8d64",
+      "tb_digest": "33fd91d055ad",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:85: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:88: Syntax in assignment statement l-value.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:90: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:93: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:94: syntax error\nI give up.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 4,
+      "stage": "tb_or_rtl_debug_round_4",
+      "rtl_digest": "c8ba2dde8d64",
+      "tb_digest": "6a325f42c47b",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 100 samples",
+        "Mismatches: 0 in 100 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob029_m2014_q4g/tb.sv:14: $finish called at 501 (1ps)\nSIMULATION PASSED\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 0 in 100 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

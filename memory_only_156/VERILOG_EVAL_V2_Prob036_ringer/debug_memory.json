@@ -1,0 +1,58 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "7b6d3b505556",
+    "tb_digest": "70d9284d02ac",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:172: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:172: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:183: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:188: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:190: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:195: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:196: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:197: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:198: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:201: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:202: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_P",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "7b6d3b505556",
+      "tb_digest": "70d9284d02ac",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:172: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:172: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:183: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:188: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:190: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:195: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:196: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:197: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:198: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:201: error: invalid module item.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:202: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_P",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "7b6d3b505556",
+      "tb_digest": "4f3e032038bb",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'ringer' has no mismatches.",
+        "Hint: Output 'motor' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 19 samples",
+        "Mismatches: 0 in 19 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob036_ringer/tb.sv:34: $finish called at 97 (1ps)\nHint: Output 'ringer' has no mismatches.\nHint: Output 'motor' has no mismatches.\nHint: Total mismatched samples is 0 out of 19 samples\n\nSimulation finished at 97 ps\nMismatches: 0 in 19 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

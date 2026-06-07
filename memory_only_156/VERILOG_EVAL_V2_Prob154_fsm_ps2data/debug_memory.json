@@ -1,0 +1,81 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "87f30f39792b",
+    "tb_digest": "7057850a31f6",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'out_bytes' has no mismatches.",
+      "Hint: Output 'done' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 1619 samples",
+      "Mismatches: 0 in 1619 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob154_fsm_ps2data/tb.sv:30: $finish called at 8096 (1ps)\nHint: Output 'out_bytes' has no mismatches.\nHint: Output 'done' has no mismatches.\nHint: Total mismatched samples is 0 out of 1619 samples\n\nSimulation finished at 8096 ps\nMismatches: 0 in 1619 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "5c9e929eeabe",
+      "tb_digest": "7057850a31f6",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 756,
+      "first_mismatch_time": 210,
+      "output_mismatches": [
+        {
+          "output_name": "out_bytes",
+          "mismatch_count": 316,
+          "first_mismatch_time": 240
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 676,
+          "first_mismatch_time": 210
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time 210",
+        "Hint: Output 'out_bytes' has 316 mismatches. First mismatch occurred at time 240.",
+        "Hint: Output 'done' has 676 mismatches. First mismatch occurred at time 210.",
+        "Hint: Total mismatched samples is 756 out of 1619 samples",
+        "Mismatches: 756 in 1619 samples",
+        "SIMULATION FAILED - 756 MISMATCHES DETECTED, FIRST AT TIME 210"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time 210\n\nLast 10 cycles of simulation (queue):\nCycle 0: reset=0, in=63 (01100011)\n          DUT  : done=0, out_bytes=e85c2d (111010000101110000101101)\n          GOLD : done=x, out_bytes=xxxxxx (xxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 1: reset=0, in=63 (01100011)\n          DUT  : done=1, out_bytes=e85c2d (111010000101110000101101)\n          GOLD : done=x, out_bytes=xxxxxx (xxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 2: reset=1, in=80 (10000000)\n          DUT  : done=1, out_bytes=e85c2d (111010000101110000101101)\n          GOLD : done=x, out_bytes=xxxxxx (xxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 3: reset=1, in=80 (10000000)\n          DUT  : done=0, out_bytes=000000 (000000000000000000000000)\n          GOLD : done=0, out_bytes=xxxxxx (xxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 4: reset=0, in=aa (10101010)\n          DUT  : done=0, out_bytes=000000 (000000000000000000000000)\n          GOLD : done=0, out_bytes=xxxxxx (xxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 5: reset=0, in=aa (10101010)\n          DUT  : done=0, out_bytes=aa0000 (101010100000000000000000)\n          GOLD : done=0, out_bytes=xxxxxx (xxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 6: reset=0, in=96 (10010110)\n          D",
+      "cost": 756.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "87f30f39792b",
+      "tb_digest": "7057850a31f6",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out_bytes' has no mismatches.",
+        "Hint: Output 'done' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 1619 samples",
+        "Mismatches: 0 in 1619 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob154_fsm_ps2data/tb.sv:30: $finish called at 8096 (1ps)\nHint: Output 'out_bytes' has no mismatches.\nHint: Output 'done' has no mismatches.\nHint: Total mismatched samples is 0 out of 1619 samples\n\nSimulation finished at 8096 ps\nMismatches: 0 in 1619 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

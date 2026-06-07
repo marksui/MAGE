@@ -1,0 +1,49 @@
+{
+  "checkpoint_count": 1,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "7861c2ac492b",
+    "tb_digest": "d9d76b35de39",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "First mismatch detected at time                   30",
+      "Cycle 5: reset=0, y=110 (0x6), w=1, got Y1=0 (0x0), exp Y1=x (0xX)  <-- MISMATCH",
+      "Hint: Output 'Y1' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 100 samples",
+      "Mismatches: 0 in 100 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                   30\nLast 6 cycles of simulation (queue content):\nCycle 0: reset=0, y=xxx (0xX), w=x, got Y1=x (0xX), exp Y1=x (0xX)              \nCycle 1: reset=0, y=010 (0x2), w=0, got Y1=0 (0x0), exp Y1=0 (0x0)              \nCycle 2: reset=0, y=000 (0x0), w=1, got Y1=0 (0x0), exp Y1=0 (0x0)              \nCycle 3: reset=0, y=100 (0x4), w=1, got Y1=1 (0x1), exp Y1=1 (0x1)              \nCycle 4: reset=0, y=001 (0x1), w=1, got Y1=1 (0x1), exp Y1=1 (0x1)              \nCycle 5: reset=0, y=110 (0x6), w=1, got Y1=0 (0x0), exp Y1=x (0xX)  <-- MISMATCH\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob135_m2014_q6b/tb.sv:17: $finish called at 501 (1ps)\nHint: Output 'Y1' has no mismatches.\nHint: Total mismatched samples is 0 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 0 in 100 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "7861c2ac492b",
+      "tb_digest": "d9d76b35de39",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "First mismatch detected at time                   30",
+        "Cycle 5: reset=0, y=110 (0x6), w=1, got Y1=0 (0x0), exp Y1=x (0xX)  <-- MISMATCH",
+        "Hint: Output 'Y1' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 100 samples",
+        "Mismatches: 0 in 100 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                   30\nLast 6 cycles of simulation (queue content):\nCycle 0: reset=0, y=xxx (0xX), w=x, got Y1=x (0xX), exp Y1=x (0xX)              \nCycle 1: reset=0, y=010 (0x2), w=0, got Y1=0 (0x0), exp Y1=0 (0x0)              \nCycle 2: reset=0, y=000 (0x0), w=1, got Y1=0 (0x0), exp Y1=0 (0x0)              \nCycle 3: reset=0, y=100 (0x4), w=1, got Y1=1 (0x1), exp Y1=1 (0x1)              \nCycle 4: reset=0, y=001 (0x1), w=1, got Y1=1 (0x1), exp Y1=1 (0x1)              \nCycle 5: reset=0, y=110 (0x6), w=1, got Y1=0 (0x0), exp Y1=x (0xX)  <-- MISMATCH\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob135_m2014_q6b/tb.sv:17: $finish called at 501 (1ps)\nHint: Output 'Y1' has no mismatches.\nHint: Total mismatched samples is 0 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 0 in 100 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

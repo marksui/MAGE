@@ -1,0 +1,169 @@
+{
+  "checkpoint_count": 6,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "tb_or_rtl_debug_round_2",
+    "rtl_digest": "b7acb111180a",
+    "tb_digest": "2522f19dbb03",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:6:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/rtl.sv:12: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:6\n\n./verilog-eval\\dataset_spec-to-rtl\\Prob131_mt2015_q4_ref.sv:2: error: 'RefModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:30:      : It was declared here as a module.\n./verilog-eval\\dataset_spec-to-rtl\\Prob131_mt2015_q4_ref.sv:10: Module RefModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:30\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "b7acb111180a",
+      "tb_digest": "61f8391b9eb3",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 82,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 82,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch at time 10",
+        "Hint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 82 out of 200 samples",
+        "Mismatches: 82 in 200 samples",
+        "SIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch at time 10\nx=0 y=0 | z_ref=1 z_dut=0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:16: $finish called at 1001 (1ps)\nHint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 82 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 82 in 200 samples\nSIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 82.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "b7acb111180a",
+      "tb_digest": "2522f19dbb03",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:6:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/rtl.sv:12: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:6\n\n./verilog-eval\\dataset_spec-to-rtl\\Prob131_mt2015_q4_ref.sv:2: error: 'RefModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:30:      : It was declared here as a module.\n./verilog-eval\\dataset_spec-to-rtl\\Prob131_mt2015_q4_ref.sv:10: Module RefModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:30\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 3,
+      "stage": "tb_or_rtl_debug_round_3",
+      "rtl_digest": "b7acb111180a",
+      "tb_digest": "f0ed2352b069",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 82,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 82,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - FIRST MISMATCH at time 10 ps",
+        "Hint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 82 out of 200 samples",
+        "Mismatches: 82 in 200 samples",
+        "SIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - FIRST MISMATCH at time 10 ps\nInputs:  x=0 (0x0), y=0 (0x0)\nOutputs: z_dut=0 (0x0), z_ref=1 (0x1)\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:16: $finish called at 1001 (1ps)\nHint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 82 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 82 in 200 samples\nSIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 82.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "b7acb111180a",
+      "tb_digest": "f0ed2352b069",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 82,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 82,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - FIRST MISMATCH at time 10 ps",
+        "Hint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 82 out of 200 samples",
+        "Mismatches: 82 in 200 samples",
+        "SIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - FIRST MISMATCH at time 10 ps\nInputs:  x=0 (0x0), y=0 (0x0)\nOutputs: z_dut=0 (0x0), z_ref=1 (0x1)\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:16: $finish called at 1001 (1ps)\nHint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 82 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 82 in 200 samples\nSIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 82.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "7bde2f79b0e2",
+      "tb_digest": "f0ed2352b069",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 82,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 82,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - FIRST MISMATCH at time 10 ps",
+        "Hint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 82 out of 200 samples",
+        "Mismatches: 82 in 200 samples",
+        "SIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - FIRST MISMATCH at time 10 ps\nInputs:  x=0 (0x0), y=0 (0x0)\nOutputs: z_dut=0 (0x0), z_ref=1 (0x1)\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:16: $finish called at 1001 (1ps)\nHint: Output 'z' has 82 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 82 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 82 in 200 samples\nSIMULATION FAILED - 82 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 82.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "e658c7a2e6c1",
+      "tb_digest": "f0ed2352b069",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob131_mt2015_q4/tb.sv:16: $finish called at 1001 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

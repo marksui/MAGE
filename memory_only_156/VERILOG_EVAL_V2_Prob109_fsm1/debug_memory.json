@@ -1,0 +1,57 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "ce61ba45287e",
+    "tb_digest": "2017d955cc52",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:140: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:140: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:141: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:141: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:142: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:142: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:143: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:143: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:145: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:145: Syntax in assignment statement l-value.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:147: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/t",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "ce61ba45287e",
+      "tb_digest": "2017d955cc52",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:140: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:140: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:141: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:141: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:142: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:142: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:143: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:143: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:145: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:145: Syntax in assignment statement l-value.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:147: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/t",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "ce61ba45287e",
+      "tb_digest": "0f074c1fdd84",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 228 samples",
+        "Mismatches: 0 in 228 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob109_fsm1/tb.sv:67: $finish called at 1141 (1ps)\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 228 samples\n\nSimulation finished at 1141 ps\nMismatches: 0 in 228 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

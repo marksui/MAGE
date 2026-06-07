@@ -1,0 +1,1145 @@
+{
+  "checkpoint_count": 36,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "9b8bc9931d55",
+    "tb_digest": "bf3b317455db",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 532,
+    "first_mismatch_time": 120,
+    "output_mismatches": [
+      {
+        "output_name": "predict_taken",
+        "mismatch_count": 148,
+        "first_mismatch_time": 120
+      },
+      {
+        "output_name": "predict_history",
+        "mismatch_count": 532,
+        "first_mismatch_time": 120
+      }
+    ],
+    "mismatch_lines": [
+      "Mismatch detected at time                  120",
+      "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+      "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+      "Hint: Total mismatched samples is 532 out of 1083 samples",
+      "Mismatches: 532 in 1083 samples",
+      "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+    "cost": 532.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "250e1d3e12da",
+      "tb_digest": "bf3b317455db",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 544,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 115,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 536,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 115 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 536 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 544 out of 1083 samples",
+        "Mismatches: 544 in 1083 samples",
+        "SIMULATION FAILED - 544 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=",
+      "cost": 544.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "9b8bc9931d55",
+      "tb_digest": "bf3b317455db",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2_syntax_failure",
+      "rtl_digest": "2acdcaa5fb3f",
+      "tb_digest": "bf3b317455db",
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Candidate RTL failed syntax check.",
+      "sim_log_excerpt": "",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "b8423fb7387a",
+      "tb_digest": "bf3b317455db",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 543,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 118,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 536,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 118 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 536 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 543 out of 1083 samples",
+        "Mismatches: 543 in 1083 samples",
+        "SIMULATION FAILED - 543 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1",
+      "cost": 543.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "6ef975bb4a5a",
+      "tb_digest": "bf3b317455db",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "bfffb09a71d4",
+      "tb_digest": "bf3b317455db",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 544,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 109,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 529,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 109 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 529 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 544 out of 1083 samples",
+        "Mismatches: 544 in 1083 samples",
+        "SIMULATION FAILED - 544 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1",
+      "cost": 544.0
+    },
+    {
+      "iteration": 7,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "1e30229ea871",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // 7-bit global history register\\n    logic [6:0] ghr;\\n\",\n    \"new_content\": \"    // 7-bit global history register\\n    logic [6:0] ghr;\\n\\n    // Snapshot of GHR used for combinational prediction outputs\\n    // (must reflect the pre-clock-update value for the current cycle)\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                  120\\\\nLast 10 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=1 predict_valid=1 train_valid=1\\\\n  train_taken=1 train_mispredicted=1\\\\n  predict_pc = 4 (bin=0000100)\\\\n  train_pc = 4 (bin=0000100)\\\\n  train_history = 7f (bin=1111111)\\\\n  predict_taken: got=0 exp=0\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = 0 (bin=0000000)\\\\nSample 1:\\\\n  reset=1 predict_valid\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 8,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "307053d02cdb",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Snapshot of GHR used for combinational prediction outputs\\n    // (must reflect the pre-clock-update value for the current cycle)\\n    logic [6:0] ghr_for_pred;\\n\",\n    \"new_content\": \"    // Snapshot of GHR used for prediction outputs in the current cycle.\\n    // Must reflect the pre-clock-update value for predict_* outputs.\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                  120\\\\nLast 10 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=1 predict_valid=1 train_valid=1\\\\n  train_taken=1 train_mispredicted=1\\\\n  predict_pc = 4 (bin=0000100)\\\\n  train_pc = 4 (bin=0000100)\\\\n  train_history = 7f (bin=1111111)\\\\n  predict_taken: got=0 exp=0\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = 0 (bin=0000000)\\\\nSample 1:\\\\n  reset=1 predict_valid\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 9,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "307053d02cdb",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // 128-entry PHT of 2-bit saturating counters\\n    logic [1:0] pht [0:127];\\n\\n    // Prediction index\\n    logic [6:0] idx_pred;\\n    logic [1:0] pht_pred;\\n\",\n    \"new_content\": \"    // 128-entry PHT of 2-bit saturating counters\\n    logic [1:0] pht [0:127];\\n\\n    // Prediction index\\n    logic [6:0] idx_pred;\\n    logic [1:0] pht_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                  120\\\\nLast 10 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=1 predict_valid=1 train_valid=1\\\\n  train_taken=1 train_mispredicted=1\\\\n  predict_pc = 4 (bin=0000100)\\\\n  train_pc = 4 (bin=0000100)\\\\n  train_history = 7f (bin=1111111)\\\\n  predict_taken: got=0 exp=0\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = 0 (bin=0000000)\\\\nSample 1:\\\\n  reset=1 predict_valid\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 10,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "307053d02cdb",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Snapshot of GHR used for prediction outputs in the current cycle.\\n    // Must reflect the pre-clock-update value for predict_* outputs.\\n    logic [6:0] ghr_for_pred;\\n\",\n    \"new_content\": \"    // Snapshot of GHR used for prediction outputs in the current cycle.\\n    // Must reflect the pre-clock-update value for predict_* outputs.\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                  120\\\\nLast 10 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=1 predict_valid=1 train_valid=1\\\\n  train_taken=1 train_mispredicted=1\\\\n  predict_pc = 4 (bin=0000100)\\\\n  train_pc = 4 (bin=0000100)\\\\n  train_history = 7f (bin=1111111)\\\\n  predict_taken: got=0 exp=0\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = 0 (bin=0000000)\\\\nSample 1:\\\\n  reset=1 predict_valid\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 11,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "307053d02cdb",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational: compute prediction index\\n    assign idx_pred = predict_pc ^ ghr;\\n\\n    // Combinational: read PHT entry and drive outputs\\n    assign pht_pred = pht[idx_pred];\\n    assign predict_taken = predict_valid ? pht_pred[1] : 1'b0;\\n    assign predict_history = predict_valid ? ghr : 7'b0;\\n\",\n    \"new_content\": \"    // Combinational: compute prediction index\\n    // Use the pre-clock snapshot of GHR so prediction outputs match the same-cycle reference.\\n    assign idx_pred = predict_pc ^ ghr_for_pred;\\n\\n    // Combinational: read PHT entry and drive outputs\\n    assign pht_pred = pht[idx_pred];\\n    assign predict_taken = predict_valid ? pht_pred[1] : 1'b0;\\n    assign predict_history = predict_valid ? ghr_for_pred : 7'b0;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 12,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "307053d02cdb",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational: compute prediction index\\n    assign idx_pred = predict_pc ^ ghr;\\n\\n    // Combinational: read PHT entry and drive outputs\\n    assign pht_pred = pht[idx_pred];\\n    assign predict_taken = predict_valid ? pht_pred[1] : 1'b0;\\n    assign predict_history = predict_valid ? ghr : 7'b0;\\n\\n    // Predicted next GHR (shift in predicted direction)\\n    assign ghr_next_from_pred = {ghr[5:0], pht_pred[1]};\\n\",\n    \"new_content\": \"    // Combinational: compute prediction index using the pre-clock GHR snapshot\\n    assign idx_pred = predict_pc ^ ghr_for_pred;\\n\\n    // Combinational: read PHT entry and drive outputs\\n    assign pht_pred = pht[idx_pred];\\n    assign predict_taken = predict_valid ? pht_pred[1] : 1'b0;\\n    assign predict_history = predict_valid ? ghr_for_pred : 7'b0;\\n\\n    // Predicted next GHR (shift in predicted direction) based on current architectural GHR\\n    assign ghr_next_from_pred = {ghr[5:0], pht_pred[1]};\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 13,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "2788da23f7f8",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Snapshot of GHR used for prediction outputs in the current cycle.\\n    // Must reflect the pre-clock-update value for predict_* outputs.\\n    logic [6:0] ghr_for_pred;\\n\",\n    \"new_content\": \"    // Snapshot of GHR used for prediction outputs in the current cycle.\\n    // Must reflect the pre-clock-update value for predict_* outputs.\\n    // Initialized on reset to avoid X during early cycles.\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                  120\\\\nLast 10 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=1 predict_valid=1 train_valid=1\\\\n  train_taken=1 train_mispredicted=1\\\\n  predict_pc = 4 (bin=0000100)\\\\n  train_pc = 4 (bin=0000100)\\\\n  train_history = 7f (bin=1111111)\\\\n  predict_taken: got=0 exp=0\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = 0 (bin=0000000)\\\\nSample 1:\\\\n  reset=1 predict_valid\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 14,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "2788da23f7f8",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.\\nHint: Output 'predict_history' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational: read PHT entry and drive outputs\\n    assign pht_pred = pht[idx_pred];\\n    assign predict_taken = predict_valid ? pht_pred[1] : 1'b0;\\n    assign predict_history = predict_valid ? ghr : 7'b0;\\n\",\n    \"new_content\": \"    // Combinational: read PHT entry and drive outputs\\n    assign pht_pred = pht[idx_pred];\\n    assign predict_taken = predict_valid ? pht_pred[1] : 1'b0;\\n    assign predict_history = predict_valid ? ghr_for_pred : 7'b0;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 15,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "2788da23f7f8",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 571,
+          "first_mismatch_time": 110
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 571 mismatches. First mismatch occurred at time 110.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational: compute prediction index\\n    assign idx_pred = predict_pc ^ ghr;\\n\",\n    \"new_content\": \"    // Combinational: compute prediction index\\n    // Must use the same history value that is reported on predict_history.\\n    assign idx_pred = predict_pc ^ ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  t",
+      "cost": 610.0
+    },
+    {
+      "iteration": 16,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "2788da23f7f8",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 571,
+          "first_mismatch_time": 110
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 571 mismatches. First mismatch occurred at time 110.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational: compute prediction index\\n    assign idx_pred = predict_pc ^ ghr;\\n\",\n    \"new_content\": \"    // Combinational: compute prediction index\\n    // Must use the same history value that is reported on predict_history (pre-clock-update snapshot).\\n    assign idx_pred = predict_pc ^ ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  t",
+      "cost": 610.0
+    },
+    {
+      "iteration": 17,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "16945ee76196",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        if (areset) begin\\n            ghr <= 7'b0;\",\n    \"new_content\": \"        if (areset) begin\\n            ghr <= 7'b0;\\n            ghr_for_pred <= 7'b0;\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                  120\\\\nLast 10 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=1 predict_valid=1 train_valid=1\\\\n  train_taken=1 train_mispredicted=1\\\\n  predict_pc = 4 (bin=0000100)\\\\n  train_pc = 4 (bin=0000100)\\\\n  train_history = 7f (bin=1111111)\\\\n  predict_taken: got=0 exp=0\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = 0 (bin=0000000)\\\\nSample 1:\\\\n  reset=1 predict_valid\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 18,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "16945ee76196",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 560,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 143,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 544,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   30\\nLast 6 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nSample 4:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nSample 5:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=1\\n  predict_history_got = 7f (bin=1111111)\\n  predict_history_exp = 7f (bin=1111111)\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 143 mismatches. First mismatch occurred at time 30.\\nHint: Output 'predict_history' has 544 mismatches. First mismatch occurred at time 120.\\nHint: Total mismatched samples is 560 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 560 in 1083 samples\\nSIMULATION FAILED - 560 MISMATCHES DETECTED, FIRST AT TIME 30\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    assign idx_pred = predict_pc ^ ghr;\\n\",\n    \"new_content\": \"    assign idx_pred = predict_pc ^ ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   30\\nLast 6 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  t",
+      "cost": 560.0
+    },
+    {
+      "iteration": 19,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "d07faf95646a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 532,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 148,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 532,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Hint: Output 'predict_taken' has 148 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'predict_history' has 532 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 532 out of 1083 samples",
+        "Mismatches: 532 in 1083 samples",
+        "SIMULATION FAILED - 532 MISMATCHES DETECTED, FIRST AT TIME 120"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        end else begin\\n            // Training has precedence over prediction update\\n\",\n    \"new_content\": \"        end else begin\\n            // Snapshot history for prediction outputs (pre-clock value)\\n            ghr_for_pred <= ghr;\\n\\n            // Training has precedence over prediction update\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                  120\\\\nLast 10 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=1 predict_valid=1 train_valid=1\\\\n  train_taken=1 train_mispredicted=1\\\\n  predict_pc = 4 (bin=0000100)\\\\n  train_pc = 4 (bin=0000100)\\\\n  train_history = 7f (bin=1111111)\\\\n  predict_taken: got=0 exp=0\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = 0 (bin=0000000)\\\\nSample 1:\\\\n  reset=1 predict_valid\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                  120\nLast 10 samples of simulation (most recent last):\nSample 0:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 1:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 2:\n  reset=1 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n  predict_taken: got=0 exp=0\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = 0 (bin=0000000)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1111111)\n",
+      "cost": 532.0
+    },
+    {
+      "iteration": 20,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "d07faf95646a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 547,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 170,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 538,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   30\\nLast 6 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nSample 4:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nSample 5:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=1\\n  predict_history_got = 7f (bin=1111111)\\n  predict_history_exp = 7f (bin=1111111)\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 170 mismatches. First mismatch occurred at time 30.\\nHint: Output 'predict_history' has 538 mismatches. First mismatch occurred at time 120.\\nHint: Total mismatched samples is 547 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 547 in 1083 samples\\nSIMULATION FAILED - 547 MISMATCHES DETECTED, FIRST AT TIME 30\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational: compute prediction index\\n    assign idx_pred = predict_pc ^ ghr;\\n\",\n    \"new_content\": \"    // Combinational: compute prediction index\\n    // Must use the same history value that is reported on predict_history\\n    // for this cycle (pre-clock value captured in ghr_for_pred)\\n    assign idx_pred = predict_pc ^ ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   30\\nLast 6 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  t",
+      "cost": 547.0
+    },
+    {
+      "iteration": 21,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "d07faf95646a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 547,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 170,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 538,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   30\\nLast 6 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nSample 4:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nSample 5:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=1\\n  predict_history_got = 7f (bin=1111111)\\n  predict_history_exp = 7f (bin=1111111)\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 170 mismatches. First mismatch occurred at time 30.\\nHint: Output 'predict_history' has 538 mismatches. First mismatch occurred at time 120.\\nHint: Total mismatched samples is 547 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 547 in 1083 samples\\nSIMULATION FAILED - 547 MISMATCHES DETECTED, FIRST AT TIME 30\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    assign idx_pred = predict_pc ^ ghr;\\n\",\n    \"new_content\": \"    assign idx_pred = predict_pc ^ ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   30\\nLast 6 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  t",
+      "cost": 547.0
+    },
+    {
+      "iteration": 22,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "dd0170a69b9e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 543,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 118,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 536,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 118 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 536 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 543 out of 1083 samples",
+        "Mismatches: 543 in 1083 samples",
+        "SIMULATION FAILED - 543 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // 7-bit global history register\\n    logic [6:0] ghr;\\n\",\n    \"new_content\": \"    // 7-bit global history register\\n    logic [6:0] ghr;\\n    // Snapshot of ghr used for prediction outputs in the current cycle\\n    // (prediction outputs must use the pre-clock ghr state)\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=0 exp=x\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_val\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1",
+      "cost": 543.0
+    },
+    {
+      "iteration": 23,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "dd0170a69b9e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    always_ff @(posedge clk or posedge areset) begin\\n        if (areset) begin\\n            ghr <= 7'b0;\\n            ghr_for_pred <= 7'b0;\\n        end else begin\\n            // PHT update at next posedge when training is requested\\n            if (train_valid) begin\\n                pht[index_train] <= sat_update(pht[index_train], train_taken);\\n            end\\n\\n            // GHR update: training takes precedence over prediction update\\n            if (train_valid) begin\\n                // Recover GHR to state immediately after the mispredicted branch completes.\\n                // Using the standard next-GHR formula with the provided train_history and actual outcome.\\n                ghr <= {train_history[5:0], train_taken};\\n            end else if (predict_valid) begin\\n                // Update GHR with the predicted outcome used for prediction\\n                ghr <= {ghr[5:0], predict_taken_pred};\\n            end\\n        end\\n    end\\n\",\n    \"new_content\": \"    always_ff @(posedge clk or posedge areset) begin\\n        if (areset) begin\\n            ghr <= 7'b0;\\n            ghr_for_pred <= 7'b0;\\n        end else begin\\n            // Snapshot pre-clock ghr for combinational prediction outputs\\n            ghr_for_pred <= ghr;\\n\\n            // PHT update at next posedge when training is requested\\n            if (train_valid) begin\\n                pht[index_train] <= sat_update(pht[index_train], train_taken);\\n            end\\n\\n            // GHR update: training takes precedence over prediction update\\n            if (train_valid) begin\\n                // Recover GHR to state immediately after the mispredicted branch completes.\\n                // Using the standard next-GHR formula with the provided train_history and actual outcome.\\n                ghr <= {train_history[5:0], train_taken};\\n            end else if (predict_valid) begin\\n                // Update GHR with the predicted outcome used for prediction\\n                ghr <= {ghr[5:0], predict_taken_pred};\\n            end\\n        end\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Cannot find old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 24,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "dd0170a69b9e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 571,
+          "first_mismatch_time": 110
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=0 exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=0 exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=0 exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 571 mismatches. First mismatch occurred at time 110.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr;\\n    assign counter_pred = pht[index_pred];\\n\",\n    \"new_content\": \"    // gshare indexing: XOR of PC and global history\\n    // Prediction must use the pre-clock ghr snapshot captured into ghr_for_pred\\n    assign index_pred   = predict_pc ^ ghr_for_pred;\\n    assign counter_pred = pht[index_pred];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=0 exp=x\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_val\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=0 exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=0 exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=0 exp=x\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  tr",
+      "cost": 610.0
+    },
+    {
+      "iteration": 25,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "b517e28cfcfe",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 543,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 118,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 536,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 118 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 536 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 543 out of 1083 samples",
+        "Mismatches: 543 in 1083 samples",
+        "SIMULATION FAILED - 543 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // 7-bit global history register\\n    logic [6:0] ghr;\\n    // Snapshot of ghr used for prediction outputs in the current cycle\\n    // (prediction outputs must use the pre-clock ghr state)\\n    logic [6:0] ghr_for_pred;\\n\",\n    \"new_content\": \"    // 7-bit global history register (state)\\n    logic [6:0] ghr;\\n    // Snapshot of ghr used for prediction outputs in the current cycle\\n    // (prediction outputs must use the pre-clock ghr state)\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=0 exp=x\\\\n  predict_history_got = 0 (bin=0000000)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_val\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=0 exp=x\n  predict_history_got = 0 (bin=0000000)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bin=1",
+      "cost": 543.0
+    },
+    {
+      "iteration": 26,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "b517e28cfcfe",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 118,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=0 exp=0\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 118 mismatches. First mismatch occurred at time 30.\\nHint: Output 'predict_history' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational prediction outputs\\n    always @(*) begin\\n        if (predict_valid) begin\\n            predict_taken   = counter_pred[1]; // MSB indicates taken\\n            predict_history = ghr;\\n        end else begin\\n            predict_taken   = 1'b0;\\n            predict_history = ghr;\\n        end\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\",\n    \"new_content\": \"    // Combinational prediction outputs\\n    always @(*) begin\\n        // When predict_valid is X, reference keeps outputs as X.\\n        // Propagate X instead of forcing deterministic values.\\n        unique case (predict_valid)\\n            1'b1: begin\\n                predict_taken   = counter_pred[1];\\n                predict_history = ghr_for_pred;\\n            end\\n            1'b0: begin\\n                predict_taken   = 1'b0;\\n                predict_history = ghr_for_pred;\\n            end\\n            default: begin\\n                predict_taken   = 1'bx;\\n                predict_history = 7'bx;\\n            end\\n        endcase\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 27,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "b517e28cfcfe",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr;\\n    assign counter_pred = pht[index_pred];\\n\\n    // Combinational prediction outputs\\n    always @(*) begin\\n        if (predict_valid) begin\\n            predict_taken   = counter_pred[1]; // MSB indicates taken\\n            predict_history = ghr;\\n        end else begin\\n            predict_taken   = 1'b0;\\n            predict_history = ghr;\\n        end\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\",\n    \"new_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr_for_pred;\\n    assign counter_pred = pht[index_pred];\\n\\n    // Combinational prediction outputs\\n    // Match reference X-behavior: when predict_valid is X, outputs should be X.\\n    always @(*) begin\\n        unique case (predict_valid)\\n            1'b1: begin\\n                predict_taken   = counter_pred[1];\\n                predict_history = ghr_for_pred;\\n            end\\n            1'b0: begin\\n                predict_taken   = 1'b0;\\n                predict_history = ghr_for_pred;\\n            end\\n            default: begin\\n                predict_taken   = 1'bx;\\n                predict_history = 7'bx;\\n            end\\n        endcase\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 28,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "b517e28cfcfe",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr;\\n    assign counter_pred = pht[index_pred];\\n\\n    // Combinational prediction outputs\\n    always @(*) begin\\n        if (predict_valid) begin\\n            predict_taken   = counter_pred[1]; // MSB indicates taken\\n            predict_history = ghr;\\n        end else begin\\n            predict_taken   = 1'b0;\\n            predict_history = ghr;\\n        end\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\",\n    \"new_content\": \"    // gshare indexing: XOR of PC and global history\\n    // IMPORTANT: use ghr_for_pred snapshot (pre-clock ghr) for prediction outputs\\n    assign index_pred   = predict_pc ^ ghr_for_pred;\\n    assign counter_pred = pht[index_pred];\\n\\n    // Combinational prediction outputs\\n    always @(*) begin\\n        // Match reference X-behavior: when predict_valid is X, keep outputs X\\n        unique case (predict_valid)\\n            1'b1: begin\\n                predict_taken   = counter_pred[1]; // MSB indicates taken\\n                predict_history = ghr_for_pred;\\n            end\\n            1'b0: begin\\n                predict_taken   = 1'b0;\\n                predict_history = ghr_for_pred;\\n            end\\n            default: begin\\n                predict_taken   = 1'bx;\\n                predict_history = 7'bx;\\n            end\\n        endcase\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 29,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "b517e28cfcfe",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr;\\n    assign counter_pred = pht[index_pred];\\n\\n    // Combinational prediction outputs\\n    always @(*) begin\\n        if (predict_valid) begin\\n            predict_taken   = counter_pred[1]; // MSB indicates taken\\n            predict_history = ghr;\\n        end else begin\\n            predict_taken   = 1'b0;\\n            predict_history = ghr;\\n        end\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\",\n    \"new_content\": \"    // gshare indexing: XOR of PC and global history\\n    // Use ghr_for_pred snapshot for prediction outputs timing correctness\\n    assign index_pred   = predict_pc ^ ghr_for_pred;\\n    assign counter_pred = pht[index_pred];\\n\\n    // Combinational prediction outputs\\n    always @(*) begin\\n        // Match reference behavior: when predict_valid is X, keep outputs X\\n        unique case (predict_valid)\\n            1'b1: begin\\n                predict_taken   = counter_pred[1]; // MSB indicates taken\\n                predict_history = ghr_for_pred;\\n            end\\n            1'b0: begin\\n                predict_taken   = 1'b0;\\n                predict_history = ghr_for_pred;\\n            end\\n            default: begin\\n                predict_taken   = 1'bx;\\n                predict_history = 7'bx;\\n            end\\n        endcase\\n    end\\n\\n    assign predict_taken_pred = counter_pred[1];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 30,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "0cdf83273ceb",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 543,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 118,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 536,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 118 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 536 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 543 out of 1083 samples",
+        "Mismatches: 543 in 1083 samples",
+        "SIMULATION FAILED - 543 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational prediction outputs\\n    always @(*) begin\\n        if (predict_valid) begin\\n            predict_taken   = counter_pred[1]; // MSB indicates taken\\n            predict_history = ghr;\\n        end else begin\\n            predict_taken   = 1'b0;\\n            predict_history = ghr;\\n        end\\n    end\\n\",\n    \"new_content\": \"    // Combinational prediction outputs\\n    // Match reference X-behavior:\\n    //  - predict_valid==1 : use PHT and report current ghr\\n    //  - predict_valid==0 : predict_taken=0, but predict_history still equals current ghr\\n    //  - predict_valid==X : keep outputs X\\n    always @(*) begin\\n        case (predict_valid)\\n            1'b1: begin\\n                predict_taken   = counter_pred[1];\\n                predict_history = ghr;\\n            end\\n            1'b0: begin\\n                predict_taken   = 1'b0;\\n                predict_history = ghr;\\n            end\\n            default: begin\\n                predict_taken   = 1'bx;\\n                predict_history = 7'bx;\\n            end\\n        endcase\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bi",
+      "cost": 543.0
+    },
+    {
+      "iteration": 31,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "d7dc23365f7c",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 543,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 118,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 536,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 118 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 536 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 543 out of 1083 samples",
+        "Mismatches: 543 in 1083 samples",
+        "SIMULATION FAILED - 543 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // 7-bit global history register (state)\\n    logic [6:0] ghr;\\n    // Snapshot of ghr used for prediction outputs in the current cycle\\n    // (prediction outputs must use the pre-clock ghr state)\\n    logic [6:0] ghr_for_pred;\\n\",\n    \"new_content\": \"    // 7-bit global history register (state)\\n    logic [6:0] ghr;\\n    // Snapshot of ghr used for prediction outputs and indexing.\\n    // Updated on posedge to reflect the pre-update ghr value for that cycle.\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bi",
+      "cost": 543.0
+    },
+    {
+      "iteration": 32,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "d7dc23365f7c",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 571,
+          "first_mismatch_time": 110
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 571 mismatches. First mismatch occurred at time 110.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr;\\n    assign counter_pred = pht[index_pred];\\n\",\n    \"new_content\": \"    // gshare indexing: XOR of PC and global history\\n    // Use the snapshot value so prediction outputs correspond to the ghr state observed in this cycle.\\n    assign index_pred   = predict_pc ^ ghr_for_pred;\\n    assign counter_pred = pht[index_pred];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 33,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "d7dc23365f7c",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // gshare indexing: XOR of PC and global history\\n    // Use the snapshot value so prediction outputs correspond to the ghr state observed in this cycle.\\n    assign index_pred   = predict_pc ^ ghr_for_pred;\\n    assign counter_pred = pht[index_pred];\\n\",\n    \"new_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr;\\n    assign counter_pred = pht[index_pred];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Cannot find old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 34,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "d7dc23365f7c",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 571,
+          "first_mismatch_time": 110
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 571 mismatches. First mismatch occurred at time 110.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    assign index_pred   = predict_pc ^ ghr;\\n\",\n    \"new_content\": \"    assign index_pred   = predict_pc ^ ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 35,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "d7dc23365f7c",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 610,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 610,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 571,
+          "first_mismatch_time": 110
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n  train_pc = 4 (bin=0000100)\\n  train_history = 7f (bin=1111111)\\n  predict_taken: got=x exp=0\\n  predict_history_got = 0 (bin=0000000)\\n  predict_history_exp = 0 (bin=0000000)\\nHint: Your reset doesn't seem to be working.\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob153_gshare/tb.sv:159: $finish called at 5416 (1ps)\\nHint: Output 'predict_taken' has 610 mismatches. First mismatch occurred at time 20.\\nHint: Output 'predict_history' has 571 mismatches. First mismatch occurred at time 110.\\nHint: Total mismatched samples is 610 out of 1083 samples\\n\\nSimulation finished at 5416 ps\\nMismatches: 610 in 1083 samples\\nSIMULATION FAILED - 610 MISMATCHES DETECTED, FIRST AT TIME 20\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // gshare indexing: XOR of PC and global history\\n    assign index_pred   = predict_pc ^ ghr;\\n    assign counter_pred = pht[index_pred];\\n\",\n    \"new_content\": \"    // gshare indexing: XOR of PC and global history\\n    // Use ghr_for_pred so prediction observes pre-clock ghr value in this cycle\\n    assign index_pred   = predict_pc ^ ghr_for_pred;\\n    assign counter_pred = pht[index_pred];\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   20\\\\nLast 4 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nMismatch detected at time                   20\\nLast 4 samples of simulation (most recent last):\\nSample 0:\\n  reset=x predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 1:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 2:\\n  reset=1 predict_valid=x train_valid=x\\n  train_taken=x train_mispredicted=x\\n  predict_pc = xx (bin=xxxxxxx)\\n  train_pc = xx (bin=xxxxxxx)\\n  train_history = xx (bin=xxxxxxx)\\n  predict_taken: got=x exp=x\\n  predict_history_got = xx (bin=xxxxxxx)\\n  predict_history_exp = xx (bin=xxxxxxx)\\nSample 3:\\n  reset=0 predict_valid=1 train_valid=1\\n  train_taken=1 train_mispredicted=1\\n  predict_pc = 4 (bin=0000100)\\n ",
+      "cost": 610.0
+    },
+    {
+      "iteration": 36,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "d7dc23365f7c",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 543,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "predict_taken",
+          "mismatch_count": 118,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "predict_history",
+          "mismatch_count": 536,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Hint: Output 'predict_taken' has 118 mismatches. First mismatch occurred at time 30.",
+        "Hint: Output 'predict_history' has 536 mismatches. First mismatch occurred at time 120.",
+        "Hint: Total mismatched samples is 543 out of 1083 samples",
+        "Mismatches: 543 in 1083 samples",
+        "SIMULATION FAILED - 543 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Snapshot of ghr used for prediction outputs and indexing.\\n    // Updated on posedge to reflect the pre-update ghr value for that cycle.\\n    logic [6:0] ghr_for_pred;\\n\",\n    \"new_content\": \"    // Snapshot of ghr used for prediction outputs and indexing.\\n    // Updated on posedge to reflect the pre-update ghr value for that cycle.\\n    logic [6:0] ghr_for_pred;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\n\\\\nMismatch detected at time                   30\\\\nLast 6 samples of simulation (most recent last):\\\\nSample 0:\\\\n  reset=x predict_valid=x train_valid=x\\\\n  train_taken=x train_mispredicted=x\\\\n  predict_pc = xx (bin=xxxxxxx)\\\\n  train_pc = xx (bin=xxxxxxx)\\\\n  train_history = xx (bin=xxxxxxx)\\\\n  predict_taken: got=x exp=x\\\\n  predict_history_got = xx (bin=xxxxxxx)\\\\n  predict_history_exp = xx (bin=xxxxxxx)\\\\nSample 1:\\\\n  reset=1 predict_va\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nMismatch detected at time                   30\nLast 6 samples of simulation (most recent last):\nSample 0:\n  reset=x predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 1:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 2:\n  reset=1 predict_valid=x train_valid=x\n  train_taken=x train_mispredicted=x\n  predict_pc = xx (bin=xxxxxxx)\n  train_pc = xx (bin=xxxxxxx)\n  train_history = xx (bin=xxxxxxx)\n  predict_taken: got=x exp=x\n  predict_history_got = xx (bin=xxxxxxx)\n  predict_history_exp = xx (bin=xxxxxxx)\nSample 3:\n  reset=0 predict_valid=1 train_valid=1\n  train_taken=1 train_mispredicted=1\n  predict_pc = 4 (bin=0000100)\n  train_pc = 4 (bin=0000100)\n  train_history = 7f (bi",
+      "cost": 543.0
+    }
+  ]
+}

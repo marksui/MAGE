@@ -1,0 +1,76 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "c9fadf3d5dd2",
+    "tb_digest": "7b84110851b4",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'g' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 1054 samples",
+      "Mismatches: 0 in 1054 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob148_2013_q2afsm/tb.sv:92: $finish called at 5271 (1ps)\nHint: Output 'g' has no mismatches.\nHint: Total mismatched samples is 0 out of 1054 samples\n\nSimulation finished at 5271 ps\nMismatches: 0 in 1054 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "8fba12dc3197",
+      "tb_digest": "7b84110851b4",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 268,
+      "first_mismatch_time": 140,
+      "output_mismatches": [
+        {
+          "output_name": "g",
+          "mismatch_count": 268,
+          "first_mismatch_time": 140
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH DETECTED at time 140",
+        "Cycle 0, time 95, resetn=1, r=000, got g=000, exp g=000",
+        "Cycle 1, time 100, resetn=1, r=111, got g=000, exp g=000",
+        "Cycle 2, time 105, resetn=1, r=111, got g=000, exp g=000",
+        "Cycle 3, time 110, resetn=1, r=111, got g=001, exp g=001",
+        "Cycle 4, time 115, resetn=1, r=111, got g=001, exp g=001",
+        "Cycle 5, time 120, resetn=1, r=111, got g=001, exp g=001",
+        "Cycle 6, time 125, resetn=1, r=111, got g=001, exp g=001"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFIRST MISMATCH DETECTED at time 140\nCurrent sampled values:\n  resetn=1 r=110 got g=010 exp g=000\n\nLast 10 cycles of simulation:\n  Cycle 0, time 95, resetn=1, r=000, got g=000, exp g=000\n    got g: 000 (0x0), exp g: 000 (0x0)\n  Cycle 1, time 100, resetn=1, r=111, got g=000, exp g=000\n    got g: 000 (0x0), exp g: 000 (0x0)\n  Cycle 2, time 105, resetn=1, r=111, got g=000, exp g=000\n    got g: 000 (0x0), exp g: 000 (0x0)\n  Cycle 3, time 110, resetn=1, r=111, got g=001, exp g=001\n    got g: 001 (0x1), exp g: 001 (0x1)\n  Cycle 4, time 115, resetn=1, r=111, got g=001, exp g=001\n    got g: 001 (0x1), exp g: 001 (0x1)\n  Cycle 5, time 120, resetn=1, r=111, got g=001, exp g=001\n    got g: 001 (0x1), exp g: 001 (0x1)\n  Cycle 6, time 125, resetn=1, r=111, got g=001, exp g=001\n    got g: 001 (0x1), exp g: 001 (0x1)\n  Cycle 7, time 130, resetn=1, r=110, got g=001, exp g=001\n    got g: 001 (0x1), exp g: 001 (0x1)\n  Cycle 8, time 135, resetn=1, r=110, got g=001, exp g=001\n    got g: 001 (0x1), exp g: 001 (0x1)\n  Cycle 9, time 140, resetn=1, r=110, got g=010, exp g=000\n    got g: 010 (0x2), exp g: 000 (0x0)\n./output_gpt54_nano_memory_only_full156_0/VER",
+      "cost": 268.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "c9fadf3d5dd2",
+      "tb_digest": "7b84110851b4",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'g' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 1054 samples",
+        "Mismatches: 0 in 1054 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob148_2013_q2afsm/tb.sv:92: $finish called at 5271 (1ps)\nHint: Output 'g' has no mismatches.\nHint: Total mismatched samples is 0 out of 1054 samples\n\nSimulation finished at 5271 ps\nMismatches: 0 in 1054 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

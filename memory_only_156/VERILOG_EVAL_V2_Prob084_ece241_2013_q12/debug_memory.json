@@ -1,0 +1,45 @@
+{
+  "checkpoint_count": 1,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "b673c7eabc98",
+    "tb_digest": "198b8e3e3efa",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'Z' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 532 samples",
+      "Mismatches: 0 in 532 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob084_ece241_2013_q12/tb.sv:55: $finish called at 2660 (1ps)\nHint: Output 'Z' has no mismatches.\nHint: Total mismatched samples is 0 out of 532 samples\n\nSimulation finished at 2660 ps\nMismatches: 0 in 532 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "b673c7eabc98",
+      "tb_digest": "198b8e3e3efa",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'Z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 532 samples",
+        "Mismatches: 0 in 532 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob084_ece241_2013_q12/tb.sv:55: $finish called at 2660 (1ps)\nHint: Output 'Z' has no mismatches.\nHint: Total mismatched samples is 0 out of 532 samples\n\nSimulation finished at 2660 ps\nMismatches: 0 in 532 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

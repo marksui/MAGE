@@ -1,0 +1,47 @@
+{
+  "checkpoint_count": 1,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "02840915e0a0",
+    "tb_digest": "07e5be58b082",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'cout' has no mismatches.",
+      "Hint: Output 'sum' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 214 samples",
+      "Mismatches: 0 in 214 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before existing routing decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob027_fadd/tb.sv:38: $finish called at 1070 (1ps)\nHint: Output 'cout' has no mismatches.\nHint: Output 'sum' has no mismatches.\nHint: Total mismatched samples is 0 out of 214 samples\n\nSimulation finished at 1070 ps\nMismatches: 0 in 214 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "02840915e0a0",
+      "tb_digest": "07e5be58b082",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'cout' has no mismatches.",
+        "Hint: Output 'sum' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 214 samples",
+        "Mismatches: 0 in 214 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob027_fadd/tb.sv:38: $finish called at 1070 (1ps)\nHint: Output 'cout' has no mismatches.\nHint: Output 'sum' has no mismatches.\nHint: Total mismatched samples is 0 out of 214 samples\n\nSimulation finished at 1070 ps\nMismatches: 0 in 214 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

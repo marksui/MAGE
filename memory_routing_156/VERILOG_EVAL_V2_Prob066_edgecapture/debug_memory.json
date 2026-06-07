@@ -1,0 +1,185 @@
+{
+  "checkpoint_count": 6,
+  "best_checkpoint": {
+    "iteration": 6,
+    "stage": "rtl_candidate_5",
+    "rtl_digest": "55c0c74d29ee",
+    "tb_digest": "77916cb24b12",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'out' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 266 samples",
+      "Mismatches: 0 in 266 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob066_edgecapture/tb.sv:84: $finish called at 1330 (1ps)\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 266 samples\n\nSimulation finished at 1330 ps\nMismatches: 0 in 266 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "fe366c0923b1",
+      "tb_digest": "77916cb24b12",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 91,
+      "first_mismatch_time": 140,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 91,
+          "first_mismatch_time": 140
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  140",
+        "Hint: Output 'out' has 91 mismatches. First mismatch occurred at time 140.",
+        "Hint: Total mismatched samples is 91 out of 266 samples",
+        "Mismatches: 91 in 266 samples",
+        "SIMULATION FAILED - 91 MISMATCHES DETECTED, FIRST AT TIME 140"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                  140\nQueue (most recent 10 entries up to MAX_QUEUE_SIZE=10):\nCycle 0: reset=0 match=1 | in=0x00000000 (00000000000000000000000000000000) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 1: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 2: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 3: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 4: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 5: reset=1 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x00000000 (000000",
+      "cost": 91.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "19893ae943a0",
+      "tb_digest": "77916cb24b12",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 4,
+      "first_mismatch_time": 100,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 4,
+          "first_mismatch_time": 100
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  100",
+        "Hint: Output 'out' has 4 mismatches. First mismatch occurred at time 100.",
+        "Hint: Total mismatched samples is 4 out of 266 samples",
+        "Mismatches: 4 in 266 samples",
+        "SIMULATION FAILED - 4 MISMATCHES DETECTED, FIRST AT TIME 100"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                  100\nQueue (most recent 10 entries up to MAX_QUEUE_SIZE=10):\nCycle 0: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 1: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 2: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 3: reset=0 match=1 | in=0x0000000e (00000000000000000000000000001110) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 4: reset=0 match=1 | in=0x0000000e (00000000000000000000000000001110) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 5: reset=0 match=1 | in=0x0000000e (00000000000000000000000000001110) | got out=0x00000000 (000000",
+      "cost": 4.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "63fc0bc4627f",
+      "tb_digest": "77916cb24b12",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 91,
+      "first_mismatch_time": 140,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 91,
+          "first_mismatch_time": 140
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  140",
+        "Hint: Output 'out' has 91 mismatches. First mismatch occurred at time 140.",
+        "Hint: Total mismatched samples is 91 out of 266 samples",
+        "Mismatches: 91 in 266 samples",
+        "SIMULATION FAILED - 91 MISMATCHES DETECTED, FIRST AT TIME 140"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                  140\nQueue (most recent 10 entries up to MAX_QUEUE_SIZE=10):\nCycle 0: reset=0 match=1 | in=0x00000000 (00000000000000000000000000000000) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 1: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 2: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 3: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 4: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 5: reset=1 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x00000000 (000000",
+      "cost": 91.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "d52daddbe567",
+      "tb_digest": "77916cb24b12",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 91,
+      "first_mismatch_time": 140,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 91,
+          "first_mismatch_time": 140
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  140",
+        "Hint: Output 'out' has 91 mismatches. First mismatch occurred at time 140.",
+        "Hint: Total mismatched samples is 91 out of 266 samples",
+        "Mismatches: 91 in 266 samples",
+        "SIMULATION FAILED - 91 MISMATCHES DETECTED, FIRST AT TIME 140"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                  140\nQueue (most recent 10 entries up to MAX_QUEUE_SIZE=10):\nCycle 0: reset=0 match=1 | in=0x00000000 (00000000000000000000000000000000) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 1: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 2: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 3: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 4: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 5: reset=1 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x00000000 (000000",
+      "cost": 91.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "352fb7765fec",
+      "tb_digest": "77916cb24b12",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 91,
+      "first_mismatch_time": 140,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 91,
+          "first_mismatch_time": 140
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  140",
+        "Hint: Output 'out' has 91 mismatches. First mismatch occurred at time 140.",
+        "Hint: Total mismatched samples is 91 out of 266 samples",
+        "Mismatches: 91 in 266 samples",
+        "SIMULATION FAILED - 91 MISMATCHES DETECTED, FIRST AT TIME 140"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                  140\nQueue (most recent 10 entries up to MAX_QUEUE_SIZE=10):\nCycle 0: reset=0 match=1 | in=0x00000000 (00000000000000000000000000000000) | got out=0x00000000 (00000000000000000000000000000000) | exp out=0x00000000 (00000000000000000000000000000000)\nCycle 1: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 2: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 3: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 4: reset=0 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x0000000c (00000000000000000000000000001100) | exp out=0x0000000c (00000000000000000000000000001100)\nCycle 5: reset=1 match=1 | in=0x00000002 (00000000000000000000000000000010) | got out=0x00000000 (000000",
+      "cost": 91.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "55c0c74d29ee",
+      "tb_digest": "77916cb24b12",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 266 samples",
+        "Mismatches: 0 in 266 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob066_edgecapture/tb.sv:84: $finish called at 1330 (1ps)\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 266 samples\n\nSimulation finished at 1330 ps\nMismatches: 0 in 266 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

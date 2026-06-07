@@ -1,0 +1,55 @@
+{
+  "checkpoint_count": 1,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "0fcde007cbad",
+    "tb_digest": "f2f02bfe8397",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'out_and' has no mismatches.",
+      "Hint: Output 'out_or' has no mismatches.",
+      "Hint: Output 'out_xor' has no mismatches.",
+      "Hint: Output 'out_nand' has no mismatches.",
+      "Hint: Output 'out_nor' has no mismatches.",
+      "Hint: Output 'out_xnor' has no mismatches.",
+      "Hint: Output 'out_anotb' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 210 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before existing routing decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob087_gates/tb.sv:37: $finish called at 1050 (1ps)\nSIMULATION PASSED\nHint: Output 'out_and' has no mismatches.\nHint: Output 'out_or' has no mismatches.\nHint: Output 'out_xor' has no mismatches.\nHint: Output 'out_nand' has no mismatches.\nHint: Output 'out_nor' has no mismatches.\nHint: Output 'out_xnor' has no mismatches.\nHint: Output 'out_anotb' has no mismatches.\nHint: Total mismatched samples is 0 out of 210 samples\n\nSimulation finished at 1050 ps\nMismatches: 0 in 210 samples\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "0fcde007cbad",
+      "tb_digest": "f2f02bfe8397",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out_and' has no mismatches.",
+        "Hint: Output 'out_or' has no mismatches.",
+        "Hint: Output 'out_xor' has no mismatches.",
+        "Hint: Output 'out_nand' has no mismatches.",
+        "Hint: Output 'out_nor' has no mismatches.",
+        "Hint: Output 'out_xnor' has no mismatches.",
+        "Hint: Output 'out_anotb' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 210 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob087_gates/tb.sv:37: $finish called at 1050 (1ps)\nSIMULATION PASSED\nHint: Output 'out_and' has no mismatches.\nHint: Output 'out_or' has no mismatches.\nHint: Output 'out_xor' has no mismatches.\nHint: Output 'out_nand' has no mismatches.\nHint: Output 'out_nor' has no mismatches.\nHint: Output 'out_xnor' has no mismatches.\nHint: Output 'out_anotb' has no mismatches.\nHint: Total mismatched samples is 0 out of 210 samples\n\nSimulation finished at 1050 ps\nMismatches: 0 in 210 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

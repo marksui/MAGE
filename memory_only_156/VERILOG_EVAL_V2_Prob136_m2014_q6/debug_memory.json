@@ -1,0 +1,74 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "05b61fcb1cf1",
+    "tb_digest": "b13dc14e1231",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'z' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 200 samples",
+      "Mismatches: 0 in 200 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob136_m2014_q6/tb.sv:17: $finish called at 1001 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "048dae86d184",
+      "tb_digest": "b13dc14e1231",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 16,
+      "first_mismatch_time": 320,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 16,
+          "first_mismatch_time": 320
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH at time                  320",
+        "Mismatch reason: tb_match=0, so tb_mismatch=1",
+        "Hint: Output 'z' has 16 mismatches. First mismatch occurred at time 320.",
+        "Hint: Total mismatched samples is 16 out of 200 samples",
+        "Mismatches: 16 in 200 samples",
+        "SIMULATION FAILED - 16 MISMATCHES DETECTED, FIRST AT TIME 320"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFIRST MISMATCH at time                  320\nQueue content (most recent 10 entries, MAX_QUEUE_SIZE=10):\nIdx | reset | w | z_ref | z_dut | match\n  0 |   0   | 0 |   0   |   0   |   1\n  1 |   0   | 0 |   0   |   0   |   1\n  2 |   0   | 1 |   0   |   0   |   1\n  3 |   0   | 1 |   0   |   0   |   1\n  4 |   0   | 1 |   0   |   0   |   1\n  5 |   0   | 1 |   0   |   0   |   1\n  6 |   0   | 0 |   0   |   0   |   1\n  7 |   0   | 1 |   0   |   0   |   1\n  8 |   0   | 0 |   0   |   0   |   1\n  9 |   0   | 1 |   0   |   1   |   0\nMismatch reason: tb_match=0, so tb_mismatch=1\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob136_m2014_q6/tb.sv:17: $finish called at 1001 (1ps)\nHint: Output 'z' has 16 mismatches. First mismatch occurred at time 320.\nHint: Total mismatched samples is 16 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 16 in 200 samples\nSIMULATION FAILED - 16 MISMATCHES DETECTED, FIRST AT TIME 320\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob136_m2014_q6/rtl.sv:30: vvp.tgt sorry: Case unique/unique0 qualities are ignored.\n",
+      "cost": 16.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "05b61fcb1cf1",
+      "tb_digest": "b13dc14e1231",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob136_m2014_q6/tb.sv:17: $finish called at 1001 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

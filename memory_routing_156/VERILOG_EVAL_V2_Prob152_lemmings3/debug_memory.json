@@ -1,0 +1,51 @@
+{
+  "checkpoint_count": 1,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "ab54a0bed11e",
+    "tb_digest": "bc67c1159b66",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'walk_left' has no mismatches.",
+      "Hint: Output 'walk_right' has no mismatches.",
+      "Hint: Output 'aaah' has no mismatches.",
+      "Hint: Output 'digging' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 443 samples",
+      "Mismatches: 0 in 443 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before existing routing decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob152_lemmings3/tb.sv:93: $finish called at 2216 (1ps)\nHint: Output 'walk_left' has no mismatches.\nHint: Output 'walk_right' has no mismatches.\nHint: Output 'aaah' has no mismatches.\nHint: Output 'digging' has no mismatches.\nHint: Total mismatched samples is 0 out of 443 samples\n\nSimulation finished at 2216 ps\nMismatches: 0 in 443 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "ab54a0bed11e",
+      "tb_digest": "bc67c1159b66",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'walk_left' has no mismatches.",
+        "Hint: Output 'walk_right' has no mismatches.",
+        "Hint: Output 'aaah' has no mismatches.",
+        "Hint: Output 'digging' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 443 samples",
+        "Mismatches: 0 in 443 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob152_lemmings3/tb.sv:93: $finish called at 2216 (1ps)\nHint: Output 'walk_left' has no mismatches.\nHint: Output 'walk_right' has no mismatches.\nHint: Output 'aaah' has no mismatches.\nHint: Output 'digging' has no mismatches.\nHint: Total mismatched samples is 0 out of 443 samples\n\nSimulation finished at 2216 ps\nMismatches: 0 in 443 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

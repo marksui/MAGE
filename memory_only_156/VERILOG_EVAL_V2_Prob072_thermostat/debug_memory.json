@@ -1,0 +1,59 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "b44c65003ddd",
+    "tb_digest": "c17f2b7202a6",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:172: error: Enable of unknown task ``haircon_got_queue.delete''.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:181: error: Enable of unknown task ``haircon_got_queue.push_back''.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:238: error: A reference to a wire or reg (`i') is not allowed in a constant expression.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:238: error: Array index expressions must be constant here.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:239: error: A reference to a wire or reg (`i') is not allowed in a constant expression.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:239: error: Array index expressions must be constant here.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:240: error: A reference to a wire or reg (`i') is not allowed in a constant expression.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:240: error: Array ind",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "b44c65003ddd",
+      "tb_digest": "c17f2b7202a6",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:172: error: Enable of unknown task ``haircon_got_queue.delete''.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:181: error: Enable of unknown task ``haircon_got_queue.push_back''.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:238: error: A reference to a wire or reg (`i') is not allowed in a constant expression.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:238: error: Array index expressions must be constant here.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:239: error: A reference to a wire or reg (`i') is not allowed in a constant expression.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:239: error: Array index expressions must be constant here.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:240: error: A reference to a wire or reg (`i') is not allowed in a constant expression.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:240: error: Array ind",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "b44c65003ddd",
+      "tb_digest": "85cce1eaeac7",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'heater' has no mismatches.",
+        "Hint: Output 'aircon' has no mismatches.",
+        "Hint: Output 'fan' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 248 samples",
+        "Mismatches: 0 in 248 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob072_thermostat/tb.sv:62: $finish called at 1241 (1ps)\nSIMULATION PASSED\nHint: Output 'heater' has no mismatches.\nHint: Output 'aircon' has no mismatches.\nHint: Output 'fan' has no mismatches.\nHint: Total mismatched samples is 0 out of 248 samples\n\nSimulation finished at 1241 ps\nMismatches: 0 in 248 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

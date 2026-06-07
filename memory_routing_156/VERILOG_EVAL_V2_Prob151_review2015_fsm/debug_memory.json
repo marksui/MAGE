@@ -1,0 +1,1085 @@
+{
+  "checkpoint_count": 36,
+  "best_checkpoint": {
+    "iteration": 36,
+    "stage": "rtl_editor_action_15",
+    "rtl_digest": "b0626ab61dc5",
+    "tb_digest": null,
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"                if (prog == 2'd0) begin\\n                    prog_next = data ? 2'd1 : 2'd0;\\n                end else if (prog == 2'd1) begin\\n                    prog_next = data ? 2'd2 : 2'd0;\\n                end else if (prog == 2'd2) begin\\n                    prog_next = data ? 2'd1 : 2'd3;\\n                end else begin\\n                    // prog == 3 (matched \\\"110\\\")\\n                    // Next bit completes pattern if data==1\\n                    // If data==0, no prefix of 1101 matches because last bit is 0.\\n                    prog_next = data ? 2'd0 : 2'd0;\\n                end\\n\\n                // Detect full pattern 1101: prog==3 and data==1\\n                if ((prog == 2'd3) && data) begin\\n                    state_next = S_SHIFT;\\n                    cnt_next   = 2'd0;\\n                    prog_next  = 2'd0;\\n                end\",\n    \"new_content\": \"                // Corrected prefix progress for detecting serial 1101.\\n                // prog meanings:\\n                // 0: matched \\\"\\\"\\n                // 1: matched \\\"1\\\"\\n                // 2: matched \\\"11\\\"\\n                // 3: matched \\\"110\\\"\\n                if (prog == 2'd0) begin\\n                    prog_next = data ? 2'd1 : 2'd0;\\n                end else if (prog == 2'd1) begin\\n                    prog_next = data ? 2'd2 : 2'd0;\\n                end else if (prog == 2'd2) begin\\n                    // On data=1, the suffix \\\"11\\\" is maintained.\\n                    // On data=0, the suffix becomes \\\"110\\\".\\n                    prog_next = data ? 2'd2 : 2'd3;\\n                end else begin\\n                    // prog == 2'd3 (matched \\\"110\\\")\\n                    // On data=1, full pattern 1101 detected.\\n                    // On data=0, suffix ends with \\\"0\\\" which doesn't match any non-empty prefix of 1101.\\n                    prog_next = 2'd0;\\n                end\\n\\n                // Detect full pattern 1101: current prefix \\\"110\\\" and current bit 1.\\n                if ((prog == 2'd3) && data) begin\\n                    state_next = S_SHIFT;\\n                    cnt_next   = 2'd0;\\n                    prog_next  = 2'd0;\\n                end\"\n  }\n}",
+    "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"simulation passed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"none\"\n}",
+    "sim_log_excerpt": "",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "65578e580267",
+      "tb_digest": "b958f2792baf",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 288,
+      "first_mismatch_time": 90,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 128,
+          "first_mismatch_time": 90
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 224,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 160,
+          "first_mismatch_time": 12060
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                   90",
+        "Hint: Output 'shift_ena' has 128 mismatches. First mismatch occurred at time 90.",
+        "Hint: Output 'counting' has 224 mismatches. First mismatch occurred at time 130.",
+        "Hint: Output 'done' has 160 mismatches. First mismatch occurred at time 12060.",
+        "Hint: Total mismatched samples is 288 out of 5069 samples",
+        "Mismatches: 288 in 5069 samples",
+        "SIMULATION FAILED - 288 MISMATCHES DETECTED, FIRST AT TIME 90"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                   90\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 1: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 2: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 288.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "5014d24b858e",
+      "tb_digest": "b958f2792baf",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": "b958f2792baf",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 522,
+      "first_mismatch_time": 2560,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 146,
+          "first_mismatch_time": 2560
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 330,
+          "first_mismatch_time": 2600
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 158,
+          "first_mismatch_time": 2690
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                 2560",
+        "Hint: Output 'shift_ena' has 146 mismatches. First mismatch occurred at time 2560.",
+        "Hint: Output 'counting' has 330 mismatches. First mismatch occurred at time 2600.",
+        "Hint: Output 'done' has 158 mismatches. First mismatch occurred at time 2690.",
+        "Hint: Total mismatched samples is 522 out of 5069 samples",
+        "Mismatches: 522 in 5069 samples",
+        "SIMULATION FAILED - 522 MISMATCHES DETECTED, FIRST AT TIME 2560"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                 2560\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 1: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 2: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 522.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "64ee44bcb183",
+      "tb_digest": "b958f2792baf",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "6b7d5b48b70e",
+      "tb_digest": "b958f2792baf",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "5f9bd967329a",
+      "tb_digest": "b958f2792baf",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 7,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "9ad68b13471c",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            S_SHIFT: begin\\n                shift_ena = 1'b1;\\n\\n                if (shift_cnt == 2'd3) begin\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\",\n    \"new_content\": \"            S_SHIFT: begin\\n                // Assert for exactly 4 cycles: shift_cnt values 0,1,2,3\\n                shift_ena = 1'b1;\\n\\n                // Decide the transition based on the increment we are taking this cycle\\n                // so the last cycle with state==S_SHIFT corresponds to shift_cnt==3.\\n                if (shift_cnt_next == 2'd3) begin\\n                    // We would reach cnt==3 next; next cycle should move to counting.\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 8,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "c9ea7169620d",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            S_SHIFT: begin\\n                // Assert for exactly 4 cycles: shift_cnt values 0,1,2,3\\n                shift_ena = 1'b1;\\n\\n                // Decide the transition based on the increment we are taking this cycle\\n                // so the last cycle with state==S_SHIFT corresponds to shift_cnt==3.\\n                if (shift_cnt_next == 2'd3) begin\\n                    // We would reach cnt==3 next; next cycle should move to counting.\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\",\n    \"new_content\": \"            S_SHIFT: begin\\n                // Assert for exactly 4 cycles: shift_cnt values 0,1,2,3\\n                shift_ena = 1'b1;\\n\\n                // Keep state in S_SHIFT while shift_cnt counts 0->1->2->3.\\n                // When currently at shift_cnt==3, the next cycle should move to S_COUNT.\\n                if (shift_cnt == 2'd3) begin\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 9,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "5daa6990af4a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            S_SHIFT: begin\\n                // Assert for exactly 4 cycles: shift_cnt values 0,1,2,3\\n                shift_ena = 1'b1;\\n\\n                // Keep state in S_SHIFT while shift_cnt counts 0->1->2->3.\\n                // When currently at shift_cnt==3, the next cycle should move to S_COUNT.\\n                if (shift_cnt == 2'd3) begin\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\",\n    \"new_content\": \"            S_SHIFT: begin\\n                // Assert shift_ena for exactly 4 clock cycles after detecting 1101.\\n                // shift_cnt values in S_SHIFT: 0,1,2,3 (all with shift_ena=1)\\n                shift_ena = 1'b1;\\n\\n                if (shift_cnt == 2'd3) begin\\n                    // On the 4th shift cycle (cnt==3), advance to counting.\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    // First, second, third shift cycles.\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 10,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "5daa6990af4a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 195,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 113,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=1 done_counting=x ack=x | got shift_ena=1 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 113 mismatches. First mismatch occurred at time 80.\\nHint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.\\nHint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.\\nHint: Total mismatched samples is 195 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 195 in 5069 samples\\nSIMULATION FAILED - 195 MISMATCHES DETECTED, FIRST AT TIME 80\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    always @(*) begin\\n        // Defaults\\n        state_next     = state;\\n        shift_cnt_next = shift_cnt;\\n\\n        shift_ena = 1'b0;\\n        counting  = 1'b0;\\n        done      = 1'b0;\\n\\n        case (state)\",\n    \"new_content\": \"    always @(*) begin\\n        // Defaults\\n        state_next     = state;\\n        shift_cnt_next = shift_cnt;\\n\\n        shift_ena = 1'b0;\\n        counting  = 1'b0;\\n        done      = 1'b0;\\n\\n        // The reference expects shift_ena to start in the same cycle that the\\n        // 1101 pattern is detected (hist_next includes current data).\\n        if (state == S_SEARCH && hist_next == 4'b1101)\\n            shift_ena = 1'b1;\\n\\n        case (state)\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 195.0
+    },
+    {
+      "iteration": 11,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "5daa6990af4a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 195,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 113,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=1 done_counting=x ack=x | got shift_ena=1 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 113 mismatches. First mismatch occurred at time 80.\\nHint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.\\nHint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.\\nHint: Total mismatched samples is 195 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 195 in 5069 samples\\nSIMULATION FAILED - 195 MISMATCHES DETECTED, FIRST AT TIME 80\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        shift_ena = 1'b0;\",\n    \"new_content\": \"        shift_ena = 1'b0;\\n\\n        // If we are about to transition into S_SHIFT on this clock edge,\\n        // the reference expects shift_ena to be asserted starting immediately.\\n        // Gate with !reset to avoid spurious assertions during startup.\\n        if (!reset && state == S_SEARCH && hist_next == 4'b1101)\\n            shift_ena = 1'b1;\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 195.0
+    },
+    {
+      "iteration": 12,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "5daa6990af4a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 184,
+      "first_mismatch_time": 90,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 102,
+          "first_mismatch_time": 90
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   90\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=x done_counting=x ack=x | got shift_ena=0 exp shift_ena=1 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 102 mismatches. First mismatch occurred at time 90.\\nHint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.\\nHint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.\\nHint: Total mismatched samples is 184 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 184 in 5069 samples\\nSIMULATION FAILED - 184 MISMATCHES DETECTED, FIRST AT TIME 90\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            S_SHIFT: begin\\n                // Assert shift_ena for exactly 4 clock cycles after detecting 1101.\\n                // shift_cnt values in S_SHIFT: 0,1,2,3 (all with shift_ena=1)\\n                shift_ena = 1'b1;\\n\\n                if (shift_cnt == 2'd3) begin\\n                    // On the 4th shift cycle (cnt==3), advance to counting.\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    // First, second, third shift cycles.\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\",\n    \"new_content\": \"            S_SHIFT: begin\\n                // Timing fix: reference expects shift_ena to start 1 cycle after entering S_SHIFT.\\n                // shift_cnt values in S_SHIFT: 0,1,2,3; gate shift_ena for cnt=1..3.\\n                shift_ena = (shift_cnt != 2'd0);\\n\\n                if (shift_cnt == 2'd3) begin\\n                    // After 4 S_SHIFT cycles total, advance to counting.\\n                    state_next     = S_COUNT;\\n                    shift_cnt_next = 2'd0;\\n                end else begin\\n                    shift_cnt_next = shift_cnt + 2'd1;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   90\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 184.0
+    },
+    {
+      "iteration": 13,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "5daa6990af4a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 195,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 113,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=1 done_counting=x ack=x | got shift_ena=1 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 113 mismatches. First mismatch occurred at time 80.\\nHint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.\\nHint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.\\nHint: Total mismatched samples is 195 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 195 in 5069 samples\\nSIMULATION FAILED - 195 MISMATCHES DETECTED, FIRST AT TIME 80\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        case (state)\\n            S_SEARCH: begin\\n                // Detect pattern 1101 using next history (includes current data)\\n                if (hist_next == 4'b1101) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\\n            end\",\n    \"new_content\": \"        // shift_ena timing alignment: reference expects shift_ena to be high starting\\n        // the cycle where we detect 1101 and transition into S_SHIFT.\\n        if (!reset && state == S_SEARCH && hist_next == 4'b1101)\\n            shift_ena = 1'b1;\\n\\n        case (state)\\n            S_SEARCH: begin\\n                // Detect pattern 1101 using next history (includes current data)\\n                if (hist_next == 4'b1101) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 195.0
+    },
+    {
+      "iteration": 14,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "5daa6990af4a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 195,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 113,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=1 done_counting=x ack=x | got shift_ena=1 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 113 mismatches. First mismatch occurred at time 80.\\nHint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.\\nHint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.\\nHint: Total mismatched samples is 195 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 195 in 5069 samples\\nSIMULATION FAILED - 195 MISMATCHES DETECTED, FIRST AT TIME 80\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        shift_ena = 1'b0;\",\n    \"new_content\": \"        shift_ena = 1'b0;\\n\\n        // Align shift_ena timing with the transition cycle into S_SHIFT.\\n        // Start asserting shift_ena immediately when the 1101 pattern is detected,\\n        // even though the state register will only update on the next clock edge.\\n        if (state == S_SHIFT || (state == S_SEARCH && hist_next == 4'b1101))\\n            shift_ena = 1'b1;\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 195.0
+    },
+    {
+      "iteration": 15,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "5daa6990af4a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 195,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 113,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=1 done_counting=x ack=x | got shift_ena=1 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 113 mismatches. First mismatch occurred at time 80.\\nHint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.\\nHint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.\\nHint: Total mismatched samples is 195 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 195 in 5069 samples\\nSIMULATION FAILED - 195 MISMATCHES DETECTED, FIRST AT TIME 80\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        shift_ena = 1'b0;\",\n    \"new_content\": \"        shift_ena = 1'b0;\\n\\n        // Timing alignment: reference expects shift_ena to begin on the transition\\n        // cycle when the 1101 start pattern is detected.\\n        if ((state == S_SHIFT) || (state == S_SEARCH && hist_next == 4'b1101))\\n            shift_ena = 1'b1;\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 195.0
+    },
+    {
+      "iteration": 16,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "48f5b36da418",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            S_SEARCH: begin\\n                // Detect pattern 1101 using next history (includes current data)\\n                if (hist_next == 4'b1101) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\\n            end\",\n    \"new_content\": \"            S_SEARCH: begin\\n                // Detect pattern 1101 using next history (includes current data)\\n                // Guard against X-propagation during early cycles after reset.\\n                if ((^hist_next !== 1'bx) && (hist_next == 4'b1101)) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 17,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "00b4ef2a3db9",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    localparam logic [2:0] S_SEARCH  = 3'd0;\\n    localparam logic [2:0] S_SHIFT   = 3'd1;\\n    localparam logic [2:0] S_COUNT   = 3'd2;\\n    localparam logic [2:0] S_DONE    = 3'd3;\\n\",\n    \"new_content\": \"    localparam logic [2:0] S_SEARCH  = 3'd0;\\n    localparam logic [2:0] S_ARM     = 3'd1;\\n    localparam logic [2:0] S_SHIFT   = 3'd2;\\n    localparam logic [2:0] S_COUNT   = 3'd3;\\n    localparam logic [2:0] S_DONE    = 3'd4;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 18,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "0c5d6c091832",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // FSM state encoding\\n    localparam logic [2:0] S_SEARCH  = 3'd0;\\n    localparam logic [2:0] S_ARM     = 3'd1;\\n    localparam logic [2:0] S_SHIFT   = 3'd2;\\n    localparam logic [2:0] S_COUNT   = 3'd3;\\n    localparam logic [2:0] S_DONE    = 3'd4;\\n\",\n    \"new_content\": \"    // FSM state encoding\\n    localparam logic [2:0] S_SEARCH  = 3'd0;\\n    localparam logic [2:0] S_ARM     = 3'd1;  // 1-cycle wait after detecting 1101\\n    localparam logic [2:0] S_SHIFT   = 3'd2;  // shift_ena asserted for exactly 4 cycles\\n    localparam logic [2:0] S_COUNT   = 3'd3;  // wait for done_counting\\n    localparam logic [2:0] S_DONE    = 3'd4;  // assert done until ack\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 19,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "875e0426df30",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // FSM state encoding\\n    localparam logic [2:0] S_SEARCH  = 3'd0;\\n    localparam logic [2:0] S_ARM     = 3'd1;  // 1-cycle wait after detecting 1101\\n    localparam logic [2:0] S_SHIFT   = 3'd2;  // shift_ena asserted for exactly 4 cycles\\n    localparam logic [2:0] S_COUNT   = 3'd3;  // wait for done_counting\\n    localparam logic [2:0] S_DONE    = 3'd4;  // assert done until ack\\n\",\n    \"new_content\": \"    // FSM state encoding\\n    localparam logic [2:0] S_SEARCH  = 3'd0;\\n    localparam logic [2:0] S_SHIFT   = 3'd1;  // shift_ena asserted for exactly 4 cycles\\n    localparam logic [2:0] S_COUNT   = 3'd2;  // wait for done_counting\\n    localparam logic [2:0] S_DONE    = 3'd3;  // assert done until ack\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 20,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "875e0426df30",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 398,
+      "first_mismatch_time": 90,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 160,
+          "first_mismatch_time": 90
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 272,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 210,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   90\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=x done_counting=x ack=x | got shift_ena=0 exp shift_ena=1 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 160 mismatches. First mismatch occurred at time 90.\\nHint: Output 'counting' has 272 mismatches. First mismatch occurred at time 130.\\nHint: Output 'done' has 210 mismatches. First mismatch occurred at time 10370.\\nHint: Total mismatched samples is 398 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 398 in 5069 samples\\nSIMULATION FAILED - 398 MISMATCHES DETECTED, FIRST AT TIME 90\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            S_SEARCH: begin\\n                // Detect pattern 1101 using next history (includes current data)\\n                // Guard against X-propagation during early cycles after reset.\\n                if ((^hist_next !== 1'bx) && (hist_next == 4'b1101)) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\\n            end\",\n    \"new_content\": \"            S_SEARCH: begin\\n                // Detect pattern 1101 using the registered history.\\n                // This removes any same-cycle ambiguity caused by using hist_next.\\n                // Guard against X-propagation during early cycles after reset.\\n                if ((^hist !== 1'bx) && (hist == 4'b1101)) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   90\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 398.0
+    },
+    {
+      "iteration": 21,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "bb4871c3b337",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 134,
+      "first_mismatch_time": 920,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 52,
+          "first_mismatch_time": 920
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 62,
+          "first_mismatch_time": 960
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 50,
+          "first_mismatch_time": 10370
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  920",
+        "Hint: Output 'shift_ena' has 52 mismatches. First mismatch occurred at time 920.",
+        "Hint: Output 'counting' has 62 mismatches. First mismatch occurred at time 960.",
+        "Hint: Output 'done' has 50 mismatches. First mismatch occurred at time 10370.",
+        "Hint: Total mismatched samples is 134 out of 5069 samples",
+        "Mismatches: 134 in 5069 samples",
+        "SIMULATION FAILED - 134 MISMATCHES DETECTED, FIRST AT TIME 920"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"                // Detect pattern 1101 using next history (includes current data)\\n                // Guard against X-propagation during early cycles after reset.\\n                if ((^hist_next !== 1'bx) && (hist_next == 4'b1101)) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\",\n    \"new_content\": \"                // Detect pattern 1101 using next history (includes current data)\\n                // Strictly require hist_next to be fully known to avoid X-based transitions.\\n                if ((hist_next == 4'b1101) && !(|$isunknown(hist_next))) begin\\n                    state_next     = S_SHIFT;\\n                    shift_cnt_next = 2'd0;\\n                end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  920\nLast 10 cycles of simulation (most recent at end):\nCycle 0: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 1: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 2: rst=0 data=1 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=1 exp done=1\nCycle 3: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 4: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 5: rst=0 data=1 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 6: rst=0 data=0 done_counting=0 ack=0 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\nCycle 7: rst=0 data=0 done_counting=0 ack=1 | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 ",
+      "cost": 134.0
+    },
+    {
+      "iteration": 22,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // History shift register for detecting the serial pattern 1101\\n    // hist holds the most recent 4 bits seen in S_SEARCH\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:45: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:99: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:106: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:116: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 23,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // History shift register for detecting the serial pattern 1101\\n    // hist holds the most recent 4 bits seen while searching\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:45: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:99: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:106: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:116: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 24,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // History shift register for detecting the serial pattern 1101\\n    // hist[3:0] contains the most recent 4 bits sampled in S_SEARCH\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:45: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:99: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:106: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:116: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 25,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // History shift register for detecting the serial pattern 1101\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:44: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:98: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:105: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:115: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 26,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // History shift register for detecting the serial pattern 1101\\n    // hist[3:0] is the most recent 4 sampled bits in S_SEARCH\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:45: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:99: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:106: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:116: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 27,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\",\n    \"new_content\": \"    // History shift register for detecting the serial pattern 1101\\n    // hist[3:0] holds the most recent 4 sampled bits while searching.\\n    logic [3:0] hist, hist_next;\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:45: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:57: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:71: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:99: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:106: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:116: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 28,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 561,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "shift_ena",
+          "mismatch_count": 201,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "counting",
+          "mismatch_count": 330,
+          "first_mismatch_time": 2600
+        },
+        {
+          "output_name": "done",
+          "mismatch_count": 158,
+          "first_mismatch_time": 2690
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 8: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 9: rst=0 data=1 done_counting=x ack=x | got shift_ena=1 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nHint: Your FSM didn't pass the sample timing diagram posted with the problem statement. Perhaps try debugging that?\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/tb.sv:75: $finish called at 25346 (1ps)\\nHint: Output 'shift_ena' has 201 mismatches. First mismatch occurred at time 80.\\nHint: Output 'counting' has 330 mismatches. First mismatch occurred at time 2600.\\nHint: Output 'done' has 158 mismatches. First mismatch occurred at time 2690.\\nHint: Total mismatched samples is 561 out of 5069 samples\\n\\nSimulation finished at 25346 ps\\nMismatches: 561 in 5069 samples\\nSIMULATION FAILED - 561 MISMATCHES DETECTED, FIRST AT TIME 80\\n\",",
+        "} logic mismatch count increased. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output logic\\n    always @(*) begin\\n        shift_ena = 1'b0;\\n        counting  = 1'b0;\\n        done      = 1'b0;\\n\\n        case (state)\\n            S_SEARCH:   begin end\\n            S_SHIFT:    shift_ena = 1'b1;\\n            S_COUNTING: counting  = 1'b1;\\n            S_DONE:     done      = 1'b1;\\n            default:     begin end\\n        endcase\\n    end\\n\",\n    \"new_content\": \"    // Output logic\\n    // Note: shift_ena is required to align exactly with the cycle after pattern completion.\\n    // Use state_next to avoid a 1-cycle lag between detection and shift_ena assertion.\\n    always @(*) begin\\n        shift_ena = 1'b0;\\n        counting  = 1'b0;\\n        done      = 1'b0;\\n\\n        if ((state == S_SHIFT) || (state_next == S_SHIFT)) begin\\n            shift_ena = 1'b1;\\n        end\\n\\n        case (state)\\n            S_SEARCH:   begin end\\n            S_COUNTING: counting  = 1'b1;\\n            S_DONE:     done      = 1'b1;\\n            default:     begin end\\n        endcase\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic mismatch count increased\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n\\nFirst mismatch detected at time                   80\\nLast 10 cycles of simulation (most recent at end):\\nCycle 0: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 1: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 2: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 3: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 4: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 5: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 6: rst=0 data=1 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | got counting=0 exp counting=0 | got done=0 exp done=0\\nCycle 7: rst=0 data=0 done_counting=x ack=x | got shift_ena=0 exp shift_ena=0 | go",
+      "cost": 561.0
+    },
+    {
+      "iteration": 29,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output logic\\n    // Note: shift_ena is required to align exactly with the cycle after pattern completion.\\n    // Use state_next to avoid a 1-cycle lag between detection and shift_ena assertion.\\n    always @(*) begin\\n        shift_ena = 1'b0;\\n        counting  = 1'b0;\\n        done      = 1'b0;\\n\\n        if ((state == S_SHIFT) || (state_next == S_SHIFT)) begin\\n            shift_ena = 1'b1;\\n        end\\n\\n        case (state)\\n            S_SEARCH:   begin end\\n            S_COUNTING: counting  = 1'b1;\\n            S_DONE:     done      = 1'b1;\\n            default:     begin end\\n        endcase\\n    end\\n\",\n    \"new_content\": \"    // Output logic\\n    always @(*) begin\\n        shift_ena = 1'b0;\\n        counting  = 1'b0;\\n        done      = 1'b0;\\n\\n        case (state)\\n            S_SEARCH:   begin end\\n            S_SHIFT:    shift_ena = 1'b1;\\n            S_COUNTING: counting  = 1'b1;\\n            S_DONE:     done      = 1'b1;\\n            default:     begin end\\n        endcase\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content not found\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 30,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // 4-bit history for detecting the serial start pattern 1101\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:44: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:98: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:105: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:115: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 31,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // 4-bit history for detecting the serial start pattern 1101\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:44: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:98: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:105: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:115: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 32,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // 4-bit history for detecting the serial start pattern 1101\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:44: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:98: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:105: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:115: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 33,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Progress for detecting 1101 (prefix length matched)\\n    // prog=0: matched \\\"\\\"\\n    // prog=1: matched \\\"1\\\"\\n    // prog=2: matched \\\"11\\\"\\n    // prog=3: matched \\\"110\\\"\\n    logic [1:0] prog, prog_next;\\n\",\n    \"new_content\": \"    // 4-bit history for detecting the serial start pattern 1101\\n    logic [3:0] hist, hist_next;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:44: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:70: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:98: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:105: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:115: error: Could not find variable ``prog'' in ``TopModule''",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 34,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    logic [1:0] prog, prog_next;\",\n    \"new_content\": \"    logic [3:0] hist, hist_next;\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:48: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:60: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:60: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:74: error: Unable to bind wire/reg/memory `prog' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:74: error: Unable to elaborate condition expression.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:102: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:109: error: Could not find variable ``prog_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:119: error: Could not find variable ``prog'' in ``TopModule'",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 35,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "d9a6fc75fde1",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            S_SEARCH: begin\\n                // Update progress based on the serial bit stream and the pattern 1101\\n                // Pattern transitions:\\n                // prog=0 (\\\"\\\"), expect 1\\n                // prog=1 (\\\"1\\\"), expect 1\\n                // prog=2 (\\\"11\\\"), expect 0\\n                // prog=3 (\\\"110\\\"), expect 1\\n\\n                if (prog == 2'd0) begin\\n                    prog_next = data ? 2'd1 : 2'd0;\\n                end else if (prog == 2'd1) begin\\n                    prog_next = data ? 2'd2 : 2'd0;\\n                end else if (prog == 2'd2) begin\\n                    prog_next = data ? 2'd1 : 2'd3;\\n                end else begin\\n                    // prog == 3 (matched \\\"110\\\")\\n                    // Next bit completes pattern if data==1\\n                    // If data==0, no prefix of 1101 matches because last bit is 0.\\n                    prog_next = data ? 2'd0 : 2'd0;\\n                end\\n\\n                // Detect full pattern 1101: prog==3 and data==1\\n                if ((prog == 2'd3) && data) begin\\n                    state_next = S_SHIFT;\\n                    cnt_next   = 2'd0;\\n                    prog_next  = 2'd0;\\n                end\\n            end\",\n    \"new_content\": \"            S_SEARCH: begin\\n                // 4-bit history detector for exact start sequence 1101\\n                // Shift in current data bit each cycle.\\n                // hist_next = {hist[2:0], data}\\n                hist_next = {hist[2:0], data};\\n\\n                // When the last 4 sampled bits are 1101, start the shift phase.\\n                if (hist_next == 4'b1101) begin\\n                    state_next = S_SHIFT;\\n                    cnt_next   = 2'd0;\\n                    hist_next  = 4'd0;\\n                end\\n            end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"RTL syntax check failed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"syntax\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:56: error: Could not find variable ``hist_next'' in ``TopModule''\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:59: error: Unable to bind wire/reg/memory `hist_next' in `TopModule'\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob151_review2015_fsm/rtl.sv:59: error: Unable to elaborate condition expression.\\n3 error(s) during elaboration.\\n\"\n}Syntax check failed. replace_content_by_matching not executed.old_content:             S_SEARCH: begin\n                // Update progress based on the serial bit stream and the pattern 1101\n                // Pattern transitions:\n                // prog=0 (\"\"), expect 1\n                // prog=1 (\"1\"), expect 1\n                // prog=2 (\"11\"), expect 0\n                // prog=3 (\"110\"), expect 1\n\n                if (prog == 2'd0) begin\n                    prog_next = data ? 2'd1 : 2'd0;\n                end else if (prog == 2'd1) begin\n                    prog_next = data ? 2'd2 : 2'd0;\n                end else if (prog == 2'd2) begin\n                    prog_next = data ? 2'd1 : 2",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 36,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "b0626ab61dc5",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"                if (prog == 2'd0) begin\\n                    prog_next = data ? 2'd1 : 2'd0;\\n                end else if (prog == 2'd1) begin\\n                    prog_next = data ? 2'd2 : 2'd0;\\n                end else if (prog == 2'd2) begin\\n                    prog_next = data ? 2'd1 : 2'd3;\\n                end else begin\\n                    // prog == 3 (matched \\\"110\\\")\\n                    // Next bit completes pattern if data==1\\n                    // If data==0, no prefix of 1101 matches because last bit is 0.\\n                    prog_next = data ? 2'd0 : 2'd0;\\n                end\\n\\n                // Detect full pattern 1101: prog==3 and data==1\\n                if ((prog == 2'd3) && data) begin\\n                    state_next = S_SHIFT;\\n                    cnt_next   = 2'd0;\\n                    prog_next  = 2'd0;\\n                end\",\n    \"new_content\": \"                // Corrected prefix progress for detecting serial 1101.\\n                // prog meanings:\\n                // 0: matched \\\"\\\"\\n                // 1: matched \\\"1\\\"\\n                // 2: matched \\\"11\\\"\\n                // 3: matched \\\"110\\\"\\n                if (prog == 2'd0) begin\\n                    prog_next = data ? 2'd1 : 2'd0;\\n                end else if (prog == 2'd1) begin\\n                    prog_next = data ? 2'd2 : 2'd0;\\n                end else if (prog == 2'd2) begin\\n                    // On data=1, the suffix \\\"11\\\" is maintained.\\n                    // On data=0, the suffix becomes \\\"110\\\".\\n                    prog_next = data ? 2'd2 : 2'd3;\\n                end else begin\\n                    // prog == 2'd3 (matched \\\"110\\\")\\n                    // On data=1, full pattern 1101 detected.\\n                    // On data=0, suffix ends with \\\"0\\\" which doesn't match any non-empty prefix of 1101.\\n                    prog_next = 2'd0;\\n                end\\n\\n                // Detect full pattern 1101: current prefix \\\"110\\\" and current bit 1.\\n                if ((prog == 2'd3) && data) begin\\n                    state_next = S_SHIFT;\\n                    cnt_next   = 2'd0;\\n                    prog_next  = 2'd0;\\n                end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"simulation passed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"none\"\n}",
+      "sim_log_excerpt": "",
+      "cost": 0.0
+    }
+  ]
+}

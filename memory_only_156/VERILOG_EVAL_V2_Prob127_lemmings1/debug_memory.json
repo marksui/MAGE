@@ -1,0 +1,83 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "d72bcd839f41",
+    "tb_digest": "ee1896b13b67",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'walk_left' has no mismatches.",
+      "Hint: Output 'walk_right' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 229 samples",
+      "Mismatches: 0 in 229 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob127_lemmings1/tb.sv:67: $finish called at 1146 (1ps)\nHint: Output 'walk_left' has no mismatches.\nHint: Output 'walk_right' has no mismatches.\nHint: Total mismatched samples is 0 out of 229 samples\n\nSimulation finished at 1146 ps\nMismatches: 0 in 229 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "034b175833d4",
+      "tb_digest": "ee1896b13b67",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 17,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "walk_left",
+          "mismatch_count": 17,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "walk_right",
+          "mismatch_count": 17,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                   30",
+        "CycleIdx 0, time 5, reset=1, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0",
+        "CycleIdx 1, time 10, reset=1, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0",
+        "CycleIdx 2, time 15, reset=1, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0",
+        "CycleIdx 3, time 20, reset=0, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0",
+        "CycleIdx 4, time 25, reset=0, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0",
+        "CycleIdx 5, time 30, reset=0, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=0 walk_right=1",
+        "Hint: Output 'walk_left' has 17 mismatches. First mismatch occurred at time 30."
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent at end):\nCycleIdx 0, time 5, reset=1, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0\nCycleIdx 1, time 10, reset=1, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0\nCycleIdx 2, time 15, reset=1, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0\nCycleIdx 3, time 20, reset=0, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0\nCycleIdx 4, time 25, reset=0, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=1 walk_right=0\nCycleIdx 5, time 30, reset=0, bump_left=1, bump_right=1 | GOT: walk_left=1 walk_right=0 | EXP: walk_left=0 walk_right=1\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob127_lemmings1/tb.sv:67: $finish called at 1146 (1ps)\nHint: Output 'walk_left' has 17 mismatches. First mismatch occurred at time 30.\nHint: Output 'walk_right' has 17 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 17 out of 229 sampl",
+      "cost": 17.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "d72bcd839f41",
+      "tb_digest": "ee1896b13b67",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'walk_left' has no mismatches.",
+        "Hint: Output 'walk_right' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 229 samples",
+        "Mismatches: 0 in 229 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob127_lemmings1/tb.sv:67: $finish called at 1146 (1ps)\nHint: Output 'walk_left' has no mismatches.\nHint: Output 'walk_right' has no mismatches.\nHint: Total mismatched samples is 0 out of 229 samples\n\nSimulation finished at 1146 ps\nMismatches: 0 in 229 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

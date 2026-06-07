@@ -1,0 +1,138 @@
+{
+  "checkpoint_count": 4,
+  "best_checkpoint": {
+    "iteration": 4,
+    "stage": "rtl_candidate_3",
+    "rtl_digest": "772ae8b98a9a",
+    "tb_digest": "93d8a51aefa5",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'z' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 1414 samples",
+      "Mismatches: 0 in 1414 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob133_2014_q3fsm/tb.sv:58: $finish called at 7071 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 1414 samples\n\nSimulation finished at 7071 ps\nMismatches: 0 in 1414 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "6e5749d7a6ec",
+      "tb_digest": "93d8a51aefa5",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 252,
+      "first_mismatch_time": 110,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 252,
+          "first_mismatch_time": 110
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH detected at time 110",
+        "CycleQ[0] time=65 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[1] time=70 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[2] time=75 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[3] time=80 reset=0 s=1 w=0 got_z=0 exp_z=0",
+        "CycleQ[4] time=85 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[5] time=90 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[6] time=95 reset=0 s=1 w=0 got_z=0 exp_z=0"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFIRST MISMATCH detected at time 110\nCurrent values: reset=0 s=1 w=0 got_z=0 exp_z=1\n\nLast 10 cycles of simulation (queue):\nCycleQ[0] time=65 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[1] time=70 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[2] time=75 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[3] time=80 reset=0 s=1 w=0 got_z=0 exp_z=0\nCycleQ[4] time=85 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[5] time=90 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[6] time=95 reset=0 s=1 w=0 got_z=0 exp_z=0\nCycleQ[7] time=100 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[8] time=105 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[9] time=110 reset=0 s=1 w=0 got_z=0 exp_z=1\n\nFIRST z MISMATCH detected at time 110\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob133_2014_q3fsm/tb.sv:58: $finish called at 7071 (1ps)\nHint: Output 'z' has 252 mismatches. First mismatch occurred at time 110.\nHint: Total mismatched samples is 252 out of 1414 samples\n\nSimulation finished at 7071 ps\nMismatches: 252 in 1414 samples\nSIMULATION FAILED - 252 MISMATCHES DETECTED, FIRST AT TIME 110\n",
+      "cost": 252.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "103101d6a622",
+      "tb_digest": "93d8a51aefa5",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 502,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 502,
+          "first_mismatch_time": 80
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH detected at time 80",
+        "CycleQ[0] time=35 reset=0 s=0 w=0 got_z=0 exp_z=0",
+        "CycleQ[1] time=40 reset=0 s=1 w=0 got_z=0 exp_z=0",
+        "CycleQ[2] time=45 reset=0 s=1 w=0 got_z=0 exp_z=0",
+        "CycleQ[3] time=50 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[4] time=55 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[5] time=60 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[6] time=65 reset=0 s=1 w=1 got_z=0 exp_z=0"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFIRST MISMATCH detected at time 80\nCurrent values: reset=0 s=1 w=0 got_z=1 exp_z=0\n\nLast 10 cycles of simulation (queue):\nCycleQ[0] time=35 reset=0 s=0 w=0 got_z=0 exp_z=0\nCycleQ[1] time=40 reset=0 s=1 w=0 got_z=0 exp_z=0\nCycleQ[2] time=45 reset=0 s=1 w=0 got_z=0 exp_z=0\nCycleQ[3] time=50 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[4] time=55 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[5] time=60 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[6] time=65 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[7] time=70 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[8] time=75 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[9] time=80 reset=0 s=1 w=0 got_z=1 exp_z=0\n\nFIRST z MISMATCH detected at time 80\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob133_2014_q3fsm/tb.sv:58: $finish called at 7071 (1ps)\nHint: Output 'z' has 502 mismatches. First mismatch occurred at time 80.\nHint: Total mismatched samples is 502 out of 1414 samples\n\nSimulation finished at 7071 ps\nMismatches: 502 in 1414 samples\nSIMULATION FAILED - 502 MISMATCHES DETECTED, FIRST AT TIME 80\n",
+      "cost": 502.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "acbeb85545ce",
+      "tb_digest": "93d8a51aefa5",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 502,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 502,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH detected at time 120",
+        "CycleQ[0] time=75 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[1] time=80 reset=0 s=1 w=0 got_z=0 exp_z=0",
+        "CycleQ[2] time=85 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[3] time=90 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[4] time=95 reset=0 s=1 w=0 got_z=0 exp_z=0",
+        "CycleQ[5] time=100 reset=0 s=1 w=1 got_z=0 exp_z=0",
+        "CycleQ[6] time=105 reset=0 s=1 w=1 got_z=0 exp_z=0"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFIRST MISMATCH detected at time 120\nCurrent values: reset=0 s=1 w=0 got_z=1 exp_z=0\n\nLast 10 cycles of simulation (queue):\nCycleQ[0] time=75 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[1] time=80 reset=0 s=1 w=0 got_z=0 exp_z=0\nCycleQ[2] time=85 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[3] time=90 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[4] time=95 reset=0 s=1 w=0 got_z=0 exp_z=0\nCycleQ[5] time=100 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[6] time=105 reset=0 s=1 w=1 got_z=0 exp_z=0\nCycleQ[7] time=110 reset=0 s=1 w=0 got_z=1 exp_z=1\nCycleQ[8] time=115 reset=0 s=1 w=1 got_z=1 exp_z=1\nCycleQ[9] time=120 reset=0 s=1 w=0 got_z=1 exp_z=0\n\nFIRST z MISMATCH detected at time 120\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob133_2014_q3fsm/tb.sv:58: $finish called at 7071 (1ps)\nHint: Output 'z' has 502 mismatches. First mismatch occurred at time 120.\nHint: Total mismatched samples is 502 out of 1414 samples\n\nSimulation finished at 7071 ps\nMismatches: 502 in 1414 samples\nSIMULATION FAILED - 502 MISMATCHES DETECTED, FIRST AT TIME 120\n",
+      "cost": 502.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "772ae8b98a9a",
+      "tb_digest": "93d8a51aefa5",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 1414 samples",
+        "Mismatches: 0 in 1414 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob133_2014_q3fsm/tb.sv:58: $finish called at 7071 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 1414 samples\n\nSimulation finished at 7071 ps\nMismatches: 0 in 1414 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

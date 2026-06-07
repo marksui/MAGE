@@ -1,0 +1,200 @@
+{
+  "checkpoint_count": 6,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "59d4fb2061ad",
+    "tb_digest": "b4ab83b41c26",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:150: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:150: error: Invalid module instantiation\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "59d4fb2061ad",
+      "tb_digest": "b4ab83b41c26",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:150: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:150: error: Invalid module instantiation\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "59d4fb2061ad",
+      "tb_digest": "9d3ae9ed5d27",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 177947,
+      "first_mismatch_time": 38270,
+      "output_mismatches": [
+        {
+          "output_name": "pm",
+          "mismatch_count": 177947,
+          "first_mismatch_time": 38270
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - first mismatch at time 38270",
+        "PM:  DUT=1  EXPECTED=0",
+        "HH:  DUT=0x01 (00000001)  EXPECTED=0x01 (00000001)",
+        "MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)",
+        "SS:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)",
+        "TIMEOUT",
+        "SIMULATION FAILED - 177947 MISMATCHES DETECTED, FIRST AT TIME 38270",
+        "Hint: Output 'pm' has 177947 mismatches. First mismatch occurred at time 38270."
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - first mismatch at time 38270\n  INPUTS:  reset=0 ena=1\n  PM:  DUT=1  EXPECTED=0\n  HH:  DUT=0x01 (00000001)  EXPECTED=0x01 (00000001)\n  MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)\n  SS:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:275: $finish called at 1000000 (1ps)\nSIMULATION FAILED - 177947 MISMATCHES DETECTED, FIRST AT TIME 38270\nHint: Output 'pm' has 177947 mismatches. First mismatch occurred at time 38270.\nHint: Output 'hh' has no mismatches.\nHint: Output 'mm' has no mismatches.\nHint: Output 'ss' has no mismatches.\nHint: Total mismatched samples is 177947 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 177947 in 200000 samples\n",
+      "cost": 177947.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "8f49ec2e4fe8",
+      "tb_digest": "9d3ae9ed5d27",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 86400,
+      "first_mismatch_time": 362270,
+      "output_mismatches": [
+        {
+          "output_name": "pm",
+          "mismatch_count": 86400,
+          "first_mismatch_time": 362270
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - first mismatch at time 362270",
+        "PM:  DUT=1  EXPECTED=0",
+        "HH:  DUT=0x10 (00010000)  EXPECTED=0x10 (00010000)",
+        "MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)",
+        "SS:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)",
+        "TIMEOUT",
+        "SIMULATION FAILED - 86400 MISMATCHES DETECTED, FIRST AT TIME 362270",
+        "Hint: Output 'pm' has 86400 mismatches. First mismatch occurred at time 362270."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - first mismatch at time 362270\n  INPUTS:  reset=0 ena=1\n  PM:  DUT=1  EXPECTED=0\n  HH:  DUT=0x10 (00010000)  EXPECTED=0x10 (00010000)\n  MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)\n  SS:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:275: $finish called at 1000000 (1ps)\nSIMULATION FAILED - 86400 MISMATCHES DETECTED, FIRST AT TIME 362270\nHint: Output 'pm' has 86400 mismatches. First mismatch occurred at time 362270.\nHint: Output 'hh' has no mismatches.\nHint: Output 'mm' has no mismatches.\nHint: Output 'ss' has no mismatches.\nHint: Total mismatched samples is 86400 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 86400 in 200000 samples\n",
+      "cost": 86400.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "89097ce2f203",
+      "tb_digest": "9d3ae9ed5d27",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 177947,
+      "first_mismatch_time": 38270,
+      "output_mismatches": [
+        {
+          "output_name": "pm",
+          "mismatch_count": 177947,
+          "first_mismatch_time": 38270
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - first mismatch at time 38270",
+        "PM:  DUT=1  EXPECTED=0",
+        "HH:  DUT=0x01 (00000001)  EXPECTED=0x01 (00000001)",
+        "MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)",
+        "SS:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)",
+        "TIMEOUT",
+        "SIMULATION FAILED - 177947 MISMATCHES DETECTED, FIRST AT TIME 38270",
+        "Hint: Output 'pm' has 177947 mismatches. First mismatch occurred at time 38270."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - first mismatch at time 38270\n  INPUTS:  reset=0 ena=1\n  PM:  DUT=1  EXPECTED=0\n  HH:  DUT=0x01 (00000001)  EXPECTED=0x01 (00000001)\n  MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)\n  SS:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:275: $finish called at 1000000 (1ps)\nSIMULATION FAILED - 177947 MISMATCHES DETECTED, FIRST AT TIME 38270\nHint: Output 'pm' has 177947 mismatches. First mismatch occurred at time 38270.\nHint: Output 'hh' has no mismatches.\nHint: Output 'mm' has no mismatches.\nHint: Output 'ss' has no mismatches.\nHint: Total mismatched samples is 177947 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 177947 in 200000 samples\n",
+      "cost": 177947.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "8ab100c9cd85",
+      "tb_digest": "9d3ae9ed5d27",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 199937,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "pm",
+          "mismatch_count": 86400,
+          "first_mismatch_time": 434270
+        },
+        {
+          "output_name": "hh",
+          "mismatch_count": 199937,
+          "first_mismatch_time": 30
+        },
+        {
+          "output_name": "mm",
+          "mismatch_count": 196187,
+          "first_mismatch_time": 2870
+        },
+        {
+          "output_name": "ss",
+          "mismatch_count": 193243,
+          "first_mismatch_time": 40
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - first mismatch at time 30",
+        "PM:  DUT=0  EXPECTED=0",
+        "HH:  DUT=0x02 (00000010)  EXPECTED=0x12 (00010010)",
+        "MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)",
+        "SS:  DUT=0x01 (00000001)  EXPECTED=0x01 (00000001)",
+        "TIMEOUT",
+        "SIMULATION FAILED - 199937 MISMATCHES DETECTED, FIRST AT TIME 30",
+        "Hint: Output 'pm' has 86400 mismatches. First mismatch occurred at time 434270."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - first mismatch at time 30\n  INPUTS:  reset=0 ena=1\n  PM:  DUT=0  EXPECTED=0\n  HH:  DUT=0x02 (00000010)  EXPECTED=0x12 (00010010)\n  MM:  DUT=0x00 (00000000)  EXPECTED=0x00 (00000000)\n  SS:  DUT=0x01 (00000001)  EXPECTED=0x01 (00000001)\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:275: $finish called at 1000000 (1ps)\nSIMULATION FAILED - 199937 MISMATCHES DETECTED, FIRST AT TIME 30\nHint: Output 'pm' has 86400 mismatches. First mismatch occurred at time 434270.\nHint: Output 'hh' has 199937 mismatches. First mismatch occurred at time 30.\nHint: Output 'mm' has 196187 mismatches. First mismatch occurred at time 2870.\nHint: Output 'ss' has 193243 mismatches. First mismatch occurred at time 40.\nHint: Total mismatched samples is 199937 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 199937 in 200000 samples\n",
+      "cost": 199937.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "0bb051c5980f",
+      "tb_digest": "9d3ae9ed5d27",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "TIMEOUT",
+        "Hint: Output 'pm' has no mismatches.",
+        "Hint: Output 'hh' has no mismatches.",
+        "Hint: Output 'mm' has no mismatches.",
+        "Hint: Output 'ss' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200000 samples",
+        "Mismatches: 0 in 200000 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob141_count_clock/tb.sv:275: $finish called at 1000000 (1ps)\nSIMULATION PASSED\nHint: Output 'pm' has no mismatches.\nHint: Output 'hh' has no mismatches.\nHint: Output 'mm' has no mismatches.\nHint: Output 'ss' has no mismatches.\nHint: Total mismatched samples is 0 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 0 in 200000 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

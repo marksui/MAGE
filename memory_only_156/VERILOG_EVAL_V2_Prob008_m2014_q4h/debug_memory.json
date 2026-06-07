@@ -1,0 +1,154 @@
+{
+  "checkpoint_count": 4,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "tb_or_rtl_debug_round_2",
+    "rtl_digest": "daf04fb9c8e1",
+    "tb_digest": "e521d102c73e",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": 5,
+    "output_mismatches": [
+      {
+        "output_name": "out",
+        "mismatch_count": 2,
+        "first_mismatch_time": 5
+      }
+    ],
+    "mismatch_lines": [
+      "First mismatch detected at time 5 ps",
+      "EXPECTED  = 0",
+      "First mismatch (errors_out) detected at time 5 ps",
+      "EXPECTED  = 0",
+      "Hint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.",
+      "Hint: Total mismatched samples is 2 out of 100 samples",
+      "Mismatches: 2 in 100 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\nFirst mismatch (errors_out) detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob008_m2014_q4h/tb.sv:16: $finish called at 501 (1ps)\nHint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.\nHint: Total mismatched samples is 2 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 2 in 100 samples\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "daf04fb9c8e1",
+      "tb_digest": "5b0a117e35f1",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 2,
+      "first_mismatch_time": 5,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 2,
+          "first_mismatch_time": 5
+        }
+      ],
+      "mismatch_lines": [
+        "*** FIRST MISMATCH DETECTED at time 5 ***",
+        "tb_match=0, tb_mismatch=1",
+        "Hint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.",
+        "Hint: Total mismatched samples is 2 out of 100 samples",
+        "Mismatches: 2 in 100 samples",
+        "SIMULATION FAILED - 2 MISMATCHES DETECTED, FIRST AT TIME 5"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\n*** FIRST MISMATCH DETECTED at time 5 ***\nInput in           = 0\nGot output out_dut = x\nExp output out_ref = 0\ntb_match=0, tb_mismatch=1\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob008_m2014_q4h/tb.sv:16: $finish called at 501 (1ps)\nHint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.\nHint: Total mismatched samples is 2 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 2 in 100 samples\nSIMULATION FAILED - 2 MISMATCHES DETECTED, FIRST AT TIME 5\n",
+      "cost": 2.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "daf04fb9c8e1",
+      "tb_digest": "e521d102c73e",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": 5,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 2,
+          "first_mismatch_time": 5
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 5 ps",
+        "EXPECTED  = 0",
+        "First mismatch (errors_out) detected at time 5 ps",
+        "EXPECTED  = 0",
+        "Hint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.",
+        "Hint: Total mismatched samples is 2 out of 100 samples",
+        "Mismatches: 2 in 100 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\nFirst mismatch (errors_out) detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob008_m2014_q4h/tb.sv:16: $finish called at 501 (1ps)\nHint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.\nHint: Total mismatched samples is 2 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 2 in 100 samples\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 3,
+      "stage": "tb_or_rtl_debug_round_3",
+      "rtl_digest": "daf04fb9c8e1",
+      "tb_digest": "ec3282a8b397",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": 5,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 2,
+          "first_mismatch_time": 5
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 5 ps",
+        "EXPECTED  = 0",
+        "First mismatch (errors_out) detected at time 5 ps",
+        "EXPECTED  = 0",
+        "Hint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.",
+        "Hint: Total mismatched samples is 2 out of 100 samples",
+        "Mismatches: 2 in 100 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\nFirst mismatch (errors_out) detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob008_m2014_q4h/tb.sv:14: $finish called at 501 (1ps)\nHint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.\nHint: Total mismatched samples is 2 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 2 in 100 samples\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 4,
+      "stage": "tb_or_rtl_debug_round_4",
+      "rtl_digest": "daf04fb9c8e1",
+      "tb_digest": "80bfbba83955",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": 5,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 2,
+          "first_mismatch_time": 5
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 5 ps",
+        "EXPECTED  = 0",
+        "First mismatch (errors_out) detected at time 5 ps",
+        "EXPECTED  = 0",
+        "Hint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.",
+        "Hint: Total mismatched samples is 2 out of 100 samples",
+        "Mismatches: 2 in 100 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\nFirst mismatch (errors_out) detected at time 5 ps\n  IN        = 0\n  OUT_REF   = 0\n  OUT_DUT   = x\n  EXPECTED  = 0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob008_m2014_q4h/tb.sv:14: $finish called at 501 (1ps)\nHint: Output 'out' has 2 mismatches. First mismatch occurred at time 5.\nHint: Total mismatched samples is 2 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 2 in 100 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

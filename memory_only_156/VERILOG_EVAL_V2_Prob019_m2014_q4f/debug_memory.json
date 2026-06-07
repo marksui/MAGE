@@ -1,0 +1,73 @@
+{
+  "checkpoint_count": 3,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "88091882f4c9",
+    "tb_digest": "9fdbf2586289",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:82: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:83: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:84: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:84: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:94: syntax error\nI give up.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "88091882f4c9",
+      "tb_digest": "9fdbf2586289",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:82: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:83: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:84: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:84: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:94: syntax error\nI give up.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "88091882f4c9",
+      "tb_digest": "8c0267006aba",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./verilog-eval\\dataset_spec-to-rtl\\Prob019_m2014_q4f_ref.sv:2: error: 'RefModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:22:      : It was declared here as a module.\n./verilog-eval\\dataset_spec-to-rtl\\Prob019_m2014_q4f_ref.sv:10: Module RefModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:22\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 3,
+      "stage": "tb_or_rtl_debug_round_3",
+      "rtl_digest": "88091882f4c9",
+      "tb_digest": "e0072d47d48c",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 100 samples",
+        "Mismatches: 0 in 100 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob019_m2014_q4f/tb.sv:13: $finish called at 501 (1ps)\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 100 samples\n\nSimulation finished at 501 ps\nMismatches: 0 in 100 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

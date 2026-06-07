@@ -1,0 +1,1151 @@
+{
+  "checkpoint_count": 36,
+  "best_checkpoint": {
+    "iteration": 18,
+    "stage": "rtl_editor_action_12",
+    "rtl_digest": "c573b1fe16f7",
+    "tb_digest": null,
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 756,
+    "first_mismatch_time": 120,
+    "output_mismatches": [
+      {
+        "output_name": "dfr",
+        "mismatch_count": 756,
+        "first_mismatch_time": 120
+      }
+    ],
+    "mismatch_lines": [
+      "Mismatch detected at time                  120",
+      "Last 9 cycles of simulation (most recent first mismatch context):",
+      "Cycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80",
+      "Cycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85",
+      "Cycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90",
+      "Cycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95",
+      "Cycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100",
+      "Cycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105"
+    ],
+    "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    logic armed;\\n\",\n    \"new_content\": \"    logic armed;\\n\\n    // Arm dfr logic only after reset has been deasserted to match the reference behavior\\n    always_ff @(posedge clk) begin\\n        if (reset) begin\\n            armed <= 1'b0;\\n        end else begin\\n            armed <= 1'b1;\\n        end\\n    end\\n\"\n  }\n}",
+    "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                  120\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\\\\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\\\\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\\\\nCycle 3, reset 0, s=0 (b\"\n}",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                  120\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\nCycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95\nCycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100\nCycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=110\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=115\nCycle 8, reset 0, s=3 (bin 011), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=120\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHi",
+    "cost": 756.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "ec1cf460889e",
+      "tb_digest": "dbbb31f63ade",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1596,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 312,
+          "first_mismatch_time": 10
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 1003,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   10",
+        "Last 2 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Hint: Output 'fr2' has 312 mismatches. First mismatch occurred at time 10.",
+        "Hint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.",
+        "Hint: Output 'dfr' has 1003 mismatches. First mismatch occurred at time 90."
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   10\n\nLast 2 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nHint: Your reset doesn't seem to be working.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 312 mismatches. First mismatch occurred at time 10.\nHint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.\nHint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.\nHint: Output 'dfr' has 1003 mismatches. First mismatch occurred at time 90.\nHint: Total mismatched samples is 1596 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 1596 in 2040 samples\nSIMULATION FAILED - 1596 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 1596.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "884de058a204",
+      "tb_digest": "dbbb31f63ade",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1597,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 309,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 1007,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   10",
+        "Last 2 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Hint: Output 'fr2' has 309 mismatches. First mismatch occurred at time 20.",
+        "Hint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.",
+        "Hint: Output 'dfr' has 1007 mismatches. First mismatch occurred at time 10."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   10\n\nLast 2 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=1111, time=10\nHint: Your reset doesn't seem to be working.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 309 mismatches. First mismatch occurred at time 20.\nHint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.\nHint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.\nHint: Output 'dfr' has 1007 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 1597 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 1597 in 2040 samples\nSIMULATION FAILED - 1597 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 1597.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "e9812e92330f",
+      "tb_digest": "dbbb31f63ade",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1596,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 312,
+          "first_mismatch_time": 10
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   10",
+        "Last 2 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Hint: Output 'fr2' has 312 mismatches. First mismatch occurred at time 10.",
+        "Hint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.",
+        "Hint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.",
+        "Hint: Output 'dfr' has 989 mismatches. First mismatch occurred at time 90."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   10\n\nLast 2 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nHint: Your reset doesn't seem to be working.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 312 mismatches. First mismatch occurred at time 10.\nHint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.\nHint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.\nHint: Output 'dfr' has 989 mismatches. First mismatch occurred at time 90.\nHint: Total mismatched samples is 1596 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 1596 in 2040 samples\nSIMULATION FAILED - 1596 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 1596.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "a63d5d60634f",
+      "tb_digest": "dbbb31f63ade",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1191,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 309,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 615,
+          "first_mismatch_time": 55
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   20",
+        "Last 4 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Hint: Output 'fr2' has 309 mismatches. First mismatch occurred at time 20.",
+        "Hint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   20\n\nLast 4 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nHint: Your reset should be synchronous, but doesn't appear to be.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 309 mismatches. First mismatch occurred at time 20.\nHint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.\nHint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.\nHint: Output 'dfr' has 615 mismatches. First mismatch occurred at time 55.\nHint: Total mismatched samples is 1191 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 1191 in 2040 samples\nSIMULATION FAILED - 1191 MISMATCHES DE",
+      "cost": 1191.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "db5fd1c940f9",
+      "tb_digest": "dbbb31f63ade",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1593,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 309,
+          "first_mismatch_time": 20
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 1004,
+          "first_mismatch_time": 55
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   20",
+        "Last 4 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Hint: Output 'fr2' has 309 mismatches. First mismatch occurred at time 20.",
+        "Hint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   20\n\nLast 4 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nHint: Your reset should be synchronous, but doesn't appear to be.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 309 mismatches. First mismatch occurred at time 20.\nHint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.\nHint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.\nHint: Output 'dfr' has 1004 mismatches. First mismatch occurred at time 55.\nHint: Total mismatched samples is 1593 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 1593 in 2040 samples\nSIMULATION FAILED - 1593 MISMATCHES D",
+      "cost": 1593.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "4489c2364283",
+      "tb_digest": "dbbb31f63ade",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1588,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 304,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   80",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40",
+        "Cycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45",
+        "Cycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50",
+        "Cycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55",
+        "Cycle 4, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60",
+        "Cycle 5, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   80\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40\nCycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45\nCycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\nCycle 4, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\nCycle 5, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=0110, time=80\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 304 mismatches. First ",
+      "cost": 1588.0
+    },
+    {
+      "iteration": 7,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "935438118211",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Combinational outputs\\n    always @(*) begin\\n        // Defaults\\n        fr2 = 1'b0;\\n        fr1 = 1'b0;\\n        fr0 = 1'b0;\\n        dfr = 1'b0;\\n\\n        if (curr_rank == R_ABOVE) begin\\n            // Above s[2]: none of the flow valves asserted\\n            fr2 = 1'b0; fr1 = 1'b0; fr0 = 1'b0; dfr = 1'b0;\\n        end else if (curr_rank == R_BET2) begin\\n            // Between s[2] and s[1]: fr0 asserted\\n            fr2 = 1'b0; fr1 = 1'b0; fr0 = 1'b1; dfr = 1'b0;\\n        end else if (curr_rank == R_BET1) begin\\n            // Between s[1] and s[0]: fr0 and fr1 asserted\\n            fr2 = 1'b0; fr1 = 1'b1; fr0 = 1'b1;\\n            // If previous level was lower than current, open supplemental\\n            dfr = (prev_rank < curr_rank);\\n        end else begin\\n            // Below s[0]: fr0, fr1, fr2 asserted and supplemental opened\\n            fr2 = 1'b1; fr1 = 1'b1; fr0 = 1'b1; dfr = 1'b1;\\n        end\\n\\n        // Ensure reset behavior matches spec immediately after synchronous reset clock edge.\\n        if (reset) begin\\n            fr2 = 1'b1;\\n            fr1 = 1'b1;\\n            fr0 = 1'b1;\\n            dfr = 1'b1;\\n        end\\n    end\\n\",\n    \"new_content\": \"    // Next-state combinational logic for outputs\\n    logic next_fr2, next_fr1, next_fr0, next_dfr;\\n\\n    always @(*) begin\\n        // Defaults\\n        next_fr2 = 1'b0;\\n        next_fr1 = 1'b0;\\n        next_fr0 = 1'b0;\\n        next_dfr = 1'b0;\\n\\n        if (curr_rank == R_ABOVE) begin\\n            // Above s[2]: none of the flow valves asserted\\n            next_fr2 = 1'b0; next_fr1 = 1'b0; next_fr0 = 1'b0; next_dfr = 1'b0;\\n        end else if (curr_rank == R_BET2) begin\\n            // Between s[2] and s[1]: fr0 asserted\\n            next_fr2 = 1'b0; next_fr1 = 1'b0; next_fr0 = 1'b1; next_dfr = 1'b0;\\n        end else if (curr_rank == R_BET1) begin\\n            // Between s[1] and s[0]: fr0 and fr1 asserted\\n            next_fr2 = 1'b0; next_fr1 = 1'b1; next_fr0 = 1'b1;\\n            // If previous level was lower than current, open supplemental\\n            next_dfr = (prev_rank < curr_rank);\\n        end else begin\\n            // Below s[0]: fr0, fr1, fr2 asserted and supplemental opened\\n            next_fr2 = 1'b1; next_fr1 = 1'b1; next_fr0 = 1'b1; next_dfr = 1'b1;\\n        end\\n    end\\n\\n    // Registered outputs with active-high synchronous reset\\n    always_ff @(posedge clk) begin\\n        if (reset) begin\\n            fr2 <= 1'b1;\\n            fr1 <= 1'b1;\\n            fr0 <= 1'b1;\\n            dfr <= 1'b1;\\n        end else begin\\n            fr2 <= next_fr2;\\n            fr1 <= next_fr1;\\n            fr0 <= next_fr0;\\n            dfr <= next_dfr;\\n        end\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 8,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "53633ce4ca00",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            // If previous level was lower than current, open supplemental\\n            next_dfr = (prev_rank < curr_rank);\\n\",\n    \"new_content\": \"            // Open supplemental only when previous level was lower (specifically: BELOW -> BET1)\\n            next_dfr = (prev_rank == R_BELOW);\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 9,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "53633ce4ca00",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 888,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 888,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\nMismatch detected at time                   30\\n\\nLast 6 cycles of simulation (most recent first mismatch context):\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=0110, time=30\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\\nHint: Output 'fr2' has no mismatches.\\nHint: Output 'fr1' has no mismatches.\\nHint: Output 'fr0' has no mismatches.\\nHint: Output 'dfr' has 888 mismatches. First mismatch occurred at time 30.\\nHint: Total mismatched samples is 888 out of 2040 samples\\n\\nSimulation finished at 10200 ps\\nMismatches: 888 in 2040 samples\\nSIMULATION FAILED - 888 MISMATCHES DETECTED, FIRST AT TIME 30\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Sequentially store previous rank for the dfr rising condition.\\n    always @(posedge clk) begin\\n        if (reset) begin\\n            prev_rank <= R_BELOW;\\n        end else begin\\n            prev_rank <= curr_rank;\\n        end\\n    end\\n\",\n    \"new_content\": \"    // Store previous sensor reading for dfr timing correctness\\n    logic [2:0] prev_s;\\n\\n    always @(posedge clk) begin\\n        if (reset) begin\\n            prev_s <= 3'b000;\\n        end else begin\\n            prev_s <= s;\\n        end\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\nMismatch detected at time                   30\\n\\nLast 6 cycles of simulation (most recent first mismatch context):\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=0110, time=30\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\\nHint: Output 'fr2' has no mismatches.\\nHint: Output 'fr1' has no mismatches.\\nHint: Output 'fr0' has no mismatches.\\nHint: Output 'dfr' has 888 mismatches. First mismatch occurred at time 30.\\nHint: Total mismatched samples is 888 out of 2040 samples\\n\\nSimulation finished at 10200 ps\\nMismatches: 888 in 204",
+      "cost": 888.0
+    },
+    {
+      "iteration": 10,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "53633ce4ca00",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        ",new_content:             // Open supplemental only on an actual rising sensor-change into BET1"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            // Open supplemental only when previous level was lower (specifically: BELOW -> BET1)\\n            next_dfr = (prev_rank == R_BELOW);\\n\",\n    \"new_content\": \"            // Open supplemental only on an actual rising sensor-change into BET1\\n            // (previous level lower AND current level between s[1] and s[0] AND sensor pattern changed)\\n            next_dfr = (prev_rank == R_BELOW) && (s != prev_s);\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"\\\",\\n    \\\"stderr\\\": \\\"./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:66: error: Unable to bind wire/reg/memory `prev_s' in `TopModule'\\\\n1 error(s) during elaboration.\\\\n\\\"\\n}Syntax check failed. replace_content_by_matching not executed.old_content:             // Open supplemental only when previous level was lower (specifically: BELOW -> BET1)\\n            next_dfr = (prev_rank == R_BELOW);\\n,new_content:             // Open supplemental only on \"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:66: error: Unable to bind wire/reg/memory `prev_s' in `TopModule'\\n1 error(s) during elaboration.\\n\"\n}Syntax check failed. replace_content_by_matching not executed.old_content:             // Open supplemental only when previous level was lower (specifically: BELOW -> BET1)\n            next_dfr = (prev_rank == R_BELOW);\n,new_content:             // Open supplemental only on an actual rising sensor-change into BET1\n            // (previous level lower AND current level between s[1] and s[0] AND sensor pattern changed)\n            next_dfr = (prev_rank == R_BELOW) && (s != prev_s);\n",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 11,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "53633ce4ca00",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            // Open supplemental only on an actual rising sensor-change into BET1\\n            // (previous level lower AND current level between s[1] and s[0] AND sensor pattern changed)\\n            next_dfr = (prev_rank == R_BELOW) && (s != prev_s);\\n\",\n    \"new_content\": \"            // Open supplemental only when previous level was lower (specifically: BELOW -> BET1)\\n            next_dfr = (prev_rank == R_BELOW);\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Cannot find old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 12,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "dd08ae5ce46a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            // Open supplemental only when previous level was lower (specifically: BELOW -> BET1)\\n            next_dfr = (prev_rank == R_BELOW);\\n\",\n    \"new_content\": \"            // dfr is asserted only for the rising transition into BET1 when previous level was BELOW\\n            next_dfr = (prev_rank == R_BELOW);\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 13,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "872d9889baaa",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    logic [1:0] prev_rank;\\n    logic [1:0] curr_rank;\\n\",\n    \"new_content\": \"    logic [1:0] prev_rank;\\n    logic [1:0] curr_rank;\\n    logic armed;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 14,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "046a9ab6b23a",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    logic [1:0] prev_rank;\\n    logic [1:0] curr_rank;\\n    logic armed;\\n\",\n    \"new_content\": \"    logic [1:0] prev_rank;\\n    logic [1:0] curr_rank;\\n    logic armed;\\n    logic [2:0] prev_s;\\n    logic [1:0] stored_prev_rank;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 15,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "dc7ca1f7c1d5",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Sequentially store previous rank for the dfr rising condition.\\n    always @(posedge clk) begin\\n        if (reset) begin\\n            prev_rank <= R_BELOW;\\n        end else begin\\n            prev_rank <= curr_rank;\\n        end\\n    end\\n\",\n    \"new_content\": \"    // Track previous sensor pattern; store the rank associated with the *previous sensor-change*.\\n    always_ff @(posedge clk) begin\\n        if (reset) begin\\n            prev_s <= 3'b000;\\n            stored_prev_rank <= R_BELOW;\\n            prev_rank <= R_BELOW; // kept for compatibility; not used for dfr\\n        end else begin\\n            // Detect sensor change event\\n            if (s != prev_s) begin\\n                stored_prev_rank <= curr_rank;\\n                prev_s <= s;\\n            end else begin\\n                prev_s <= prev_s;\\n                stored_prev_rank <= stored_prev_rank;\\n            end\\n            prev_rank <= curr_rank;\\n        end\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 16,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "100466788ae1",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            // dfr is asserted only for the rising transition into BET1 when previous level was BELOW\\n            next_dfr = (prev_rank == R_BELOW);\\n\",\n    \"new_content\": \"            // dfr is asserted only if previous sensor-change level was BELOW\\n            // and at least one sensor change has occurred since reset deassertion\\n            next_dfr = (stored_prev_rank == R_BELOW) & armed;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 17,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "100466788ae1",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   30",
+        "Last 6 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15",
+        "Cycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=0110, time=30"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    logic armed;\\n    logic [2:0] prev_s;\\n    logic [1:0] stored_prev_rank;\\n\",\n    \"new_content\": \"    logic armed;\\n    logic [2:0] prev_s;\\n    logic [1:0] stored_prev_rank;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   30\n\nLast 6 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=011x, exp {fr2,fr1,fr0,dfr}=0110, time=30\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHint: Output 'fr1' has no mismatches.\nHint: Output 'fr0' has no mismatches.\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 760 out of 2040 samples\n\nSimulation finished at 10200 ps\nMismatches: 760 in 2040 samples\nSIMULATION FAILED - 760 M",
+      "cost": 760.0
+    },
+    {
+      "iteration": 18,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "c573b1fe16f7",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 756,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 756,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80",
+        "Cycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85",
+        "Cycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90",
+        "Cycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95",
+        "Cycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100",
+        "Cycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    logic armed;\\n\",\n    \"new_content\": \"    logic armed;\\n\\n    // Arm dfr logic only after reset has been deasserted to match the reference behavior\\n    always_ff @(posedge clk) begin\\n        if (reset) begin\\n            armed <= 1'b0;\\n        end else begin\\n            armed <= 1'b1;\\n        end\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                  120\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\\\\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\\\\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\\\\nCycle 3, reset 0, s=0 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                  120\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\nCycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95\nCycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100\nCycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=110\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=115\nCycle 8, reset 0, s=3 (bin 011), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=120\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHi",
+      "cost": 756.0
+    },
+    {
+      "iteration": 19,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "4299c9a180c3",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 756,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 756,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80",
+        "Cycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85",
+        "Cycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90",
+        "Cycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95",
+        "Cycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100",
+        "Cycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            // dfr is asserted only if previous sensor-change level was BELOW\\n            // and at least one sensor change has occurred since reset deassertion\\n            next_dfr = (stored_prev_rank == R_BELOW) & armed;\",\n    \"new_content\": \"            // dfr should open only on the sensor-change cycle into BET1\\n            // and only if the previous sensor-change level was BELOW.\\n            next_dfr = (stored_prev_rank == R_BELOW) & armed & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                  120\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\\\\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\\\\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\\\\nCycle 3, reset 0, s=0 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                  120\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\nCycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95\nCycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100\nCycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=110\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=115\nCycle 8, reset 0, s=3 (bin 011), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=120\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHi",
+      "cost": 756.0
+    },
+    {
+      "iteration": 20,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "4299c9a180c3",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 760,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 760,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\nMismatch detected at time                   30\\n\\nLast 6 cycles of simulation (most recent first mismatch context):\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\\nHint: Output 'fr2' has no mismatches.\\nHint: Output 'fr1' has no mismatches.\\nHint: Output 'fr0' has no mismatches.\\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\\nHint: Total mismatched samples is 760 out of 2040 samples\\n\\nSimulation finished at 10200 ps\\nMismatches: 760 in 2040 samples\\nSIMULATION FAILED - 760 MISMATCHES DETECTED, FIRST AT TIME 30\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            // dfr should open only on the sensor-change cycle into BET1\\n            // and only if the previous sensor-change level was BELOW.\\n            next_dfr = (stored_prev_rank == R_BELOW) & armed & (s != prev_s);\",\n    \"new_content\": \"            // dfr opens when previous sensor-change level was lower than current BET1\\n            // (for BET1, that means previous rank was BELOW).\\n            next_dfr = (stored_prev_rank == R_BELOW);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   30\\\\n\\\\nLast 6 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\\\nCycle 3, reset 0, s=1 (bi\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\nMismatch detected at time                   30\\n\\nLast 6 cycles of simulation (most recent first mismatch context):\\nCycle 0, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=xxxx, exp {fr2,fr1,fr0,dfr}=xxxx, time=5\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=10\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=15\\nCycle 3, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=20\\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=25\\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=30\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\\nHint: Output 'fr2' has no mismatches.\\nHint: Output 'fr1' has no mismatches.\\nHint: Output 'fr0' has no mismatches.\\nHint: Output 'dfr' has 760 mismatches. First mismatch occurred at time 30.\\nHint: Total mismatched samples is 760 out of 2040 samples\\n\\nSimulation finished at 10200 ps\\nMismatches: 760 in 204",
+      "cost": 760.0
+    },
+    {
+      "iteration": 21,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "a7e2d943acff",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 756,
+      "first_mismatch_time": 120,
+      "output_mismatches": [
+        {
+          "output_name": "dfr",
+          "mismatch_count": 756,
+          "first_mismatch_time": 120
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  120",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80",
+        "Cycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85",
+        "Cycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90",
+        "Cycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95",
+        "Cycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100",
+        "Cycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            next_dfr = (stored_prev_rank == R_BELOW) & armed & (s != prev_s);\",\n    \"new_content\": \"            next_dfr = (stored_prev_rank == R_BELOW) & armed;\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                  120\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\\\\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\\\\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\\\\nCycle 3, reset 0, s=0 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                  120\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 1, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 2, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=90\nCycle 3, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=95\nCycle 4, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=100\nCycle 5, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=105\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=110\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=115\nCycle 8, reset 0, s=3 (bin 011), got {fr2,fr1,fr0,dfr}=0111, exp {fr2,fr1,fr0,dfr}=0110, time=120\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has no mismatches.\nHi",
+      "cost": 756.0
+    },
+    {
+      "iteration": 22,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "4489c2364283",
+      "tb_digest": null,
+      "is_syntax_pass": false,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Store previous sensor state to decide whether level increased.\\n    logic [2:0] prev_s;\\n    logic       reset_seen;\\n\",\n    \"new_content\": \"    // Store previous encoded level to decide whether level increased.\\n    logic [1:0] prev_level_code;\\n    logic       reset_seen;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"\\\",\\n    \\\"stderr\\\": \\\"./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:28: error: Could not find variable ``prev_s'' in ``TopModule''\\\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:31: error: Could not find variable ``prev_s'' in ``TopModule''\\\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:55: error: Unable to bind wire/reg/memory `prev_s' in `TopModule'\\\\n./outp\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"\",\n    \"stderr\": \"./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:28: error: Could not find variable ``prev_s'' in ``TopModule''\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:31: error: Could not find variable ``prev_s'' in ``TopModule''\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:55: error: Unable to bind wire/reg/memory `prev_s' in `TopModule'\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:60: error: Unable to bind wire/reg/memory `prev_s' in `TopModule'\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/rtl.sv:66: error: Unable to bind wire/reg/memory `prev_s' in `TopModule'\\n5 error(s) during elaboration.\\n\"\n}Syntax check failed. replace_content_by_matching not executed.old_content:     // Store previous sensor state to decide whether level increased.\n    logic [2:0] prev_s;\n    logic       reset_seen;\n,new_content:     // Store previous encoded level to decide whether level increased.\n    logic [1:0] prev_level_code;\n    logic       reset_seen;\n",
+      "cost": 1000000.0
+    },
+    {
+      "iteration": 23,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "4489c2364283",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1588,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 304,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   80",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40",
+        "Cycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45",
+        "Cycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50",
+        "Cycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55",
+        "Cycle 4, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60",
+        "Cycle 5, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Store previous sensor state to decide whether level increased.\\n    logic [2:0] prev_s;\\n    logic       reset_seen;\\n\",\n    \"new_content\": \"    // Store previous sensor state to decide whether level increased.\\n    logic [2:0] prev_s;\\n    logic       reset_seen;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   80\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40\\\\nCycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45\\\\nCycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\\\nCycle 3, reset 1, s=1 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   80\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40\nCycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45\nCycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\nCycle 4, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\nCycle 5, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=0110, time=80\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 304 mismatches. First ",
+      "cost": 1588.0
+    },
+    {
+      "iteration": 24,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "a9f9bc097166",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1544,
+      "first_mismatch_time": 90,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 628,
+          "first_mismatch_time": 90
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   90",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60",
+        "Cycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        end else begin\\n            // Below s[0] => fr0, fr1, fr2\\n            fr0 = 1'b1;\\n            fr1 = 1'b1;\\n            fr2 = 1'b1;\\n            dfr = (level_code(s) > level_code(prev_s));\\n        end\",\n    \"new_content\": \"        end else begin\\n            // Below s[0] => fr0, fr1 (reference expects fr2 deasserted here)\\n            fr0 = 1'b1;\\n            fr1 = 1'b1;\\n            fr2 = 1'b0;\\n            dfr = (level_code(s) > level_code(prev_s));\\n        end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   90\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\\\\nCycle 3, reset 1, s=1 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   90\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\nCycle 6, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 7, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=1111, time=90\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 628 mismatches. First ",
+      "cost": 1544.0
+    },
+    {
+      "iteration": 25,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "a9f9bc097166",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1588,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 304,
+          "first_mismatch_time": 80
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\nMismatch detected at time                   80\\n\\nLast 9 cycles of simulation (most recent first mismatch context):\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40\\nCycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45\\nCycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\\nCycle 4, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\\nCycle 5, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=0110, time=80\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\\nHint: Output 'fr2' has 304 mismatches. First mismatch occurred at time 80.\\nHint: Output 'fr1' has 288 mismatches. First mismatch occurred at time 120.\\nHint: Output 'fr0' has 273 mismatches. First mismatch occurred at time 130.\\nHint: Output 'dfr' has 989 mismatches. First mismatch occurred at time 90.\\nHint: Total mismatched samples is 1588 out of 2040 samples\\n\\nSimulation finished at 10200 ps\\nMismatches: 1588 in 2040 samples\\nSIMULATION FAILED - 1588 MISMATCHES DETECTED, FIRST AT TIME 80\\n\",",
+        "}Mismatch_cnt increased after the replacement. replace_content_by_matching not executed."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        end else begin\\n            // Below s[0] => fr0, fr1 (reference expects fr2 deasserted here)\\n            fr0 = 1'b1;\\n            fr1 = 1'b1;\\n            fr2 = 1'b0;\\n            dfr = (level_code(s) > level_code(prev_s));\\n        end\",\n    \"new_content\": \"        end else begin\\n            // Below s[0] => maximum flow (fr0, fr1, fr2)\\n            fr0 = 1'b1;\\n            fr1 = 1'b1;\\n            fr2 = 1'b1;\\n            // Supplemental flow opens if level increased compared to previous sampled level\\n            dfr = (level_code(s) > level_code(prev_s));\\n        end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   80\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40\\\\nCycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45\\\\nCycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\\\nCycle 3, reset 1, s=1 (b\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\nMismatch detected at time                   80\\n\\nLast 9 cycles of simulation (most recent first mismatch context):\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=40\\nCycle 1, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=45\\nCycle 2, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\\nCycle 4, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\\nCycle 5, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\\nCycle 6, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\\nCycle 7, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=1110, exp {fr2,fr1,fr0,dfr}=0110, time=80\\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\\nHint: Output '",
+      "cost": 1588.0
+    },
+    {
+      "iteration": 26,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "fb3f330d24b9",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1544,
+      "first_mismatch_time": 90,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 628,
+          "first_mismatch_time": 90
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   90",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60",
+        "Cycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Sequential: synchronous reset of state.\\n    always_ff @(posedge clk) begin\\n        if (reset) begin\\n            // \\\"Equivalent to if the water level had been low for a long time (no sensors asserted)\\\"\\n            prev_s     <= 3'b000;\\n            reset_seen <= 1'b1;\\n        end else begin\\n            prev_s     <= s;\\n            reset_seen <= 1'b0;\\n        end\\n    end\",\n    \"new_content\": \"    // Initialize to avoid X-propagation before the first reset.\\n    initial begin\\n        prev_s     = 3'b000;\\n        reset_seen = 1'b0;\\n    end\\n\\n    // Sequential: synchronous reset of state.\\n    always_ff @(posedge clk) begin\\n        if (reset) begin\\n            // \\\"Equivalent to if the water level had been low for a long time (no sensors asserted)\\\"\\n            prev_s     <= 3'b000;\\n            reset_seen <= 1'b1;\\n        end else begin\\n            prev_s     <= s;\\n            reset_seen <= 1'b0;\\n        end\\n    end\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   90\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\\\\nCycle 3, reset 1, s=1 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   90\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\nCycle 6, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 7, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=1111, time=90\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 628 mismatches. First ",
+      "cost": 1544.0
+    },
+    {
+      "iteration": 27,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "fb3f330d24b9",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Find multiple old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 28,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "fb3f330d24b9",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Find multiple old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 29,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "fb3f330d24b9",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Find multiple old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 30,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "fb3f330d24b9",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Find multiple old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 31,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "fb3f330d24b9",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        else if (s[1] == 1'b1 && s[0] == 1'b1) begin\\n            // Between s[2] and s[1] => fr0\\n            fr0 = 1'b1;\\n            // Increase detection: previous level lower than current level\\n            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"        else if (s[1] == 1'b1 && s[0] == 1'b1) begin\\n            // Between s[2] and s[1] => fr0\\n            fr0 = 1'b1;\\n            // Increase detection: previous level lower than current level\\n            // dfr is meaningful only on a sensor-change cycle\\n            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Cannot find old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 32,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "fb3f330d24b9",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Find multiple old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 33,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "6d5c42416503",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1544,
+      "first_mismatch_time": 90,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 628,
+          "first_mismatch_time": 90
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   90",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60",
+        "Cycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        end else if (s[1] == 1'b1 && s[0] == 1'b1) begin\\n            // Between s[2] and s[1] => fr0\\n            fr0 = 1'b1;\\n            // Increase detection: previous level lower than current level\\n            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"        end else if (s[1] == 1'b1 && s[0] == 1'b1) begin\\n            // Between s[2] and s[1] => fr0\\n            fr0 = 1'b1;\\n            // Increase detection: previous level lower than current level\\n            // dfr should assert only on a sensor-change cycle\\n            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   90\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\\\\nCycle 3, reset 1, s=1 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   90\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\nCycle 6, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 7, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=1111, time=90\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 628 mismatches. First ",
+      "cost": 1544.0
+    },
+    {
+      "iteration": 34,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "6d5c42416503",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Find multiple old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 35,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "6d5c42416503",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"error_msg\": \"Find multiple old_content in current RTL. replace_content_by_matching not executed.\"\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 36,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "8bc8aecc5554",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1544,
+      "first_mismatch_time": 90,
+      "output_mismatches": [
+        {
+          "output_name": "fr2",
+          "mismatch_count": 628,
+          "first_mismatch_time": 90
+        },
+        {
+          "output_name": "fr1",
+          "mismatch_count": 288,
+          "first_mismatch_time": 120
+        },
+        {
+          "output_name": "fr0",
+          "mismatch_count": 273,
+          "first_mismatch_time": 130
+        },
+        {
+          "output_name": "dfr",
+          "mismatch_count": 989,
+          "first_mismatch_time": 90
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   90",
+        "Last 9 cycles of simulation (most recent first mismatch context):",
+        "Cycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50",
+        "Cycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55",
+        "Cycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60",
+        "Cycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65",
+        "Cycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70",
+        "Cycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75"
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        end else if (s[0] == 1'b1) begin\\n            // Between s[1] and s[0] => fr0, fr1\\n            fr0 = 1'b1;\\n            fr1 = 1'b1;\\n            dfr = (level_code(s) > level_code(prev_s));\",\n    \"new_content\": \"        end else if (s[0] == 1'b1) begin\\n            // Between s[1] and s[0] => fr0, fr1\\n            fr0 = 1'b1;\\n            fr1 = 1'b1;\\n            // dfr should open only when there is a sensor-change cycle\\n            dfr = (level_code(s) > level_code(prev_s)) & (s != prev_s);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"{\\n    \\\"stdout\\\": \\\"VCD info: dumpfile wave.vcd opened for output.\\\\nMismatch detected at time                   90\\\\n\\\\nLast 9 cycles of simulation (most recent first mismatch context):\\\\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\\\\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\\\\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\\\\nCycle 3, reset 1, s=1 (b\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   90\n\nLast 9 cycles of simulation (most recent first mismatch context):\nCycle 0, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=50\nCycle 1, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=55\nCycle 2, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=60\nCycle 3, reset 1, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=65\nCycle 4, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=70\nCycle 5, reset 0, s=1 (bin 001), got {fr2,fr1,fr0,dfr}=1111, exp {fr2,fr1,fr0,dfr}=1111, time=75\nCycle 6, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=80\nCycle 7, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=0110, time=85\nCycle 8, reset 0, s=0 (bin 000), got {fr2,fr1,fr0,dfr}=0110, exp {fr2,fr1,fr0,dfr}=1111, time=90\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob149_ece241_2013_q4/tb.sv:80: $finish called at 10200 (1ps)\nHint: Output 'fr2' has 628 mismatches. First ",
+      "cost": 1544.0
+    }
+  ]
+}

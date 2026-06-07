@@ -1,0 +1,253 @@
+{
+  "checkpoint_count": 7,
+  "best_checkpoint": {
+    "iteration": 7,
+    "stage": "rtl_editor_action_1",
+    "rtl_digest": "c3f7779d51f8",
+    "tb_digest": null,
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        // next_state[7]\\n        next_state[7] = (state[6] & in);\",\n    \"new_content\": \"        // next_state[7]\\n        next_state[7] = (state[6] & in) | (state[7] & in);\"\n  }\n}",
+    "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"\"\n}",
+    "sim_log_excerpt": "",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "4a1bfb61e722",
+      "tb_digest": "87fc1cc9ca62",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 45,
+      "first_mismatch_time": 60,
+      "output_mismatches": [
+        {
+          "output_name": "out1",
+          "mismatch_count": 45,
+          "first_mismatch_time": 60
+        },
+        {
+          "output_name": "out2",
+          "mismatch_count": 27,
+          "first_mismatch_time": 65
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   60",
+        "out1: MISMATCH",
+        "Hint: Output 'next_state' has no mismatches.",
+        "Hint: Output 'out1' has 45 mismatches. First mismatch occurred at time 60.",
+        "Hint: Output 'out2' has 27 mismatches. First mismatch occurred at time 65.",
+        "Hint: Total mismatched samples is 45 out of 224 samples",
+        "Mismatches: 45 in 224 samples",
+        "SIMULATION FAILED - 45 MISMATCHES DETECTED, FIRST AT TIME 60"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   60\n\nLast           9 cycles of simulation:\nCycle 0\n  in=0, state=001 (bin=0000000001)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 1\n  in=0, state=002 (bin=0000000010)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 2\n  in=0, state=004 (bin=0000000100)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 3\n  in=0, state=008 (bin=0000001000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 4\n  in=0, state=010 (bin=0000010000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n",
+      "cost": 45.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "e44759639d55",
+      "tb_digest": "87fc1cc9ca62",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 45,
+      "first_mismatch_time": 60,
+      "output_mismatches": [
+        {
+          "output_name": "out1",
+          "mismatch_count": 45,
+          "first_mismatch_time": 60
+        },
+        {
+          "output_name": "out2",
+          "mismatch_count": 27,
+          "first_mismatch_time": 65
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   60",
+        "out1: MISMATCH",
+        "Hint: Output 'next_state' has no mismatches.",
+        "Hint: Output 'out1' has 45 mismatches. First mismatch occurred at time 60.",
+        "Hint: Output 'out2' has 27 mismatches. First mismatch occurred at time 65.",
+        "Hint: Total mismatched samples is 45 out of 224 samples",
+        "Mismatches: 45 in 224 samples",
+        "SIMULATION FAILED - 45 MISMATCHES DETECTED, FIRST AT TIME 60"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   60\n\nLast           9 cycles of simulation:\nCycle 0\n  in=0, state=001 (bin=0000000001)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 1\n  in=0, state=002 (bin=0000000010)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 2\n  in=0, state=004 (bin=0000000100)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 3\n  in=0, state=008 (bin=0000001000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 4\n  in=0, state=010 (bin=0000010000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n",
+      "cost": 45.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "7939f0129cfc",
+      "tb_digest": "87fc1cc9ca62",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 69,
+      "first_mismatch_time": 45,
+      "output_mismatches": [
+        {
+          "output_name": "next_state",
+          "mismatch_count": 24,
+          "first_mismatch_time": 45
+        },
+        {
+          "output_name": "out1",
+          "mismatch_count": 45,
+          "first_mismatch_time": 60
+        },
+        {
+          "output_name": "out2",
+          "mismatch_count": 27,
+          "first_mismatch_time": 65
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   45",
+        "next_state: MISMATCH",
+        "Hint: Output 'next_state' has 24 mismatches. First mismatch occurred at time 45.",
+        "Hint: Output 'out1' has 45 mismatches. First mismatch occurred at time 60.",
+        "Hint: Output 'out2' has 27 mismatches. First mismatch occurred at time 65.",
+        "Hint: Total mismatched samples is 69 out of 224 samples",
+        "Mismatches: 69 in 224 samples",
+        "SIMULATION FAILED - 69 MISMATCHES DETECTED, FIRST AT TIME 45"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   45\n\nLast           9 cycles of simulation:\nCycle 0\n  in=x, state=000 (bin=0000000000)\n  next_state_ref=000 (bin=0000000000), next_state_dut=000 (bin=0000000000)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 1\n  in=x, state=000 (bin=0000000000)\n  next_state_ref=000 (bin=0000000000), next_state_dut=000 (bin=0000000000)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 2\n  in=x, state=000 (bin=0000000000)\n  next_state_ref=000 (bin=0000000000), next_state_dut=000 (bin=0000000000)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 3\n  in=0, state=001 (bin=0000000001)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 4\n  in=0, state=002 (bin=0000000010)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n",
+      "cost": 69.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "d350cd5f1005",
+      "tb_digest": "87fc1cc9ca62",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 45,
+      "first_mismatch_time": 60,
+      "output_mismatches": [
+        {
+          "output_name": "out1",
+          "mismatch_count": 45,
+          "first_mismatch_time": 60
+        },
+        {
+          "output_name": "out2",
+          "mismatch_count": 27,
+          "first_mismatch_time": 65
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   60",
+        "out1: MISMATCH",
+        "Hint: Output 'next_state' has no mismatches.",
+        "Hint: Output 'out1' has 45 mismatches. First mismatch occurred at time 60.",
+        "Hint: Output 'out2' has 27 mismatches. First mismatch occurred at time 65.",
+        "Hint: Total mismatched samples is 45 out of 224 samples",
+        "Mismatches: 45 in 224 samples",
+        "SIMULATION FAILED - 45 MISMATCHES DETECTED, FIRST AT TIME 60"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   60\n\nLast           9 cycles of simulation:\nCycle 0\n  in=0, state=001 (bin=0000000001)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 1\n  in=0, state=002 (bin=0000000010)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 2\n  in=0, state=004 (bin=0000000100)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 3\n  in=0, state=008 (bin=0000001000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 4\n  in=0, state=010 (bin=0000010000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n",
+      "cost": 45.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "0de355427ee3",
+      "tb_digest": "87fc1cc9ca62",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 45,
+      "first_mismatch_time": 60,
+      "output_mismatches": [
+        {
+          "output_name": "out1",
+          "mismatch_count": 45,
+          "first_mismatch_time": 60
+        },
+        {
+          "output_name": "out2",
+          "mismatch_count": 27,
+          "first_mismatch_time": 65
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                   60",
+        "out1: MISMATCH",
+        "Hint: Output 'next_state' has no mismatches.",
+        "Hint: Output 'out1' has 45 mismatches. First mismatch occurred at time 60.",
+        "Hint: Output 'out2' has 27 mismatches. First mismatch occurred at time 65.",
+        "Hint: Total mismatched samples is 45 out of 224 samples",
+        "Mismatches: 45 in 224 samples",
+        "SIMULATION FAILED - 45 MISMATCHES DETECTED, FIRST AT TIME 60"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                   60\n\nLast           9 cycles of simulation:\nCycle 0\n  in=0, state=001 (bin=0000000001)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 1\n  in=0, state=002 (bin=0000000010)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 2\n  in=0, state=004 (bin=0000000100)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 3\n  in=0, state=008 (bin=0000001000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 4\n  in=0, state=010 (bin=0000010000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n",
+      "cost": 45.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "99278c8a037c",
+      "tb_digest": "87fc1cc9ca62",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 7,
+      "first_mismatch_time": 105,
+      "output_mismatches": [
+        {
+          "output_name": "next_state",
+          "mismatch_count": 7,
+          "first_mismatch_time": 105
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  105",
+        "next_state: MISMATCH",
+        "Hint: Output 'next_state' has 7 mismatches. First mismatch occurred at time 105.",
+        "Hint: Output 'out1' has no mismatches.",
+        "Hint: Output 'out2' has no mismatches.",
+        "Hint: Total mismatched samples is 7 out of 224 samples",
+        "Mismatches: 7 in 224 samples",
+        "SIMULATION FAILED - 7 MISMATCHES DETECTED, FIRST AT TIME 105"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                  105\n\nLast           9 cycles of simulation:\nCycle 0\n  in=0, state=200 (bin=1000000000)\n  next_state_ref=001 (bin=0000000001), next_state_dut=001 (bin=0000000001)\n  out1_ref=1, out1_dut=1\n  out2_ref=1, out2_dut=1\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 1\n  in=1, state=001 (bin=0000000001)\n  next_state_ref=002 (bin=0000000010), next_state_dut=002 (bin=0000000010)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 2\n  in=1, state=002 (bin=0000000010)\n  next_state_ref=004 (bin=0000000100), next_state_dut=004 (bin=0000000100)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 3\n  in=1, state=004 (bin=0000000100)\n  next_state_ref=008 (bin=0000001000), next_state_dut=008 (bin=0000001000)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n  out2: MATCH\nCycle 4\n  in=1, state=008 (bin=0000001000)\n  next_state_ref=010 (bin=0000010000), next_state_dut=010 (bin=0000010000)\n  out1_ref=0, out1_dut=0\n  out2_ref=0, out2_dut=0\n  next_state: MATCH\n  out1: MATCH\n",
+      "cost": 7.0
+    },
+    {
+      "iteration": 7,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "c3f7779d51f8",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"        // next_state[7]\\n        next_state[7] = (state[6] & in);\",\n    \"new_content\": \"        // next_state[7]\\n        next_state[7] = (state[6] & in) | (state[7] & in);\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"error_msg\": \"\"\n}",
+      "sim_log_excerpt": "",
+      "cost": 0.0
+    }
+  ]
+}

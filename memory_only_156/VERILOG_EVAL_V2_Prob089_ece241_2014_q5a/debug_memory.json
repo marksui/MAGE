@@ -1,0 +1,180 @@
+{
+  "checkpoint_count": 6,
+  "best_checkpoint": {
+    "iteration": 6,
+    "stage": "rtl_candidate_5",
+    "rtl_digest": "47eddd805159",
+    "tb_digest": "a35510a35917",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'z' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 436 samples",
+      "Mismatches: 0 in 436 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob089_ece241_2014_q5a/tb.sv:73: $finish called at 2180 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 436 samples\n\nSimulation finished at 2180 ps\nMismatches: 0 in 436 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "30f07d851676",
+      "tb_digest": "a35510a35917",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 209,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 209,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "Hint: Output 'z' has 209 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 209 out of 436 samples",
+        "Mismatches: 209 in 436 samples",
+        "SIMULATION FAILED - 209 MISMATCHES DETECTED, FIRST AT TIME 10"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob089_ece241_2014_q5a/tb.sv:73: $finish called at 2180 (1ps)\nHint: Output 'z' has 209 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 209 out of 436 samples\n\nSimulation finished at 2180 ps\nMismatches: 209 in 436 samples\nSIMULATION FAILED - 209 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 209.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "1e4239c5073b",
+      "tb_digest": "a35510a35917",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 385,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 385,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Hint: Output 'z' has 385 mismatches. First mismatch occurred at time 30.",
+        "Hint: Total mismatched samples is 385 out of 436 samples",
+        "Mismatches: 385 in 436 samples",
+        "SIMULATION FAILED - 385 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob089_ece241_2014_q5a/tb.sv:73: $finish called at 2180 (1ps)\nHint: Output 'z' has 385 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 385 out of 436 samples\n\nSimulation finished at 2180 ps\nMismatches: 385 in 436 samples\nSIMULATION FAILED - 385 MISMATCHES DETECTED, FIRST AT TIME 30\n",
+      "cost": 385.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "0149e08e9456",
+      "tb_digest": "a35510a35917",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 213,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 213,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "Hint: Output 'z' has 213 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 213 out of 436 samples",
+        "Mismatches: 213 in 436 samples",
+        "SIMULATION FAILED - 213 MISMATCHES DETECTED, FIRST AT TIME 10"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob089_ece241_2014_q5a/tb.sv:73: $finish called at 2180 (1ps)\nHint: Output 'z' has 213 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 213 out of 436 samples\n\nSimulation finished at 2180 ps\nMismatches: 213 in 436 samples\nSIMULATION FAILED - 213 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 213.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "7f3e297506cb",
+      "tb_digest": "a35510a35917",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 381,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 381,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "Hint: Output 'z' has 381 mismatches. First mismatch occurred at time 30.",
+        "Hint: Total mismatched samples is 381 out of 436 samples",
+        "Mismatches: 381 in 436 samples",
+        "SIMULATION FAILED - 381 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob089_ece241_2014_q5a/tb.sv:73: $finish called at 2180 (1ps)\nHint: Output 'z' has 381 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 381 out of 436 samples\n\nSimulation finished at 2180 ps\nMismatches: 381 in 436 samples\nSIMULATION FAILED - 381 MISMATCHES DETECTED, FIRST AT TIME 30\n",
+      "cost": 381.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "1001d43b8ea6",
+      "tb_digest": "a35510a35917",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 209,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 209,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "Hint: Output 'z' has 209 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 209 out of 436 samples",
+        "Mismatches: 209 in 436 samples",
+        "SIMULATION FAILED - 209 MISMATCHES DETECTED, FIRST AT TIME 10"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob089_ece241_2014_q5a/tb.sv:73: $finish called at 2180 (1ps)\nHint: Output 'z' has 209 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 209 out of 436 samples\n\nSimulation finished at 2180 ps\nMismatches: 209 in 436 samples\nSIMULATION FAILED - 209 MISMATCHES DETECTED, FIRST AT TIME 10\n",
+      "cost": 209.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "47eddd805159",
+      "tb_digest": "a35510a35917",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 436 samples",
+        "Mismatches: 0 in 436 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob089_ece241_2014_q5a/tb.sv:73: $finish called at 2180 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 436 samples\n\nSimulation finished at 2180 ps\nMismatches: 0 in 436 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

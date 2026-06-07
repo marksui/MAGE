@@ -1,0 +1,58 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "4725231f4d34",
+    "tb_digest": "22f23b820c44",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:141: sorry: Unpacked structs not supported.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:156: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:156: error: Syntax error defining function.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:192: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:192: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:214: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:222: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "4725231f4d34",
+      "tb_digest": "22f23b820c44",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:141: sorry: Unpacked structs not supported.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:156: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:156: error: Syntax error defining function.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:192: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:192: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:214: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:222: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "4725231f4d34",
+      "tb_digest": "56544d2ba0f8",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'ena' has no mismatches.",
+        "Hint: Output 'q' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 39805 samples",
+        "Mismatches: 0 in 39805 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob068_countbcd/tb.sv:68: $finish called at 199026 (1ps)\nHint: Output 'ena' has no mismatches.\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 39805 samples\n\nSimulation finished at 199026 ps\nMismatches: 0 in 39805 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

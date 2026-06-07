@@ -1,0 +1,90 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "9e45d72d4175",
+    "tb_digest": "f34254ecab25",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'disc' has no mismatches.",
+      "Hint: Output 'flag' has no mismatches.",
+      "Hint: Output 'err' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 801 samples",
+      "Mismatches: 0 in 801 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob140_fsm_hdlc/tb.sv:18: $finish called at 4006 (1ps)\nHint: Output 'disc' has no mismatches.\nHint: Output 'flag' has no mismatches.\nHint: Output 'err' has no mismatches.\nHint: Total mismatched samples is 0 out of 801 samples\n\nSimulation finished at 4006 ps\nMismatches: 0 in 801 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "7e31ab62cc52",
+      "tb_digest": "f34254ecab25",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 38,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "disc",
+          "mismatch_count": 4,
+          "first_mismatch_time": 1240
+        },
+        {
+          "output_name": "flag",
+          "mismatch_count": 2,
+          "first_mismatch_time": 1620
+        },
+        {
+          "output_name": "err",
+          "mismatch_count": 34,
+          "first_mismatch_time": 80
+        }
+      ],
+      "mismatch_lines": [
+        "*** FIRST MISMATCH DETECTED at time 80 ***",
+        "Last cycles before/around first mismatch:",
+        "Hint: Output 'disc' has 4 mismatches. First mismatch occurred at time 1240.",
+        "Hint: Output 'flag' has 2 mismatches. First mismatch occurred at time 1620.",
+        "Hint: Output 'err' has 34 mismatches. First mismatch occurred at time 80.",
+        "Hint: Total mismatched samples is 38 out of 801 samples",
+        "Mismatches: 38 in 801 samples",
+        "SIMULATION FAILED - 38 MISMATCHES DETECTED, FIRST AT TIME 80"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\n*** FIRST MISMATCH DETECTED at time 80 ***\nCurrent sample: reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=1\nLast cycles before/around first mismatch:\nQueue size = 9 (max 10)\n  [0] t=40 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [1] t=45 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [2] t=50 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [3] t=55 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [4] t=60 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [5] t=65 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [6] t=70 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [7] t=75 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=0\n  [8] t=80 reset=0 in=1 | got: disc=0 flag=0 err=0 | exp: disc=0 flag=0 err=1\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob140_fsm_hdlc/tb.sv:18: $finish called at 4006 (1ps)\nHint: Output 'disc' has 4 mismatches. First mismatch occurred at time 1240.\nHint: Output 'flag' has 2 mismatches. First mismatch occurred at tim",
+      "cost": 38.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "9e45d72d4175",
+      "tb_digest": "f34254ecab25",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'disc' has no mismatches.",
+        "Hint: Output 'flag' has no mismatches.",
+        "Hint: Output 'err' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 801 samples",
+        "Mismatches: 0 in 801 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob140_fsm_hdlc/tb.sv:18: $finish called at 4006 (1ps)\nHint: Output 'disc' has no mismatches.\nHint: Output 'flag' has no mismatches.\nHint: Output 'err' has no mismatches.\nHint: Total mismatched samples is 0 out of 801 samples\n\nSimulation finished at 4006 ps\nMismatches: 0 in 801 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

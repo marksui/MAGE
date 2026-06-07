@@ -1,0 +1,750 @@
+{
+  "checkpoint_count": 36,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "12f52d950d24",
+    "tb_digest": "f8fafce1f931",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'Y0' has no mismatches.",
+      "Hint: Output 'z' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 200 samples",
+      "Mismatches: 0 in 200 samples",
+      "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+      "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has no mismatches.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "78a9cd413cd5",
+      "tb_digest": "f8fafce1f931",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 56,
+      "first_mismatch_time": 45,
+      "output_mismatches": [
+        {
+          "output_name": "Y0",
+          "mismatch_count": 56,
+          "first_mismatch_time": 45
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                   45",
+        "Hint: Output 'Y0' has 56 mismatches. First mismatch occurred at time 45.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 56 out of 200 samples",
+        "Mismatches: 56 in 200 samples",
+        "SIMULATION FAILED - 56 MISMATCHES DETECTED, FIRST AT TIME 45",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                   45\n\nLast 9 cycles of simulation (most recent at end):\nCycle 0, reset=0, x=x, y=0xX (bin=xxx), got Y0=0 exp Y0=x [   MATCH], got z=x exp z=x [   MATCH]\nCycle 1, reset=0, x=1, y=0x4 (bin=100), got Y0=0 exp Y0=0 [   MATCH], got z=1 exp z=1 [   MATCH]\nCycle 2, reset=0, x=1, y=0x1 (bin=001), got Y0=0 exp Y0=0 [   MATCH], got z=0 exp z=0 [   MATCH]\nCycle 3, reset=0, x=1, y=0x5 (bin=101), got Y0=0 exp Y0=x [   MATCH], got z=0 exp z=x [   MATCH]\nCycle 4, reset=0, x=0, y=0x5 (bin=101), got Y0=0 exp Y0=x [   MATCH], got z=0 exp z=x [   MATCH]\nCycle 5, reset=0, x=1, y=0x1 (bin=001), got Y0=0 exp Y0=0 [   MATCH], got z=0 exp z=0 [   MATCH]\nCycle 6, reset=0, x=1, y=0x6 (bin=110), got Y0=0 exp Y0=x [   MATCH], got z=0 exp z=x [   MATCH]\nCycle 7, reset=0, x=0, y=0x5 (bin=101), got Y0=0 exp Y0=x [   MATCH], got z=0 exp z=x [   MATCH]\nCycle 8, reset=0, x=0, y=0x1 (bin=001), got Y0=0 exp Y0=1 [   MATCH], got z=0 exp z=0 [   MATCH]\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has 56 mismatches. First mismatch occurred at tim",
+      "cost": 56.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "12f52d950d24",
+      "tb_digest": "f8fafce1f931",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'Y0' has no mismatches.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has no mismatches.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "4e8bbbb6fc1e",
+      "tb_digest": "f8fafce1f931",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'Y0' has no mismatches.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has no mismatches.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "59e1ed21b8b3",
+      "tb_digest": "f8fafce1f931",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'Y0' has no mismatches.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has no mismatches.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "0fe01a07e59f",
+      "tb_digest": "f8fafce1f931",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 75,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "Y0",
+          "mismatch_count": 52,
+          "first_mismatch_time": 45
+        },
+        {
+          "output_name": "z",
+          "mismatch_count": 55,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                   10",
+        "Hint: Output 'Y0' has 52 mismatches. First mismatch occurred at time 45.",
+        "Hint: Output 'z' has 55 mismatches. First mismatch occurred at time 10.",
+        "Hint: Total mismatched samples is 75 out of 200 samples",
+        "Mismatches: 75 in 200 samples",
+        "SIMULATION FAILED - 75 MISMATCHES DETECTED, FIRST AT TIME 10",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                   10\n\nLast 2 cycles of simulation (most recent at end):\nCycle 0, reset=0, x=x, y=0xX (bin=xxx), got Y0=x exp Y0=x [   MATCH], got z=0 exp z=x [   MATCH]\nCycle 1, reset=0, x=1, y=0x4 (bin=100), got Y0=0 exp Y0=0 [   MATCH], got z=0 exp z=1 [   MATCH]\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has 52 mismatches. First mismatch occurred at time 45.\nHint: Output 'z' has 55 mismatches. First mismatch occurred at time 10.\nHint: Total mismatched samples is 75 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 75 in 200 samples\nSIMULATION FAILED - 75 MISMATCHES DETECTED, FIRST AT TIME 10\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 75.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "713816900dae",
+      "tb_digest": "f8fafce1f931",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'Y0' has no mismatches.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has no mismatches.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 7,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "32d717a04965",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 58,
+      "first_mismatch_time": 10,
+      "output_mismatches": [
+        {
+          "output_name": "Y0",
+          "mismatch_count": 58,
+          "first_mismatch_time": 10
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                   10",
+        "Hint: Output 'Y0' has 58 mismatches. First mismatch occurred at time 10.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 58 out of 200 samples",
+        "Mismatches: 58 in 200 samples",
+        "SIMULATION FAILED - 58 MISMATCHES DETECTED, FIRST AT TIME 10",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output Y0 is Y[0] of the next state.\\n    assign Y0 = Y_next[0];\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    // Output Y0 is Y[0] of the next state (registered on the clock edge).\\n    assign Y0 = Y_reg[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"logic mismatch count did not increase\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"logic\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                   10\n\nLast 2 cycles of simulation (most recent at end):\nCycle 0, reset=0, x=x, y=0xX (bin=xxx), got Y0=0 exp Y0=x [   MATCH], got z=x exp z=x [   MATCH]\nCycle 1, reset=0, x=1, y=0x4 (bin=100), got Y0=x exp Y0=0 [   MATCH], got z=1 exp z=1 [   MATCH]\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has 58 mismatches. First mismatch occurred at time 10.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 58 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 58 in 200 samples\nSIMULATION FAILED - 58 MISMATCHES DETECTED, FIRST AT TIME 10\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 58.0
+    },
+    {
+      "iteration": 8,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'Y0' has no mismatches.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output Y0 is Y[0] of the next state (registered on the clock edge).\\n    assign Y0 = Y_reg[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"ambiguous runnable failure signature changed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has no mismatches.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 9,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 10,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 11,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"\",\n    \"new_content\": \"\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content matched multiple locations\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 12,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 13,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 14,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 15,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 16,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\",\n    \"new_content\": \"    // Output Y0 is Y[0] of the next state (combinational from current y and x).\\n    assign Y0 = Y_next[0];\\n    // Output z is determined by the present state (combinational from current y).\\n    assign z  = z_comb;\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 17,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 18,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 19,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 20,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 21,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "c4038c9ef65f",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 22,
+      "stage": "rtl_editor_action_1",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'Y0' has no mismatches.",
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200 samples",
+        "Mismatches: 0 in 200 samples",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.",
+        "./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context."
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"    // Present state register (driven from input y each cycle)\\n    // The spec's table defines transitions based on present y[2:0].\\n    logic [2:0] state;\\n    logic [2:0] next_state;\\n\\n    initial begin\\n        state = 3'b000;\\n    end\\n\\n    // State update: treat input y as the present-state encoding for this FSM\\n    // (so the FSM's 'present state input y' is sampled into internal state).\\n    always @(posedge clk) begin\\n        state <= y;\\n    end\\n\\n    // Next-state combinational logic from the table.\\n    always @(*) begin\\n        next_state = 3'b000;\\n        case (state)\\n            3'b000: next_state = (x) ? 3'b001 : 3'b000;\\n            3'b001: next_state = (x) ? 3'b100 : 3'b001;\\n            3'b010: next_state = (x) ? 3'b001 : 3'b010;\\n            3'b011: next_state = (x) ? 3'b010 : 3'b001;\\n            3'b100: next_state = (x) ? 3'b100 : 3'b011;\\n            default: next_state = 3'b000;\\n        endcase\\n    end\\n\\n    // Output logic:\\n    // Y0 is Y[0] of the next state.\\n    assign Y0 = next_state[0];\\n\\n    // z depends only on present state y per the table.\\n    always @(*) begin\\n        z = 1'b0;\\n        case (state)\\n            3'b011: z = 1'b1;\\n            3'b100: z = 1'b1;\\n            default: z = 1'b0;\\n        endcase\\n    end\\n\",\n    \"new_content\": \"    // Combinational FSM based directly on present-state input y and input x.\\n    // Spec: outputs are derived from the table where present state is y[2:0].\\n    logic [2:0] next_state;\\n\\n    // Next-state combinational logic from the table (present y, input x).\\n    always @(*) begin\\n        next_state = 3'b000;\\n        case (y)\\n            3'b000: next_state = (x) ? 3'b001 : 3'b000; // 000 -> 001 when x=1, stay 000 when x=0\\n            3'b001: next_state = (x) ? 3'b100 : 3'b001; // 001 -> 100 when x=1, stay 001 when x=0\\n            3'b010: next_state = (x) ? 3'b001 : 3'b010; // 010 -> 001 when x=1, stay 010 when x=0\\n            3'b011: next_state = (x) ? 3'b010 : 3'b001; // 011 -> 010 when x=1, ->001 when x=0\\n            3'b100: next_state = (x) ? 3'b100 : 3'b011; // 100 -> 100 when x=1, ->011 when x=0\\n            default: next_state = 3'b000;\\n        endcase\\n    end\\n\\n    // Output logic:\\n    // Y0 is Y[0] of the next state (combinational).\\n    assign Y0 = next_state[0];\\n\\n    // z depends only on present state y per the table.\\n    always @(*) begin\\n        z = 1'b0;\\n        case (y)\\n            3'b011: z = 1'b1; // Output z=1 for present state 011\\n            3'b100: z = 1'b1; // Output z=1 for present state 100\\n            default: z = 1'b0;\\n        endcase\\n    end\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": true,\n  \"acceptance_reason\": \"ambiguous runnable failure signature changed\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\nHint: Output 'Y0' has no mismatches.\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 200 samples\n\nSimulation finished at 1001 ps\nMismatches: 0 in 200 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 23,
+      "stage": "rtl_editor_action_2",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 24,
+      "stage": "rtl_editor_action_3",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 25,
+      "stage": "rtl_editor_action_4",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 26,
+      "stage": "rtl_editor_action_5",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content not found\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 27,
+      "stage": "rtl_editor_action_6",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content not found\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 28,
+      "stage": "rtl_editor_action_7",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 29,
+      "stage": "rtl_editor_action_8",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content not found\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 30,
+      "stage": "rtl_editor_action_9",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 31,
+      "stage": "rtl_editor_action_10",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"\",\n    \"new_content\": \"\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content matched multiple locations\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 32,
+      "stage": "rtl_editor_action_11",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content not found\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 33,
+      "stage": "rtl_editor_action_12",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"\",\n    \"new_content\": \"\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content matched multiple locations\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Find multiple old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 34,
+      "stage": "rtl_editor_action_13",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "\"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",",
+        "\"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\""
+      ],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\",\n    \"new_content\": \"endmodule\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"logic repair did not make observable progress\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": \"ambiguous_runnable\"\n}",
+      "sim_log_excerpt": "{\n    \"stdout\": \"VCD info: dumpfile wave.vcd opened for output.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:18: $finish called at 1001 (1ps)\\nHint: Output 'Y0' has no mismatches.\\nHint: Output 'z' has no mismatches.\\nHint: Total mismatched samples is 0 out of 200 samples\\n\\nSimulation finished at 1001 ps\\nMismatches: 0 in 200 samples\\nSIMULATION PASSED\\n\",\n    \"stderr\": \"./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:170: warning: Static variable initialization requires explicit lifetime in this context.\\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob134_2014_q3c/tb.sv:171: warning: Static variable initialization requires explicit lifetime in this context.\\n\"\n} logic repair did not make observable progress. replace_content_by_matching not executed.",
+      "cost": 0.0
+    },
+    {
+      "iteration": 35,
+      "stage": "rtl_editor_action_14",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"endmodule\\n\",\n    \"new_content\": \"endmodule\\n\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content not found\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    },
+    {
+      "iteration": 36,
+      "stage": "rtl_editor_action_15",
+      "rtl_digest": "087841661a7e",
+      "tb_digest": null,
+      "is_syntax_pass": null,
+      "is_sim_pass": null,
+      "mismatch_count": null,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": "{\n  \"command\": \"replace_content_by_matching\",\n  \"args\": {\n    \"old_content\": \"/* no-op */\",\n    \"new_content\": \"/* no-op */\"\n  }\n}",
+      "notes": "{\n  \"is_action_executed\": false,\n  \"acceptance_reason\": \"old_content not found\",\n  \"repair_route_before\": \"logic\",\n  \"repair_route_after\": \"logic\",\n  \"failure_class\": null\n}",
+      "sim_log_excerpt": "Cannot find old_content in current RTL. replace_content_by_matching not executed.",
+      "cost": 100000.0
+    }
+  ]
+}

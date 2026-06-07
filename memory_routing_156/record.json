@@ -1,0 +1,948 @@
+{
+    "record_per_run": {
+        "Prob001_zero": {
+            "is_pass": true,
+            "run_token_limit_cnt": "177685.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:14.375000"
+        },
+        "Prob002_m2014_q4i": {
+            "is_pass": true,
+            "run_token_limit_cnt": "199054.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:47.500000"
+        },
+        "Prob003_step_one": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7161.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:17.875000"
+        },
+        "Prob004_vector2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7514.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:14.422000"
+        },
+        "Prob005_notgate": {
+            "is_pass": true,
+            "run_token_limit_cnt": "195089.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:33.437000"
+        },
+        "Prob006_vectorr": {
+            "is_pass": true,
+            "run_token_limit_cnt": "28403.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:29.500000"
+        },
+        "Prob007_wire": {
+            "is_pass": true,
+            "run_token_limit_cnt": "6898.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:12.594000"
+        },
+        "Prob008_m2014_q4h": {
+            "is_pass": true,
+            "run_token_limit_cnt": "6452.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:10.781000"
+        },
+        "Prob009_popcount3": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7074.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:12.719000"
+        },
+        "Prob010_mt2015_q4a": {
+            "is_pass": true,
+            "run_token_limit_cnt": "6546.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:11.172000"
+        },
+        "Prob011_norgate": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7103.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:14.266000"
+        },
+        "Prob012_xnorgate": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7243.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:14.234000"
+        },
+        "Prob013_m2014_q4e": {
+            "is_pass": true,
+            "run_token_limit_cnt": "6775.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:13.250000"
+        },
+        "Prob014_andgate": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7144.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:13.938000"
+        },
+        "Prob015_vector1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8144.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:16.844000"
+        },
+        "Prob016_m2014_q4j": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7606.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.234000"
+        },
+        "Prob017_mux2to1v": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7666.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:13.938000"
+        },
+        "Prob018_mux256to1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "277299.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:51.281000"
+        },
+        "Prob019_m2014_q4f": {
+            "is_pass": true,
+            "run_token_limit_cnt": "6694.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:12.016000"
+        },
+        "Prob020_mt2015_eq2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7234.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:13.406000"
+        },
+        "Prob021_mux256to1v": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7122.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:14.672000"
+        },
+        "Prob022_mux2to1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7805.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:15.562000"
+        },
+        "Prob023_vector100r": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7260.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:15.359000"
+        },
+        "Prob024_hadd": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8055.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:16.922000"
+        },
+        "Prob025_reduction": {
+            "is_pass": true,
+            "run_token_limit_cnt": "6827.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:14.828000"
+        },
+        "Prob026_alwaysblock1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8550.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:16.453000"
+        },
+        "Prob027_fadd": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8145.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:20.391000"
+        },
+        "Prob028_m2014_q4a": {
+            "is_pass": true,
+            "run_token_limit_cnt": "224846.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:50.516000"
+        },
+        "Prob029_m2014_q4g": {
+            "is_pass": true,
+            "run_token_limit_cnt": "219435.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:44.281000"
+        },
+        "Prob030_popcount255": {
+            "is_pass": true,
+            "run_token_limit_cnt": "235513.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:16.641000"
+        },
+        "Prob031_dff": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7578.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:15.562000"
+        },
+        "Prob032_vector0": {
+            "is_pass": true,
+            "run_token_limit_cnt": "228979.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:44.547000"
+        },
+        "Prob033_ece241_2014_q1c": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8919.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.906000"
+        },
+        "Prob034_dff8": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7823.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:16.187000"
+        },
+        "Prob035_count1to10": {
+            "is_pass": true,
+            "run_token_limit_cnt": "275308.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:39.234000"
+        },
+        "Prob036_ringer": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7950.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:15.453000"
+        },
+        "Prob037_review2015_count1k": {
+            "is_pass": true,
+            "run_token_limit_cnt": "312597.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:06.437000"
+        },
+        "Prob038_count15": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8570.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.266000"
+        },
+        "Prob039_always_if": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9961.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:21.219000"
+        },
+        "Prob040_count10": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8913.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:21.360000"
+        },
+        "Prob041_dff8r": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9114.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.812000"
+        },
+        "Prob042_vector4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "6888.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:11.610000"
+        },
+        "Prob043_vector5": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7873.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:22.032000"
+        },
+        "Prob044_vectorgates": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9533.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.156000"
+        },
+        "Prob045_edgedetect2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8838.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:21.266000"
+        },
+        "Prob046_dff8p": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9478.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:20.344000"
+        },
+        "Prob047_dff8ar": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9348.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:20.844000"
+        },
+        "Prob048_m2014_q4c": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7431.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:16.344000"
+        },
+        "Prob049_m2014_q4b": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7609.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:15.813000"
+        },
+        "Prob050_kmap1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7474.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:13.953000"
+        },
+        "Prob051_gates4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8974.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.859000"
+        },
+        "Prob052_gates100": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10195.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:20.687000"
+        },
+        "Prob053_m2014_q4d": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7338.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:15.813000"
+        },
+        "Prob054_edgedetect": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8314.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:16.625000"
+        },
+        "Prob055_conditional": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8470.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:22.266000"
+        },
+        "Prob056_ece241_2013_q7": {
+            "is_pass": true,
+            "run_token_limit_cnt": "764377.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:03:13.922000"
+        },
+        "Prob057_kmap2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "143506.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:10.328000"
+        },
+        "Prob058_alwaysblock2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10613.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:25.390000"
+        },
+        "Prob059_wire4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8970.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:19.484000"
+        },
+        "Prob060_m2014_q4k": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7790.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:17.359000"
+        },
+        "Prob061_2014_q4a": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8244.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:19.437000"
+        },
+        "Prob062_bugs_mux2": {
+            "is_pass": false,
+            "run_token_limit_cnt": "322427.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:18.906000"
+        },
+        "Prob063_review2015_shiftcount": {
+            "is_pass": true,
+            "run_token_limit_cnt": "36469.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:35.859000"
+        },
+        "Prob064_vector3": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10971.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:23.469000"
+        },
+        "Prob065_7420": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9571.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:22.250000"
+        },
+        "Prob066_edgecapture": {
+            "is_pass": true,
+            "run_token_limit_cnt": "30166.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:37.500000"
+        },
+        "Prob067_countslow": {
+            "is_pass": true,
+            "run_token_limit_cnt": "284183.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:01.375000"
+        },
+        "Prob068_countbcd": {
+            "is_pass": true,
+            "run_token_limit_cnt": "357529.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:23.547000"
+        },
+        "Prob069_truthtable1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7633.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:14.188000"
+        },
+        "Prob070_ece241_2013_q2": {
+            "is_pass": false,
+            "run_token_limit_cnt": "408241.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:03:47.609000"
+        },
+        "Prob071_always_casez": {
+            "is_pass": true,
+            "run_token_limit_cnt": "11903.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.937000"
+        },
+        "Prob072_thermostat": {
+            "is_pass": true,
+            "run_token_limit_cnt": "11316.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:23.968000"
+        },
+        "Prob073_dff16e": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10354.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:22.125000"
+        },
+        "Prob074_ece241_2014_q4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8696.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.516000"
+        },
+        "Prob075_counter_2bc": {
+            "is_pass": true,
+            "run_token_limit_cnt": "355474.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:36.922000"
+        },
+        "Prob076_always_case": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9005.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:21.281000"
+        },
+        "Prob077_wire_decl": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8343.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:17.968000"
+        },
+        "Prob078_dualedge": {
+            "is_pass": true,
+            "run_token_limit_cnt": "27220.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:35.360000"
+        },
+        "Prob079_fsm3onehot": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8343.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:17.188000"
+        },
+        "Prob080_timer": {
+            "is_pass": true,
+            "run_token_limit_cnt": "281626.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:47.641000"
+        },
+        "Prob081_7458": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10434.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:21.422000"
+        },
+        "Prob082_lfsr32": {
+            "is_pass": true,
+            "run_token_limit_cnt": "32563.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:47.907000"
+        },
+        "Prob083_mt2015_q4b": {
+            "is_pass": false,
+            "run_token_limit_cnt": "276772.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:05.078000"
+        },
+        "Prob084_ece241_2013_q12": {
+            "is_pass": true,
+            "run_token_limit_cnt": "34506.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:38.859000"
+        },
+        "Prob085_shift4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10418.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:22.219000"
+        },
+        "Prob086_lfsr5": {
+            "is_pass": false,
+            "run_token_limit_cnt": "416573.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:36.390000"
+        },
+        "Prob087_gates": {
+            "is_pass": true,
+            "run_token_limit_cnt": "12576.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:25.672000"
+        },
+        "Prob088_ece241_2014_q5b": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9822.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:29.140000"
+        },
+        "Prob089_ece241_2014_q5a": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10429.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:26.312000"
+        },
+        "Prob090_circuit1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7866.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:15.672000"
+        },
+        "Prob091_2012_q2b": {
+            "is_pass": true,
+            "run_token_limit_cnt": "282171.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:08.125000"
+        },
+        "Prob092_gatesv100": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10199.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:26.562000"
+        },
+        "Prob093_ece241_2014_q3": {
+            "is_pass": true,
+            "run_token_limit_cnt": "28705.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:33.593000"
+        },
+        "Prob094_gatesv": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10366.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:30.906000"
+        },
+        "Prob095_review2015_fsmshift": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8006.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:22.172000"
+        },
+        "Prob096_review2015_fsmseq": {
+            "is_pass": true,
+            "run_token_limit_cnt": "272378.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:47.172000"
+        },
+        "Prob097_mux9to1v": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9390.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:31.594000"
+        },
+        "Prob098_circuit7": {
+            "is_pass": true,
+            "run_token_limit_cnt": "309325.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:23.125000"
+        },
+        "Prob099_m2014_q6c": {
+            "is_pass": false,
+            "run_token_limit_cnt": "315340.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:53.672000"
+        },
+        "Prob100_fsm3comb": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8432.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:19"
+        },
+        "Prob101_circuit4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "28917.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:38.750000"
+        },
+        "Prob102_circuit3": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8568.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.156000"
+        },
+        "Prob103_circuit2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10172.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:26.672000"
+        },
+        "Prob104_mt2015_muxdff": {
+            "is_pass": true,
+            "run_token_limit_cnt": "43843.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:41.578000"
+        },
+        "Prob105_rotate100": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9281.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.890000"
+        },
+        "Prob106_always_nolatches": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9984.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:21.063000"
+        },
+        "Prob107_fsm1s": {
+            "is_pass": true,
+            "run_token_limit_cnt": "355046.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:13.922000"
+        },
+        "Prob108_rule90": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9969.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:27.735000"
+        },
+        "Prob109_fsm1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9312.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:24.594000"
+        },
+        "Prob110_fsm2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "292079.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:25.610000"
+        },
+        "Prob111_fsm2s": {
+            "is_pass": true,
+            "run_token_limit_cnt": "289291.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:42.984000"
+        },
+        "Prob112_always_case2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7699.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:19.547000"
+        },
+        "Prob113_2012_q1g": {
+            "is_pass": true,
+            "run_token_limit_cnt": "87452.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:10.937000"
+        },
+        "Prob114_bugs_case": {
+            "is_pass": true,
+            "run_token_limit_cnt": "10682.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:24.531000"
+        },
+        "Prob115_shift18": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9610.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:21.610000"
+        },
+        "Prob116_m2014_q3": {
+            "is_pass": false,
+            "run_token_limit_cnt": "358464.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:03:28.438000"
+        },
+        "Prob117_circuit9": {
+            "is_pass": false,
+            "run_token_limit_cnt": "384447.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:48.953000"
+        },
+        "Prob118_history_shift": {
+            "is_pass": true,
+            "run_token_limit_cnt": "12031.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:30.062000"
+        },
+        "Prob119_fsm3": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9636.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:32.782000"
+        },
+        "Prob120_fsm3s": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9507.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:26.360000"
+        },
+        "Prob121_2014_q3bfsm": {
+            "is_pass": true,
+            "run_token_limit_cnt": "343763.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:23.609000"
+        },
+        "Prob122_kmap4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7814.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.485000"
+        },
+        "Prob123_bugs_addsubz": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9548.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:25.891000"
+        },
+        "Prob124_rule110": {
+            "is_pass": true,
+            "run_token_limit_cnt": "34076.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:04.359000"
+        },
+        "Prob125_kmap3": {
+            "is_pass": false,
+            "run_token_limit_cnt": "274793.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:48.891000"
+        },
+        "Prob126_circuit6": {
+            "is_pass": true,
+            "run_token_limit_cnt": "7945.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:17.172000"
+        },
+        "Prob127_lemmings1": {
+            "is_pass": true,
+            "run_token_limit_cnt": "89913.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:11.844000"
+        },
+        "Prob128_fsm_ps2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "246110.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:44.469000"
+        },
+        "Prob129_ece241_2013_q8": {
+            "is_pass": true,
+            "run_token_limit_cnt": "308468.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:01.125000"
+        },
+        "Prob130_circuit5": {
+            "is_pass": true,
+            "run_token_limit_cnt": "9020.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:18.078000"
+        },
+        "Prob131_mt2015_q4": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8025.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:22.047000"
+        },
+        "Prob132_always_if2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "13856.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:31.094000"
+        },
+        "Prob133_2014_q3fsm": {
+            "is_pass": true,
+            "run_token_limit_cnt": "252639.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:19.766000"
+        },
+        "Prob134_2014_q3c": {
+            "is_pass": true,
+            "run_token_limit_cnt": "347552.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:10.016000"
+        },
+        "Prob135_m2014_q6b": {
+            "is_pass": true,
+            "run_token_limit_cnt": "14448.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:35.891000"
+        },
+        "Prob136_m2014_q6": {
+            "is_pass": true,
+            "run_token_limit_cnt": "8205.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:19.187000"
+        },
+        "Prob137_fsm_serial": {
+            "is_pass": true,
+            "run_token_limit_cnt": "32263.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:47.515000"
+        },
+        "Prob138_2012_q2fsm": {
+            "is_pass": true,
+            "run_token_limit_cnt": "307366.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:12.344000"
+        },
+        "Prob139_2013_q2bfsm": {
+            "is_pass": true,
+            "run_token_limit_cnt": "169354.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:06:29.828000"
+        },
+        "Prob140_fsm_hdlc": {
+            "is_pass": true,
+            "run_token_limit_cnt": "39660.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:01:12.500000"
+        },
+        "Prob141_count_clock": {
+            "is_pass": false,
+            "run_token_limit_cnt": "350982.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:03:42.485000"
+        },
+        "Prob142_lemmings2": {
+            "is_pass": true,
+            "run_token_limit_cnt": "13781.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:42.563000"
+        },
+        "Prob143_fsm_onehot": {
+            "is_pass": true,
+            "run_token_limit_cnt": "11964.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:33.282000"
+        },
+        "Prob144_conwaylife": {
+            "is_pass": true,
+            "run_token_limit_cnt": "20062.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:42"
+        },
+        "Prob145_circuit8": {
+            "is_pass": false,
+            "run_token_limit_cnt": "456380.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:45.844000"
+        },
+        "Prob146_fsm_serialdata": {
+            "is_pass": false,
+            "run_token_limit_cnt": "330126.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:41.782000"
+        },
+        "Prob147_circuit10": {
+            "is_pass": false,
+            "run_token_limit_cnt": "275787.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:30.594000"
+        },
+        "Prob148_2013_q2afsm": {
+            "is_pass": true,
+            "run_token_limit_cnt": "11273.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:26.328000"
+        },
+        "Prob149_ece241_2013_q4": {
+            "is_pass": false,
+            "run_token_limit_cnt": "555369.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:05:28.641000"
+        },
+        "Prob150_review2015_fsmonehot": {
+            "is_pass": true,
+            "run_token_limit_cnt": "1487708.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:07:28.922000"
+        },
+        "Prob151_review2015_fsm": {
+            "is_pass": true,
+            "run_token_limit_cnt": "498235.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:03:50.313000"
+        },
+        "Prob152_lemmings3": {
+            "is_pass": true,
+            "run_token_limit_cnt": "26747.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:00:53.328000"
+        },
+        "Prob153_gshare": {
+            "is_pass": false,
+            "run_token_limit_cnt": "767627.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:05:50.562000"
+        },
+        "Prob154_fsm_ps2data": {
+            "is_pass": false,
+            "run_token_limit_cnt": "331477.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:48.234000"
+        },
+        "Prob155_lemmings4": {
+            "is_pass": false,
+            "run_token_limit_cnt": "394817.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:03:05.781000"
+        },
+        "Prob156_review2015_fancytimer": {
+            "is_pass": false,
+            "run_token_limit_cnt": "385715.00",
+            "run_token_cost": "0.00",
+            "run_time": "0:02:42.157000"
+        }
+    },
+    "total_record": {
+        "pass_cnt": 139,
+        "total_cnt": 156,
+        "token_limit_cnt": 18339916,
+        "total_cost": "0.00",
+        "avg_cost": "0.00",
+        "total_run_time": "2:55:06.547000"
+    }
+}

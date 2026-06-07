@@ -1,0 +1,75 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "ca0b761a7eac",
+    "tb_digest": "5ac4bfab61d8",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'q' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 224 samples",
+      "Mismatches: 0 in 224 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob078_dualedge/tb.sv:36: $finish called at 1121 (1ps)\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 224 samples\n\nSimulation finished at 1121 ps\nMismatches: 0 in 224 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "66009283ed5f",
+      "tb_digest": "5ac4bfab61d8",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 52,
+      "first_mismatch_time": 25,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 52,
+          "first_mismatch_time": 25
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                   25",
+        "Cycle 0: MISMATCH| reset=0 input=0 got q=0 exp q=x",
+        "Cycle 4: MISMATCH| reset=0 input=0 got q=0 exp q=1",
+        "Hint: Output 'q' has 52 mismatches. First mismatch occurred at time 25.",
+        "Hint: Total mismatched samples is 52 out of 224 samples",
+        "Mismatches: 52 in 224 samples",
+        "SIMULATION FAILED - 52 MISMATCHES DETECTED, FIRST AT TIME 25"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time                   25\nLast 5 cycles of simulation (most recent at end):\nCycle 0: MISMATCH| reset=0 input=0 got q=0 exp q=x\nCycle 1: MATCH  | reset=0 input=0 got q=0 exp q=0\nCycle 2: MATCH  | reset=0 input=0 got q=0 exp q=0\nCycle 3: MATCH  | reset=0 input=1 got q=0 exp q=0\nCycle 4: MISMATCH| reset=0 input=0 got q=0 exp q=1\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob078_dualedge/tb.sv:36: $finish called at 1121 (1ps)\nHint: Output 'q' has 52 mismatches. First mismatch occurred at time 25.\nHint: Total mismatched samples is 52 out of 224 samples\n\nSimulation finished at 1121 ps\nMismatches: 52 in 224 samples\nSIMULATION FAILED - 52 MISMATCHES DETECTED, FIRST AT TIME 25\n",
+      "cost": 52.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "ca0b761a7eac",
+      "tb_digest": "5ac4bfab61d8",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'q' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 224 samples",
+        "Mismatches: 0 in 224 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob078_dualedge/tb.sv:36: $finish called at 1121 (1ps)\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 224 samples\n\nSimulation finished at 1121 ps\nMismatches: 0 in 224 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

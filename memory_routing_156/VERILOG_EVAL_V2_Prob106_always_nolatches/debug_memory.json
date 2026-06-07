@@ -1,0 +1,51 @@
+{
+  "checkpoint_count": 1,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "f7ce6daccf23",
+    "tb_digest": "615e45437fc1",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'left' has no mismatches.",
+      "Hint: Output 'down' has no mismatches.",
+      "Hint: Output 'right' has no mismatches.",
+      "Hint: Output 'up' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 30020 samples",
+      "Mismatches: 0 in 30020 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before existing routing decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob106_always_nolatches/tb.sv:40: $finish called at 150100 (1ps)\nHint: Output 'left' has no mismatches.\nHint: Output 'down' has no mismatches.\nHint: Output 'right' has no mismatches.\nHint: Output 'up' has no mismatches.\nHint: Total mismatched samples is 0 out of 30020 samples\n\nSimulation finished at 150100 ps\nMismatches: 0 in 30020 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "f7ce6daccf23",
+      "tb_digest": "615e45437fc1",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'left' has no mismatches.",
+        "Hint: Output 'down' has no mismatches.",
+        "Hint: Output 'right' has no mismatches.",
+        "Hint: Output 'up' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 30020 samples",
+        "Mismatches: 0 in 30020 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob106_always_nolatches/tb.sv:40: $finish called at 150100 (1ps)\nHint: Output 'left' has no mismatches.\nHint: Output 'down' has no mismatches.\nHint: Output 'right' has no mismatches.\nHint: Output 'up' has no mismatches.\nHint: Total mismatched samples is 0 out of 30020 samples\n\nSimulation finished at 150100 ps\nMismatches: 0 in 30020 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

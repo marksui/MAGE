@@ -1,0 +1,135 @@
+{
+  "checkpoint_count": 4,
+  "best_checkpoint": {
+    "iteration": 4,
+    "stage": "rtl_candidate_3",
+    "rtl_digest": "28e6c5949f4f",
+    "tb_digest": "52ec9c2f3331",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'q' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 2071 samples",
+      "Mismatches: 0 in 2071 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob063_review2015_shiftcount/tb.sv:63: $finish called at 10356 (1ps)\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 2071 samples\n\nSimulation finished at 10356 ps\nMismatches: 0 in 2071 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "6e2a9f228816",
+      "tb_digest": "52ec9c2f3331",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1880,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 1880,
+          "first_mismatch_time": 80
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 80",
+        "At mismatch: shift_ena=0, count_ena=0, data=1",
+        "Got q = 8 (bin 1000), Expected q = 1 (bin 0001)",
+        "Hint: Output 'q' has 1880 mismatches. First mismatch occurred at time 80.",
+        "Hint: Total mismatched samples is 1880 out of 2071 samples",
+        "Mismatches: 1880 in 2071 samples",
+        "SIMULATION FAILED - 1880 MISMATCHES DETECTED, FIRST AT TIME 80"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 80\nAt mismatch: shift_ena=0, count_ena=0, data=1\nGot q = 8 (bin 1000), Expected q = 1 (bin 0001)\n\nLast 9 samples in queue (oldest -> newest):\nSample[0]: shift=1 count=0 data=0 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[1]: shift=1 count=0 data=0 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[2]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[3]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[4]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[5]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[6]: shift=1 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[7]: shift=1 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[8]: shift=0 count=0 data=1 | got q=8 (bin 1000) | exp q=1 (bin 0001)\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob063_review2015_shiftcount/tb.sv:63: $finish called at 10356 (1ps)\nHint: Output 'q' has 1880 mismatches. First mismatch occurred at time 80.\nHint: Total mismatched samples is 1880 out of 2071 samples\n\nSimulation finished at 10356 ps\nM",
+      "cost": 1880.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "08b68bf96e46",
+      "tb_digest": "52ec9c2f3331",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1880,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 1880,
+          "first_mismatch_time": 80
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 80",
+        "At mismatch: shift_ena=0, count_ena=0, data=1",
+        "Got q = 8 (bin 1000), Expected q = 1 (bin 0001)",
+        "Hint: Output 'q' has 1880 mismatches. First mismatch occurred at time 80.",
+        "Hint: Total mismatched samples is 1880 out of 2071 samples",
+        "Mismatches: 1880 in 2071 samples",
+        "SIMULATION FAILED - 1880 MISMATCHES DETECTED, FIRST AT TIME 80"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 80\nAt mismatch: shift_ena=0, count_ena=0, data=1\nGot q = 8 (bin 1000), Expected q = 1 (bin 0001)\n\nLast 9 samples in queue (oldest -> newest):\nSample[0]: shift=1 count=0 data=0 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[1]: shift=1 count=0 data=0 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[2]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[3]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[4]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[5]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[6]: shift=1 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[7]: shift=1 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[8]: shift=0 count=0 data=1 | got q=8 (bin 1000) | exp q=1 (bin 0001)\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob063_review2015_shiftcount/tb.sv:63: $finish called at 10356 (1ps)\nHint: Output 'q' has 1880 mismatches. First mismatch occurred at time 80.\nHint: Total mismatched samples is 1880 out of 2071 samples\n\nSimulation finished at 10356 ps\nM",
+      "cost": 1880.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "43925abaddd4",
+      "tb_digest": "52ec9c2f3331",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 1880,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 1880,
+          "first_mismatch_time": 80
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 80",
+        "At mismatch: shift_ena=0, count_ena=0, data=1",
+        "Got q = 8 (bin 1000), Expected q = 1 (bin 0001)",
+        "Hint: Output 'q' has 1880 mismatches. First mismatch occurred at time 80.",
+        "Hint: Total mismatched samples is 1880 out of 2071 samples",
+        "Mismatches: 1880 in 2071 samples",
+        "SIMULATION FAILED - 1880 MISMATCHES DETECTED, FIRST AT TIME 80"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 80\nAt mismatch: shift_ena=0, count_ena=0, data=1\nGot q = 8 (bin 1000), Expected q = 1 (bin 0001)\n\nLast 9 samples in queue (oldest -> newest):\nSample[0]: shift=1 count=0 data=0 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[1]: shift=1 count=0 data=0 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[2]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[3]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[4]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[5]: shift=0 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[6]: shift=1 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[7]: shift=1 count=0 data=1 | got q=0 (bin 0000) | exp q=0 (bin 0000)\nSample[8]: shift=0 count=0 data=1 | got q=8 (bin 1000) | exp q=1 (bin 0001)\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob063_review2015_shiftcount/tb.sv:63: $finish called at 10356 (1ps)\nHint: Output 'q' has 1880 mismatches. First mismatch occurred at time 80.\nHint: Total mismatched samples is 1880 out of 2071 samples\n\nSimulation finished at 10356 ps\nM",
+      "cost": 1880.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "28e6c5949f4f",
+      "tb_digest": "52ec9c2f3331",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'q' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 2071 samples",
+        "Mismatches: 0 in 2071 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob063_review2015_shiftcount/tb.sv:63: $finish called at 10356 (1ps)\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 2071 samples\n\nSimulation finished at 10356 ps\nMismatches: 0 in 2071 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

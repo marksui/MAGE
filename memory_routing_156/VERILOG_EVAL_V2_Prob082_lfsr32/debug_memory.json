@@ -1,0 +1,76 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "74fb97736e00",
+    "tb_digest": "e64989bbd263",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "TIMEOUT",
+      "Hint: Output 'q' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 200000 samples",
+      "Mismatches: 0 in 200000 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nTIMEOUT\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:143: $finish called at 1000000 (1ps)\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 0 in 200000 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "eb0ce31e14c9",
+      "tb_digest": "e64989bbd263",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 199952,
+      "first_mismatch_time": 190,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 199952,
+          "first_mismatch_time": 190
+        }
+      ],
+      "mismatch_lines": [
+        "Mismatch detected at time                  190",
+        "TIMEOUT",
+        "Hint: Output 'q' has 199952 mismatches. First mismatch occurred at time 190.",
+        "Hint: Total mismatched samples is 199952 out of 200000 samples",
+        "Mismatches: 199952 in 200000 samples",
+        "SIMULATION FAILED - 199952 MISMATCHES DETECTED, FIRST AT TIME 190"
+      ],
+      "action": null,
+      "notes": "Simulation review before existing routing decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nMismatch detected at time                  190\n\nLast 10 cycles of simulation (up to MAX_QUEUE_SIZE=10):\nCycle 0, reset=0, got q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx), exp q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 1, reset=0, got q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx), exp q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 2, reset=0, got q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx), exp q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 3, reset=0, got q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx), exp q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 4, reset=0, got q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx), exp q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 5, reset=1, got q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx), exp q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 6, reset=1, got q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx), exp q=xxxxxxxx (xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)\nCycle 7, reset=0, got q=00000001 (00000000000000000000000000000001), exp q=00000001 (00000000000000000000000000000001)\nCycle 8, reset=0, got q=00000001 (00000000000000000000000000000001), exp q=00000001 (000000000000",
+      "cost": 199952.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "74fb97736e00",
+      "tb_digest": "e64989bbd263",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "TIMEOUT",
+        "Hint: Output 'q' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200000 samples",
+        "Mismatches: 0 in 200000 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated after existing routing chose RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nTIMEOUT\n./output_gpt54_nano_memory_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:143: $finish called at 1000000 (1ps)\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 0 in 200000 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

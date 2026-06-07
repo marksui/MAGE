@@ -1,0 +1,88 @@
+{
+  "checkpoint_count": 3,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "7ea6c8f512ab",
+    "tb_digest": "f03b05006e06",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/tb.sv:6:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/rtl.sv:14: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/tb.sv:6\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "7ea6c8f512ab",
+      "tb_digest": "f03b05006e06",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/tb.sv:6:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/rtl.sv:14: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/tb.sv:6\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "7ea6c8f512ab",
+      "tb_digest": "9c396bb64178",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 58,
+      "first_mismatch_time": 20,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 58,
+          "first_mismatch_time": 20
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 20 ps",
+        "Expected: q_ref=1",
+        "First q mismatch detected at time 20 ps",
+        "Expected: q_ref=1",
+        "SIMULATION FAILED - 58 MISMATCHES DETECTED, FIRST AT TIME 20",
+        "Hint: Output 'q' has 58 mismatches. First mismatch occurred at time 20.",
+        "Hint: Total mismatched samples is 58 out of 123 samples",
+        "Mismatches: 58 in 123 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 20 ps\n  Inputs:  a=0\n  Outputs: q_dut=x\n  Expected: q_ref=1\nFirst q mismatch detected at time 20 ps\n  Inputs:  a=0\n  Outputs: q_dut=x\n  Expected: q_ref=1\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/tb.sv:33: $finish called at 615 (1ps)\nSIMULATION FAILED - 58 MISMATCHES DETECTED, FIRST AT TIME 20\nHint: Output 'q' has 58 mismatches. First mismatch occurred at time 20.\nHint: Total mismatched samples is 58 out of 123 samples\n\nSimulation finished at 615 ps\nMismatches: 58 in 123 samples\n",
+      "cost": 58.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "5033f6cd35d2",
+      "tb_digest": "9c396bb64178",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'q' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 123 samples",
+        "Mismatches: 0 in 123 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob098_circuit7/tb.sv:33: $finish called at 615 (1ps)\nSIMULATION PASSED\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 123 samples\n\nSimulation finished at 615 ps\nMismatches: 0 in 123 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

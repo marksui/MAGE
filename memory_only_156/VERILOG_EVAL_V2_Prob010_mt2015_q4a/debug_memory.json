@@ -1,0 +1,57 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "f3f41089ccc7",
+    "tb_digest": "cf7c0ad414b1",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:6:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/rtl.sv:10: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:6\n\n./verilog-eval\\dataset_spec-to-rtl\\Prob010_mt2015_q4a_ref.sv:2: error: 'RefModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:31:      : It was declared here as a module.\n./verilog-eval\\dataset_spec-to-rtl\\Prob010_mt2015_q4a_ref.sv:10: Module RefModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:31\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "f3f41089ccc7",
+      "tb_digest": "cf7c0ad414b1",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:6:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/rtl.sv:10: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:6\n\n./verilog-eval\\dataset_spec-to-rtl\\Prob010_mt2015_q4a_ref.sv:2: error: 'RefModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:31:      : It was declared here as a module.\n./verilog-eval\\dataset_spec-to-rtl\\Prob010_mt2015_q4a_ref.sv:10: Module RefModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:31\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "f3f41089ccc7",
+      "tb_digest": "68f84a359453",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 202 samples",
+        "Mismatches: 0 in 202 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob010_mt2015_q4a/tb.sv:16: $finish called at 1011 (1ps)\nSIMULATION PASSED\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 202 samples\n\nSimulation finished at 1011 ps\nMismatches: 0 in 202 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

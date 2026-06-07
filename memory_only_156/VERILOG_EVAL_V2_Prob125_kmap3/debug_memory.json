@@ -1,0 +1,193 @@
+{
+  "checkpoint_count": 7,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "34f6b75e256a",
+    "tb_digest": "a8734a98c45a",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:161:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/rtl.sv:56: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:161\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "34f6b75e256a",
+      "tb_digest": "a8734a98c45a",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/rtl.sv:1: error: 'TopModule' has already been declared in this scope.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:161:      : It was declared here as a module.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/rtl.sv:56: Module TopModule was already declared here: ./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:161\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "34f6b75e256a",
+      "tb_digest": "ce9ea1330f43",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 27,
+      "first_mismatch_time": 40,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 27,
+          "first_mismatch_time": 40
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 40 ps",
+        "Outputs: out_dut=0 out_ref(expected)=1",
+        "Hint: Output 'out' has 27 mismatches. First mismatch occurred at time 40.",
+        "Hint: Total mismatched samples is 27 out of 232 samples",
+        "Mismatches: 27 in 232 samples",
+        "SIMULATION FAILED - 27 MISMATCHES DETECTED, FIRST AT TIME 40"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 40 ps\nInputs: a=0 b=0 c=1 d=1\nOutputs: out_dut=0 out_ref(expected)=1\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:37: $finish called at 1161 (1ps)\nHint: Output 'out' has 27 mismatches. First mismatch occurred at time 40.\nHint: Total mismatched samples is 27 out of 232 samples\n\nSimulation finished at 1161 ps\nMismatches: 27 in 232 samples\nSIMULATION FAILED - 27 MISMATCHES DETECTED, FIRST AT TIME 40\n",
+      "cost": 27.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "8cd80f9a204b",
+      "tb_digest": "ce9ea1330f43",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 68,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 68,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 30 ps",
+        "Outputs: out_dut=0 out_ref(expected)=1",
+        "Hint: Output 'out' has 68 mismatches. First mismatch occurred at time 30.",
+        "Hint: Total mismatched samples is 68 out of 232 samples",
+        "Mismatches: 68 in 232 samples",
+        "SIMULATION FAILED - 68 MISMATCHES DETECTED, FIRST AT TIME 30"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 30 ps\nInputs: a=0 b=0 c=1 d=0\nOutputs: out_dut=0 out_ref(expected)=1\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:37: $finish called at 1161 (1ps)\nHint: Output 'out' has 68 mismatches. First mismatch occurred at time 30.\nHint: Total mismatched samples is 68 out of 232 samples\n\nSimulation finished at 1161 ps\nMismatches: 68 in 232 samples\nSIMULATION FAILED - 68 MISMATCHES DETECTED, FIRST AT TIME 30\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/rtl.sv:15: vvp.tgt sorry: Case unique/unique0 qualities are ignored.\n",
+      "cost": 68.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "2aa528624ac5",
+      "tb_digest": "ce9ea1330f43",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 35,
+      "first_mismatch_time": 70,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 35,
+          "first_mismatch_time": 70
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 70 ps",
+        "Outputs: out_dut=1 out_ref(expected)=0",
+        "Hint: Output 'out' has 35 mismatches. First mismatch occurred at time 70.",
+        "Hint: Total mismatched samples is 35 out of 232 samples",
+        "Mismatches: 35 in 232 samples",
+        "SIMULATION FAILED - 35 MISMATCHES DETECTED, FIRST AT TIME 70"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 70 ps\nInputs: a=0 b=1 c=1 d=0\nOutputs: out_dut=1 out_ref(expected)=0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:37: $finish called at 1161 (1ps)\nHint: Output 'out' has 35 mismatches. First mismatch occurred at time 70.\nHint: Total mismatched samples is 35 out of 232 samples\n\nSimulation finished at 1161 ps\nMismatches: 35 in 232 samples\nSIMULATION FAILED - 35 MISMATCHES DETECTED, FIRST AT TIME 70\n",
+      "cost": 35.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "3fc6245cbfc9",
+      "tb_digest": "ce9ea1330f43",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 35,
+      "first_mismatch_time": 70,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 35,
+          "first_mismatch_time": 70
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time 70 ps",
+        "Outputs: out_dut=1 out_ref(expected)=0",
+        "Hint: Output 'out' has 35 mismatches. First mismatch occurred at time 70.",
+        "Hint: Total mismatched samples is 35 out of 232 samples",
+        "Mismatches: 35 in 232 samples",
+        "SIMULATION FAILED - 35 MISMATCHES DETECTED, FIRST AT TIME 70"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFirst mismatch detected at time 70 ps\nInputs: a=0 b=1 c=1 d=0\nOutputs: out_dut=1 out_ref(expected)=0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:37: $finish called at 1161 (1ps)\nHint: Output 'out' has 35 mismatches. First mismatch occurred at time 70.\nHint: Total mismatched samples is 35 out of 232 samples\n\nSimulation finished at 1161 ps\nMismatches: 35 in 232 samples\nSIMULATION FAILED - 35 MISMATCHES DETECTED, FIRST AT TIME 70\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/rtl.sv:12: vvp.tgt sorry: Case unique/unique0 qualities are ignored.\n",
+      "cost": 35.0
+    },
+    {
+      "iteration": 6,
+      "stage": "rtl_candidate_4",
+      "rtl_digest": "ea82e25d48ef",
+      "tb_digest": "ce9ea1330f43",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 232 samples",
+        "Mismatches: 0 in 232 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:37: $finish called at 1161 (1ps)\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 232 samples\n\nSimulation finished at 1161 ps\nMismatches: 0 in 232 samples\nSIMULATION PASSED\n\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/rtl.sv:10: vvp.tgt sorry: Case unique/unique0 qualities are ignored.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 7,
+      "stage": "rtl_candidate_5",
+      "rtl_digest": "f6559ae62f80",
+      "tb_digest": "ce9ea1330f43",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 232 samples",
+        "Mismatches: 0 in 232 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob125_kmap3/tb.sv:37: $finish called at 1161 (1ps)\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 232 samples\n\nSimulation finished at 1161 ps\nMismatches: 0 in 232 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

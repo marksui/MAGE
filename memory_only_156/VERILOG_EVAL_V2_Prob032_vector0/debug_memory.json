@@ -1,0 +1,51 @@
+{
+  "checkpoint_count": 1,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "c547b10c8237",
+    "tb_digest": "888913a5cfde",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'outv' has no mismatches.",
+      "Hint: Output 'o2' has no mismatches.",
+      "Hint: Output 'o1' has no mismatches.",
+      "Hint: Output 'o0' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 21 samples",
+      "Mismatches: 0 in 21 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob032_vector0/tb.sv:36: $finish called at 107 (1ps)\nHint: Output 'outv' has no mismatches.\nHint: Output 'o2' has no mismatches.\nHint: Output 'o1' has no mismatches.\nHint: Output 'o0' has no mismatches.\nHint: Total mismatched samples is 0 out of 21 samples\n\nSimulation finished at 107 ps\nMismatches: 0 in 21 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "c547b10c8237",
+      "tb_digest": "888913a5cfde",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'outv' has no mismatches.",
+        "Hint: Output 'o2' has no mismatches.",
+        "Hint: Output 'o1' has no mismatches.",
+        "Hint: Output 'o0' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 21 samples",
+        "Mismatches: 0 in 21 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob032_vector0/tb.sv:36: $finish called at 107 (1ps)\nHint: Output 'outv' has no mismatches.\nHint: Output 'o2' has no mismatches.\nHint: Output 'o1' has no mismatches.\nHint: Output 'o0' has no mismatches.\nHint: Total mismatched samples is 0 out of 21 samples\n\nSimulation finished at 107 ps\nMismatches: 0 in 21 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

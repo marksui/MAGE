@@ -1,0 +1,133 @@
+{
+  "checkpoint_count": 4,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "446bd0973dde",
+    "tb_digest": "500e476db2fb",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": 100,
+    "output_mismatches": [
+      {
+        "output_name": "out",
+        "mismatch_count": 4,
+        "first_mismatch_time": 100
+      }
+    ],
+    "mismatch_lines": [
+      "First mismatch detected at time                  100",
+      "Hint: Output 'out' has 4 mismatches. First mismatch occurred at time 100.",
+      "Hint: Total mismatched samples is 4 out of 266 samples",
+      "Mismatches: 4 in 266 samples"
+    ],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  100\nQueue content (most recent up to 10 cycles):\nCycle 0: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 1: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 2: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 3: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 4: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 5: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "446bd0973dde",
+      "tb_digest": "500e476db2fb",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": 100,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 4,
+          "first_mismatch_time": 100
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  100",
+        "Hint: Output 'out' has 4 mismatches. First mismatch occurred at time 100.",
+        "Hint: Total mismatched samples is 4 out of 266 samples",
+        "Mismatches: 4 in 266 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  100\nQueue content (most recent up to 10 cycles):\nCycle 0: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 1: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 2: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 3: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 4: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 5: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "23f9c3a59314",
+      "tb_digest": "500e476db2fb",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": 140,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 91,
+          "first_mismatch_time": 140
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  140",
+        "Hint: Output 'out' has 91 mismatches. First mismatch occurred at time 140.",
+        "Hint: Total mismatched samples is 91 out of 266 samples",
+        "Mismatches: 91 in 266 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  140\nQueue content (most recent up to 10 cycles):\nCycle 0: reset=0 in=0x00000000 (00000000000000000000000000000000) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 1: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x0000000c (00000000000000000000000000001100) exp=0x0000000c (00000000000000000000000000001100) tb_match=1\nCycle 2: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x0000000c (00000000000000000000000000001100) exp=0x0000000c (00000000000000000000000000001100) tb_match=1\nCycle 3: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x0000000c (00000000000000000000000000001100) exp=0x0000000c (00000000000000000000000000001100) tb_match=1\nCycle 4: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x0000000c (00000000000000000000000000001100) exp=0x0000000c (00000000000000000000000000001100) tb_match=1\nCycle 5: reset=1 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_",
+      "cost": 0.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "e01f9a84c8f8",
+      "tb_digest": "500e476db2fb",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": 100,
+      "output_mismatches": [
+        {
+          "output_name": "out",
+          "mismatch_count": 95,
+          "first_mismatch_time": 100
+        }
+      ],
+      "mismatch_lines": [
+        "First mismatch detected at time                  100",
+        "Hint: Output 'out' has 95 mismatches. First mismatch occurred at time 100.",
+        "Hint: Total mismatched samples is 95 out of 266 samples",
+        "Mismatches: 95 in 266 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n\nFirst mismatch detected at time                  100\nQueue content (most recent up to 10 cycles):\nCycle 0: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 1: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 2: reset=0 in=0x00000002 (00000000000000000000000000000010) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 3: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 4: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_match=1\nCycle 5: reset=0 in=0x0000000e (00000000000000000000000000001110) got=0x00000000 (00000000000000000000000000000000) exp=0x00000000 (00000000000000000000000000000000) tb_",
+      "cost": 0.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "6743ee85ffe2",
+      "tb_digest": "500e476db2fb",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'out' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 266 samples",
+        "Mismatches: 0 in 266 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob066_edgecapture/tb.sv:84: $finish called at 1330 (1ps)\nHint: Output 'out' has no mismatches.\nHint: Total mismatched samples is 0 out of 266 samples\n\nSimulation finished at 1330 ps\nMismatches: 0 in 266 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

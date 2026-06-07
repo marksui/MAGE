@@ -1,0 +1,66 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "9ae54132e35c",
+    "tb_digest": "df93a114b40c",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: syntax error",
+      "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: error: malformed statement",
+      "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/sim_output.vvp: Unable to open input file."
+    ],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "9ae54132e35c",
+      "tb_digest": "df93a114b40c",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: syntax error",
+        "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: error: malformed statement",
+        "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/sim_output.vvp: Unable to open input file."
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:171: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "9ae54132e35c",
+      "tb_digest": "1716056fde4e",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:51: $finish called at 35636 (1ps)",
+        "Hint: Output 'tc' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 7127 samples",
+        "Mismatches: 0 in 7127 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob080_timer/tb.sv:51: $finish called at 35636 (1ps)\nHint: Output 'tc' has no mismatches.\nHint: Total mismatched samples is 0 out of 7127 samples\n\nSimulation finished at 35636 ps\nMismatches: 0 in 7127 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

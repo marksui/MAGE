@@ -1,0 +1,151 @@
+{
+  "checkpoint_count": 5,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "12867b31bea8",
+    "tb_digest": "0ade238156a2",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:96: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:96: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:134: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:134: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/sim_output.vvp: Unable to open input file.\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "12867b31bea8",
+      "tb_digest": "0ade238156a2",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:96: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:96: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:134: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:134: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/sim_output.vvp: Unable to open input file.\n",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "12867b31bea8",
+      "tb_digest": "4d51f8485023",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 199953,
+      "first_mismatch_time": 190,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 199953,
+          "first_mismatch_time": 190
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH DETECTED AT TIME 190",
+        "Expected q_ref=0x80200003 (10000000001000000000000000000011)",
+        "Golden-expected (per golden tb expression) expected_q=0x00200003 (00000000001000000000000000000011)",
+        "TIMEOUT",
+        "Hint: Output 'q' has 199953 mismatches. First mismatch occurred at time 190.",
+        "Hint: Total mismatched samples is 199953 out of 200000 samples",
+        "Mismatches: 199953 in 200000 samples",
+        "SIMULATION FAILED - 199953 MISMATCHES DETECTED, FIRST AT TIME 190"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFIRST MISMATCH DETECTED AT TIME 190\n  Inputs:  clk=0 reset=0\n  Output:  q_dut=0x00200003 (00000000001000000000000000000011)\n  Expected q_ref=0x80200003 (10000000001000000000000000000011)\n  Golden-expected (per golden tb expression) expected_q=0x00200003 (00000000001000000000000000000011)\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:121: $finish called at 1000000 (1ps)\nHint: Output 'q' has 199953 mismatches. First mismatch occurred at time 190.\nHint: Total mismatched samples is 199953 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 199953 in 200000 samples\nSIMULATION FAILED - 199953 MISMATCHES DETECTED, FIRST AT TIME 190\n",
+      "cost": 199953.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "3a24491123a4",
+      "tb_digest": "4d51f8485023",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 199953,
+      "first_mismatch_time": 190,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 199953,
+          "first_mismatch_time": 190
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH DETECTED AT TIME 190",
+        "Expected q_ref=0x80200003 (10000000001000000000000000000011)",
+        "Golden-expected (per golden tb expression) expected_q=0x80400006 (10000000010000000000000000000110)",
+        "TIMEOUT",
+        "Hint: Output 'q' has 199953 mismatches. First mismatch occurred at time 190.",
+        "Hint: Total mismatched samples is 199953 out of 200000 samples",
+        "Mismatches: 199953 in 200000 samples",
+        "SIMULATION FAILED - 199953 MISMATCHES DETECTED, FIRST AT TIME 190"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFIRST MISMATCH DETECTED AT TIME 190\n  Inputs:  clk=0 reset=0\n  Output:  q_dut=0x80400006 (10000000010000000000000000000110)\n  Expected q_ref=0x80200003 (10000000001000000000000000000011)\n  Golden-expected (per golden tb expression) expected_q=0x80400006 (10000000010000000000000000000110)\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:121: $finish called at 1000000 (1ps)\nHint: Output 'q' has 199953 mismatches. First mismatch occurred at time 190.\nHint: Total mismatched samples is 199953 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 199953 in 200000 samples\nSIMULATION FAILED - 199953 MISMATCHES DETECTED, FIRST AT TIME 190\n",
+      "cost": 199953.0
+    },
+    {
+      "iteration": 4,
+      "stage": "rtl_candidate_2",
+      "rtl_digest": "b8b18117ac32",
+      "tb_digest": "4d51f8485023",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 199941,
+      "first_mismatch_time": 200,
+      "output_mismatches": [
+        {
+          "output_name": "q",
+          "mismatch_count": 199941,
+          "first_mismatch_time": 200
+        }
+      ],
+      "mismatch_lines": [
+        "FIRST MISMATCH DETECTED AT TIME 200",
+        "Expected q_ref=0xc0300002 (11000000001100000000000000000010)",
+        "Golden-expected (per golden tb expression) expected_q=0x00000001 (00000000000000000000000000000001)",
+        "TIMEOUT",
+        "Hint: Output 'q' has 199941 mismatches. First mismatch occurred at time 200.",
+        "Hint: Total mismatched samples is 199941 out of 200000 samples",
+        "Mismatches: 199941 in 200000 samples",
+        "SIMULATION FAILED - 199941 MISMATCHES DETECTED, FIRST AT TIME 200"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nFIRST MISMATCH DETECTED AT TIME 200\n  Inputs:  clk=0 reset=0\n  Output:  q_dut=0x00000001 (00000000000000000000000000000001)\n  Expected q_ref=0xc0300002 (11000000001100000000000000000010)\n  Golden-expected (per golden tb expression) expected_q=0x00000001 (00000000000000000000000000000001)\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:121: $finish called at 1000000 (1ps)\nHint: Output 'q' has 199941 mismatches. First mismatch occurred at time 200.\nHint: Total mismatched samples is 199941 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 199941 in 200000 samples\nSIMULATION FAILED - 199941 MISMATCHES DETECTED, FIRST AT TIME 200\n",
+      "cost": 199941.0
+    },
+    {
+      "iteration": 5,
+      "stage": "rtl_candidate_3",
+      "rtl_digest": "1ebe468bb34f",
+      "tb_digest": "4d51f8485023",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "TIMEOUT",
+        "Hint: Output 'q' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 200000 samples",
+        "Mismatches: 0 in 200000 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nTIMEOUT\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob082_lfsr32/tb.sv:121: $finish called at 1000000 (1ps)\nHint: Output 'q' has no mismatches.\nHint: Total mismatched samples is 0 out of 200000 samples\n\nSimulation finished at 1000000 ps\nMismatches: 0 in 200000 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}

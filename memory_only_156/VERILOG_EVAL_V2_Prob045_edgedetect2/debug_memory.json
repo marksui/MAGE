@@ -1,0 +1,85 @@
+{
+  "checkpoint_count": 3,
+  "best_checkpoint": {
+    "iteration": 1,
+    "stage": "tb_or_rtl_debug_round_1",
+    "rtl_digest": "8c3f8c3f8541",
+    "tb_digest": "435cd8567bfb",
+    "is_syntax_pass": true,
+    "is_sim_pass": false,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [],
+    "action": null,
+    "notes": "Simulation review before testbench/RTL decision.",
+    "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:113: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:113: Error in struct/union member.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:117: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:117: Error in struct/union member.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:138: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:138: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:139: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:139: Syntax in assignment statement l-value.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:143: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:143: Syntax in assignment statement l-value.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "8c3f8c3f8541",
+      "tb_digest": "435cd8567bfb",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:113: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:113: Error in struct/union member.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:117: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:117: Error in struct/union member.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:138: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:138: error: malformed statement\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:139: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:139: Syntax in assignment statement l-value.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:143: syntax error\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:143: Syntax in assignment statement l-value.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/",
+      "cost": 0.0
+    },
+    {
+      "iteration": 2,
+      "stage": "tb_or_rtl_debug_round_2",
+      "rtl_digest": "8c3f8c3f8541",
+      "tb_digest": "66c35660bf8d",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 212,
+      "first_mismatch_time": 30,
+      "output_mismatches": [
+        {
+          "output_name": "anyedge",
+          "mismatch_count": 212,
+          "first_mismatch_time": 30
+        }
+      ],
+      "mismatch_lines": [
+        "SIM_MISMATCH: time=30 ps",
+        "Hint: Output 'anyedge' has 212 mismatches. First mismatch occurred at time 30.",
+        "SIMULATION FAILED - 212 MISMATCHES DETECTED, FIRST AT TIME 30",
+        "Hint: Total mismatched samples is 212 out of 228 samples",
+        "Mismatches: 212 in 228 samples"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIM_MISMATCH: time=30 ps\n  in       : HEX=0x1 BINARY=1\n  anyedge_dut : HEX=0x1 BINARY=1\n  anyedge_exp : HEX=0x0 BINARY=0\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:39: $finish called at 1140 (1ps)\nHint: Output 'anyedge' has 212 mismatches. First mismatch occurred at time 30.\nSIMULATION FAILED - 212 MISMATCHES DETECTED, FIRST AT TIME 30\nHint: Total mismatched samples is 212 out of 228 samples\n\nSimulation finished at 1140 ps\nMismatches: 212 in 228 samples\n",
+      "cost": 212.0
+    },
+    {
+      "iteration": 3,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "4e56948ab3f4",
+      "tb_digest": "66c35660bf8d",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'anyedge' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 228 samples",
+        "Mismatches: 0 in 228 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob045_edgedetect2/tb.sv:39: $finish called at 1140 (1ps)\nHint: Output 'anyedge' has no mismatches.\nSIMULATION PASSED\nHint: Total mismatched samples is 0 out of 228 samples\n\nSimulation finished at 1140 ps\nMismatches: 0 in 228 samples\n",
+      "cost": 0.0
+    }
+  ]
+}

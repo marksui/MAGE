@@ -1,0 +1,74 @@
+{
+  "checkpoint_count": 2,
+  "best_checkpoint": {
+    "iteration": 2,
+    "stage": "rtl_candidate_1",
+    "rtl_digest": "06d34c517067",
+    "tb_digest": "28a78b0c3663",
+    "is_syntax_pass": true,
+    "is_sim_pass": true,
+    "mismatch_count": 0,
+    "first_mismatch_time": null,
+    "output_mismatches": [],
+    "mismatch_lines": [
+      "Hint: Output 'z' has no mismatches.",
+      "Hint: Total mismatched samples is 0 out of 1006 samples",
+      "Mismatches: 0 in 1006 samples"
+    ],
+    "action": null,
+    "notes": "Candidate RTL generated for RTL debug.",
+    "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob121_2014_q3bfsm/tb.sv:25: $finish called at 5031 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 1006 samples\n\nSimulation finished at 5031 ps\nMismatches: 0 in 1006 samples\nSIMULATION PASSED\n",
+    "cost": 0.0
+  },
+  "checkpoints": [
+    {
+      "iteration": 1,
+      "stage": "tb_or_rtl_debug_round_1",
+      "rtl_digest": "1289062f3b23",
+      "tb_digest": "28a78b0c3663",
+      "is_syntax_pass": true,
+      "is_sim_pass": false,
+      "mismatch_count": 2,
+      "first_mismatch_time": 80,
+      "output_mismatches": [
+        {
+          "output_name": "z",
+          "mismatch_count": 426,
+          "first_mismatch_time": 80
+        }
+      ],
+      "mismatch_lines": [
+        "SIMULATION FAILED - 2 MISMATCHES DETECTED, FIRST AT TIME 80",
+        "Cycle 9: t=80 ps, reset=0, x=0, z_ref=1, z_dut=0 (MISMATCH)",
+        "Hint: Output 'z' has 426 mismatches. First mismatch occurred at time 80.",
+        "Hint: Total mismatched samples is 426 out of 1006 samples",
+        "Mismatches: 426 in 1006 samples",
+        "SIMULATION FAILED - 426 MISMATCHES DETECTED, FIRST AT TIME 80"
+      ],
+      "action": null,
+      "notes": "Simulation review before testbench/RTL decision.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\nSIMULATION FAILED - 2 MISMATCHES DETECTED, FIRST AT TIME 80\n\nLast 10 cycles of simulation (most recent up to MAX_QUEUE_SIZE):\nCycle 0: t=35 ps, reset=0, x=0, z_ref=0, z_dut=0    (MATCH)\nCycle 1: t=40 ps, reset=0, x=0, z_ref=0, z_dut=0    (MATCH)\nCycle 2: t=45 ps, reset=0, x=1, z_ref=0, z_dut=0    (MATCH)\nCycle 3: t=50 ps, reset=0, x=1, z_ref=0, z_dut=0    (MATCH)\nCycle 4: t=55 ps, reset=0, x=1, z_ref=0, z_dut=0    (MATCH)\nCycle 5: t=60 ps, reset=0, x=1, z_ref=1, z_dut=1    (MATCH)\nCycle 6: t=65 ps, reset=0, x=1, z_ref=1, z_dut=1    (MATCH)\nCycle 7: t=70 ps, reset=0, x=1, z_ref=1, z_dut=1    (MATCH)\nCycle 8: t=75 ps, reset=0, x=0, z_ref=1, z_dut=1    (MATCH)\nCycle 9: t=80 ps, reset=0, x=0, z_ref=1, z_dut=0 (MISMATCH)\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob121_2014_q3bfsm/tb.sv:25: $finish called at 5031 (1ps)\nHint: Output 'z' has 426 mismatches. First mismatch occurred at time 80.\nHint: Total mismatched samples is 426 out of 1006 samples\n\nSimulation finished at 5031 ps\nMismatches: 426 in 1006 samples\nSIMULATION FAILED - 426 MISMATCHES DETECTED, FIRST AT TIME 80\n",
+      "cost": 2.0
+    },
+    {
+      "iteration": 2,
+      "stage": "rtl_candidate_1",
+      "rtl_digest": "06d34c517067",
+      "tb_digest": "28a78b0c3663",
+      "is_syntax_pass": true,
+      "is_sim_pass": true,
+      "mismatch_count": 0,
+      "first_mismatch_time": null,
+      "output_mismatches": [],
+      "mismatch_lines": [
+        "Hint: Output 'z' has no mismatches.",
+        "Hint: Total mismatched samples is 0 out of 1006 samples",
+        "Mismatches: 0 in 1006 samples"
+      ],
+      "action": null,
+      "notes": "Candidate RTL generated for RTL debug.",
+      "sim_log_excerpt": "VCD info: dumpfile wave.vcd opened for output.\n./output_gpt54_nano_memory_only_full156_0/VERILOG_EVAL_V2_Prob121_2014_q3bfsm/tb.sv:25: $finish called at 5031 (1ps)\nHint: Output 'z' has no mismatches.\nHint: Total mismatched samples is 0 out of 1006 samples\n\nSimulation finished at 5031 ps\nMismatches: 0 in 1006 samples\nSIMULATION PASSED\n",
+      "cost": 0.0
+    }
+  ]
+}
